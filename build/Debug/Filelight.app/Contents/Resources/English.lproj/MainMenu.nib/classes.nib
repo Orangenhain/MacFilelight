@@ -1,0 +1,20 @@
+{
+    IBClasses = (
+        {CLASS = FLDirectoryDataSource; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = FLPlistDataSource; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {"m_plist" = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = FLRadialView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {dataSource = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }
+    ); 
+    IBVersion = 1; 
+}
