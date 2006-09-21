@@ -1,6 +1,6 @@
 /* Copyright (C) 1996 Dave Vasilevsky
-* This file is licensed under the GNU General Public License,
-* see the file Copying.txt for details. */
+ * This file is licensed under the GNU General Public License,
+ * see the file Copying.txt for details. */
 
 #import "FLDirectoryDataSource.h"
 
@@ -21,13 +21,13 @@
     return item ? item : m_rootDir;
 }
 
-- (id) view: (NSView *)view child: (int)index ofItem: (id)item
+- (id) target: (id)target child: (int)index ofItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return [[(FLDirectory *)file children] objectAtIndex: index];
 }
 
-- (int) view: (NSView *)view numberOfChildrenOfItem: (id)item
+- (int) target: (id)target numberOfChildrenOfItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return [file respondsToSelector: @selector(children)]
@@ -35,7 +35,7 @@
         : 0;
 }
 
-- (float) view: (NSView *)view weightOfItem: (id)item
+- (float) target: (id)target weightOfItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return (float)[file size];

@@ -2,11 +2,9 @@
  * This file is licensed under the GNU General Public License,
  * see the file Copying.txt for details. */
 
-#import "FLFile.h"
-
-// Data source using files in a directory
-@interface FLDirectoryDataSource : NSObject {
-    FLDirectory *m_rootDir;
+@interface FLView : NSView {
+    IBOutlet id painter;
+    IBOutlet id display;
 }
 
 @end

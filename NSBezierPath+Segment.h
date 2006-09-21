@@ -1,8 +1,8 @@
 /* Copyright (C) 1996 Dave Vasilevsky
-* This file is licensed under the GNU General Public License,
-* see the file Copying.txt for details. */
+ * This file is licensed under the GNU General Public License,
+ * see the file Copying.txt for details. */
 
-@interface NSBezierPath (Polar)
+@interface NSBezierPath (Segment)
 
     // Create a path for a segment of a filled-circle, like a slice of a donut.
 + (NSBezierPath*) circleSegmentWithCenter: (NSPoint)center

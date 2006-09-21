@@ -37,19 +37,19 @@
     return item ? item : m_plist;
 }
 
-- (id) view: (NSView *)view child: (int)index ofItem: (id)item
+- (id) target: (id)target child: (int)index ofItem: (id)item
 {
     item = [self realItemFor: item];
     return [item objectAtIndex: index];
 }
 
-- (int) view: (NSView *)view numberOfChildrenOfItem: (id)item
+- (int) target: (id)target numberOfChildrenOfItem: (id)item
 {
     item = [self realItemFor: item];
     return [item respondsToSelector: @selector(count)] ? [item count] : 0;
 }
 
-- (float) view: (NSView *)view weightOfItem: (id)item
+- (float) target: (id)target weightOfItem: (id)item
 {
     item = [self realItemFor: item];
     if ([item respondsToSelector: @selector(floatValue)]) {
@@ -60,7 +60,7 @@
         id obj;
         
         while (obj = [e nextObject]) {
-            acc += [self view: view weightOfItem: obj];
+            acc += [self target: target weightOfItem: obj];
         }
         return acc;
     }

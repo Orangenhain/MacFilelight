@@ -1,6 +1,6 @@
 /* Copyright (C) 1996 Dave Vasilevsky
-* This file is licensed under the GNU General Public License,
-* see the file Copying.txt for details. */
+ * This file is licensed under the GNU General Public License,
+ * see the file Copying.txt for details. */
 
 #import "FLFile.h"
 
@@ -27,6 +27,8 @@
 {
     if (self = [super init]) {
         m_path = [path retain];
+        m_name = [[[NSFileManager defaultManager]
+            displayNameAtPath: path] retain];
         
         /* Use stat, so we get size in blocks (including resource fork and
          * any other miscellany */
@@ -45,12 +47,23 @@
 - (void) dealloc
 {
     [m_path release];
+    [m_name release];
     [super dealloc];
 }
 
 - (unsigned long long) size
 {
     return m_size;
+}
+
+- (NSString *) path
+{
+    return [[m_path copy] autorelease];
+}
+
+- (NSString *) name
+{
+    return [[m_name copy] autorelease];
 }
 
 @end
