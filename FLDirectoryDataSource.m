@@ -9,11 +9,22 @@
 - (id) init
 {
     if (self = [super init]) {
-        NSString *path = [[NSBundle mainBundle]
-            objectForInfoDictionaryKey: @"FLShowDirectory"];
-        m_rootDir = [[FLDirectory alloc] initWithPath: path];
+        m_rootDir = nil;
     }    
     return self;
+}
+
+- (NSString *) rootPath
+{
+    return [m_rootDir path];
+}
+
+- (void) setRootPath: (NSString *) path
+{
+    if (m_rootDir) {
+        [m_rootDir release];
+    }
+    m_rootDir = [[FLDirectory alloc] initWithPath: path];
 }
 
 - (FLFile *) realItemFor: (id)item

@@ -1,5 +1,12 @@
 {
     IBClasses = (
+        {
+            ACTIONS = {open = id; }; 
+            CLASS = FLController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {dataSource = id; sizer = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
         {CLASS = FLDirectoryDataSource; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
             CLASS = FLPlistDataSource; 

@@ -9,4 +9,7 @@
     FLDirectory *m_rootDir;
 }
 
+- (NSString *) rootPath;
+- (void) setRootPath: (NSString *) path;
+
 @end

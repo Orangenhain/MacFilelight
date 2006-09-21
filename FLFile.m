@@ -11,12 +11,14 @@
 
 + (id) fsObjectAtPath: (NSString *)path
 {
-    BOOL isDir;
-    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath: path
-                                                       isDirectory: &isDir];
-    NSAssert(exists, @"Nothing exists at given path!");
+    // NSFileManager seems to traverse symlinks even when it says it won't,
+    // so use stat.
+    const char *cpath = [path fileSystemRepresentation];
+    struct stat sb;
+    int err = lstat(cpath, &sb);
     
-    if (isDir) {
+    NSAssert(!err, @"Stat failed!");
+    if (S_ISDIR(sb.st_mode)) {
         return [[[FLDirectory alloc] initWithPath: path] autorelease];
     } else {
         return [[[FLFile alloc] initWithPath: path] autorelease];

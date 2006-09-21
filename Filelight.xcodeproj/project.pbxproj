@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5921648A0AC2486E00AF1A37 /* FLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592164890AC2486E00AF1A37 /* FLController.m */; };
 		592647130AC21BF10091F0AF /* FLPolar.m in Sources */ = {isa = PBXBuildFile; fileRef = 592647110AC21BF10091F0AF /* FLPolar.m */; };
 		592647AB0AC225570091F0AF /* FLRadialPainter.m in Sources */ = {isa = PBXBuildFile; fileRef = 592647A90AC225570091F0AF /* FLRadialPainter.m */; };
 		592647B20AC225780091F0AF /* FLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592647B10AC225780091F0AF /* FLView.m */; };
@@ -31,6 +32,8 @@
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		592164880AC2486E00AF1A37 /* FLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLController.h; sourceTree = "<group>"; };
+		592164890AC2486E00AF1A37 /* FLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLController.m; sourceTree = "<group>"; };
 		592647110AC21BF10091F0AF /* FLPolar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPolar.m; sourceTree = "<group>"; };
 		592647120AC21BF10091F0AF /* FLPolar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPolar.h; sourceTree = "<group>"; };
 		592647A90AC225570091F0AF /* FLRadialPainter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRadialPainter.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 				592647A90AC225570091F0AF /* FLRadialPainter.m */,
 				592647B00AC225780091F0AF /* FLView.h */,
 				592647B10AC225780091F0AF /* FLView.m */,
+				592164880AC2486E00AF1A37 /* FLController.h */,
+				592164890AC2486E00AF1A37 /* FLController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				592647130AC21BF10091F0AF /* FLPolar.m in Sources */,
 				592647AB0AC225570091F0AF /* FLRadialPainter.m in Sources */,
 				592647B20AC225780091F0AF /* FLView.m in Sources */,
+				5921648A0AC2486E00AF1A37 /* FLController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
