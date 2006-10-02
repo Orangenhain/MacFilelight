@@ -14,17 +14,17 @@
     return self;
 }
 
-- (NSString *) rootPath
+- (FLDirectory *) rootDir
 {
-    return [m_rootDir path];
+    return m_rootDir;
 }
 
-- (void) setRootPath: (NSString *) path
+- (void) setRootDir: (FLDirectory *) root
 {
     if (m_rootDir) {
         [m_rootDir release];
     }
-    m_rootDir = [[FLDirectory alloc] initWithPath: path];
+    m_rootDir = [root retain];
 }
 
 - (FLFile *) realItemFor: (id)item

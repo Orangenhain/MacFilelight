@@ -9,63 +9,29 @@
 
 @implementation FLFile
 
-+ (id) fsObjectAtPath: (NSString *)path
-{
-    // NSFileManager seems to traverse symlinks even when it says it won't,
-    // so use stat.
-    const char *cpath = [path fileSystemRepresentation];
-    struct stat sb;
-    int err = lstat(cpath, &sb);
-    
-    NSAssert(!err, @"Stat failed!");
-    if (S_ISDIR(sb.st_mode)) {
-        return [[[FLDirectory alloc] initWithPath: path] autorelease];
-    } else {
-        return [[[FLFile alloc] initWithPath: path] autorelease];
-    }
-}
-
-- (id) initWithPath: (NSString *)path
+- (id) initWithPath: (NSString *) path size: (FLFile_size) size
 {
     if (self = [super init]) {
         m_path = [path retain];
-        m_name = [[[NSFileManager defaultManager]
-            displayNameAtPath: path] retain];
-        
-        /* Use stat, so we get size in blocks (including resource fork and
-         * any other miscellany */
-        const char *cpath = [path fileSystemRepresentation];
-        struct stat sb;
-        int err = lstat(cpath, &sb);
-        
-        NSAssert(!err, @"Stat failed!");
-        m_size = sb.st_blocks * BLOCK_SIZE;
-//        NSLog(@"File %@ has size %llu", path, m_size);
+        m_size = size;
     }
-    
     return self;
+}
+
+- (NSString *) path
+{
+    return m_path;
+}
+
+- (FLFile_size) size
+{
+    return m_size;
 }
 
 - (void) dealloc
 {
     [m_path release];
-    [m_name release];
     [super dealloc];
-}
-
-- (unsigned long long) size
-{
-    return m_size;
-}
-
-- (NSString *) path
-{
-    return [[m_path copy] autorelease];
-}
-
-- (NSString *) name
-{
-    return [[m_name copy] autorelease];
 }
 
 @end
@@ -73,39 +39,31 @@
 
 @implementation FLDirectory
 
-- (id) initWithPath: (NSString *)path
+- (id) initWithPath: (NSString *) path
 {
-    if (self = [super initWithPath: path]) {
-        NSArray *childNames = [[NSFileManager defaultManager]
-            directoryContentsAtPath: path];
-        NSAssert(childNames, @"Directory could not be read");
-        
+    if (self = [super initWithPath: path size: 0]) {
         m_children = [[NSMutableArray alloc] init];
-        id obj;
-        NSEnumerator *e = [childNames objectEnumerator];
-        while (obj = [e nextObject]) {
-            NSString *subPath = [path stringByAppendingPathComponent: obj];
-            FLFile *subObj = [FLFile fsObjectAtPath: subPath];
-            [m_children addObject: subObj];
-            
-            m_size += [subObj size];
-        }
-        
-//        NSLog(@"Dir  %@ has size %llu", path, m_size);
     }
-    
     return self;
 }
 
-- (void) dealloc
+- (void) addChild: (FLFile *) child
 {
-    [m_children release];
-    [super dealloc];
+    [m_children addObject: child];
+    m_size += [child size];
 }
 
 - (NSArray *) children
 {
     return m_children;
+}
+
+- (void) dealloc
+{
+    if (m_children) {
+        [m_children release];
+    }
+    [super dealloc];
 }
 
 @end

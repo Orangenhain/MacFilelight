@@ -1,10 +1,10 @@
 {
     IBClasses = (
         {
-            ACTIONS = {open = id; }; 
+            ACTIONS = {cancelScan = id; open = id; }; 
             CLASS = FLController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {sizer = id; }; 
+            OUTLETS = {progress = id; scanDisplay = id; sizer = id; tabView = id; window = id; }; 
             SUPERCLASS = NSObject; 
         }, 
         {CLASS = FLDirectoryDataSource; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 

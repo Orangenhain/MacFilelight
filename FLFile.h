@@ -2,25 +2,23 @@
  * This file is licensed under the GNU General Public License,
  * see the file Copying.txt for details. */
 
+typedef unsigned long long FLFile_size;
+
 @interface FLFile : NSObject {
     NSString *m_path;
-    NSString *m_name;
-    unsigned long long m_size;
+    FLFile_size m_size;
 }
 
-// Get a file of a directory, whichever is appropriate
-+ (id) fsObjectAtPath: (NSString *)path;
-
-- (id) initWithPath: (NSString *)path;
-
-- (unsigned long long) size;
-- (NSString *)name;
-- (NSString *)path;
+- (id) initWithPath: (NSString *) path size: (FLFile_size) size;
+- (NSString *) path;
+- (FLFile_size) size;
 @end
 
 @interface FLDirectory : FLFile {
     NSMutableArray *m_children;
 }
 
+- (id) initWithPath: (NSString *) path;
+- (void) addChild: (FLFile *) child;
 - (NSArray *) children;
 @end

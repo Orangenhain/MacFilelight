@@ -10,9 +10,48 @@
 
 - (BOOL) application: (NSApplication *)app openFile: (NSString *)filename
 {
-    [[sizer dataSource] setRootPath: filename];
-    [[sizer window] makeKeyAndOrderFront: self];
+    [tabView selectTabViewItemWithIdentifier: @"Progress"];
+    [progress setDoubleValue: [progress minValue]];
+    [scanDisplay setStringValue: @""];
+    [window makeKeyAndOrderFront: self];
+    
+    FLScanner *scanner = [[FLScanner alloc] initWithPath: filename
+                                                progress: progress
+                                                 display: scanDisplay];
+//    [scanner autorelease];
+    
+    if (m_worker) {
+        [m_worker release];
+    }
+    
+    m_worker = [[ThreadWorker workOn: self
+                        withSelector: @selector(startScan:worker:)
+                          withObject: scanner
+                      didEndSelector: @selector(finishScan:)] retain];
     return YES;
+}
+
+- (id) startScan: (id) data worker: (ThreadWorker *) tw
+{
+    FLScanner *scanner = (FLScanner *)data;
+    [scanner scanWithWorker: tw];
+    return scanner;
+}
+
+- (void) finishScan: (id) data
+{
+    FLScanner *scanner = (FLScanner *)data;
+    if ([scanner scanError]) {
+        NSRunAlertPanel(@"Directory scan could not complete",
+                        [scanner scanError], nil, nil, nil);
+        [window orderOut: self];
+    } else {
+        NSLog(@"%@", [self class]);
+        NSLog(@"%@", [[scanner test] class]);
+        NSLog(@"%@", [[[scanner test] copy] class]);
+        [[sizer dataSource] setRootDir: [scanner scanResult]];
+        [tabView selectTabViewItemWithIdentifier: @"Filelight"];       
+    }
 }
 
 - (IBAction) open: (id) sender
@@ -29,8 +68,15 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification*) notification
 {
-    if (![[sizer window] isVisible]) {
+    if (![window isVisible]) {
         [self open: self];
+    }
+}
+
+- (IBAction) cancelScan: (id) sender
+{
+    if (m_worker) {
+        [m_worker markAsCancelled];
     }
 }
 
