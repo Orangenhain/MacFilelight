@@ -4,8 +4,6 @@
 
 #import "FLFile.h"
 
-#import "ThreadWorker.h"
-
 @interface FLScanner : NSObject {
     NSString *m_path;
     NSProgressIndicator *m_pi;
@@ -16,16 +14,24 @@
     
     double m_increment;
     double m_progress;
-    unsigned m_seen;
+    unsigned long long m_nodes;
+    unsigned long long m_seen;
     
-    id m_test;
+    SEL m_post_sel;
+    id m_post_obj;
+    
+    NSLock *m_lock;
+    BOOL m_cancelled;
 }
 
 - (id) initWithPath: (NSString *) path
            progress: (NSProgressIndicator *) progress
             display: (NSTextField *) display;
 
-- (BOOL) scanWithWorker: (ThreadWorker *) tw;
+- (void) scanThenPerform: (SEL) selector on: (id) obj;
+
+- (void) cancel;
+- (BOOL) isCancelled;
 
 - (FLDirectory *) scanResult;
 - (NSString *) scanError;

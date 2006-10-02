@@ -8,6 +8,8 @@
 // As defined in stat(2)
 #define BLOCK_SIZE 512
 
+#define UPDATE_EVERY 100
+
 
 // Utility function to make NSFileManager less painful
 static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
@@ -27,6 +29,8 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
         m_display = [display retain];
         m_error = nil;
         m_tree = nil;
+        m_lock = [[NSLock alloc] init];
+        m_cancelled = NO;
     }
     return self;
 }
@@ -36,6 +40,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     [m_path release];
     [m_pi release];
     [m_display release];
+    [m_lock release];
     if (m_tree) [m_tree release];
     if (m_error) [m_error release];
     [super dealloc];
@@ -51,18 +56,47 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     return m_error;
 }
 
+- (BOOL) isCancelled
+{
+    BOOL b;
+    [m_lock lock];
+    b = m_cancelled;
+    [m_lock unlock];
+    return b;
+}
 
-#define UPDATE_EVERY 100
+- (void) cancel
+{
+    [m_lock lock];
+    m_cancelled = YES;
+    [m_lock unlock];
+}
 
-- (void) updateProgressWithDir: (FLDirectory *) dir
+- (void) updateProgressWithPath: (NSString *) path
 {
     ++m_seen;
     m_progress += m_increment;
     
     if (m_seen % UPDATE_EVERY == 0) {
-        [m_pi setDoubleValue: m_progress];
-        [m_display setStringValue: [dir path]];
+        double real_prog = m_nodes
+            ? 100.0 * m_seen / m_nodes
+            : m_progress;
+        NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+            [NSNumber numberWithDouble: real_prog], @"progress",
+            path, @"path",
+            nil];
+        
+        SEL sel = @selector(updateProgressOnMainThread:);
+        [self performSelectorOnMainThread: sel
+                               withObject: data waitUntilDone: NO];
     }
+}
+
+- (void) updateProgressOnMainThread: (NSDictionary *) data
+{
+    [m_pi setDoubleValue: [[data objectForKey: @"progress"] doubleValue]];
+    [m_display setStringValue: [data objectForKey: @"path"]];
+    [data release];
 }
 
 - (BOOL) error: (int) err inFunc: (NSString *) func
@@ -72,11 +106,29 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     return NO;
 }
 
-- (id) test {
-     return m_test;
+- (void) scanThenPerform: (SEL) sel on: (id) obj
+{
+    m_post_sel = sel;
+    m_post_obj = obj;
+    
+    [NSThread detachNewThreadSelector: @selector(scanOnWorkerThread:)
+                             toTarget: self
+                           withObject: nil];
 }
 
-- (BOOL) scanWithWorker: (ThreadWorker *) tw
+// We can give more accurate progress if we're working on a complete disk
+- (void) checkIfMount: (const char *) cpath
+{
+    struct statfs st;
+    int err = statfs(cpath, &st);
+    if (!err && strcmp(cpath, st.f_mntonname) == 0) {
+        m_nodes = st.f_files;
+    } else {
+        m_nodes = 0;
+    }
+}
+
+- (BOOL) realScan
 {
     char *fts_paths[2];
     FTS *fts;
@@ -84,16 +136,18 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     NSMutableArray *dirstack;
     NSFileManager *fm;
     FLDirectory *dir;
+    char *cpath;
     
-    m_test = [[[NSArray alloc] init] objectEnumerator];
-    
-    m_progress = [m_pi minValue];
-    m_increment = [m_pi maxValue] - m_progress;
+    m_progress = 0.0;
+    m_increment = 100.0;
     m_seen = 0;
     
+    errno = 0; // Why is this non-zero here?
+    
     // Silly constness issues
-    errno = 0; // Why is this needed?
-    fts_paths[0] = strdup([m_path fileSystemRepresentation]);
+    cpath = strdup([m_path fileSystemRepresentation]);
+    [self checkIfMount: cpath];
+    fts_paths[0] = cpath;
     fts_paths[1] = NULL;
     fts = fts_open(fts_paths, FTS_PHYSICAL | FTS_XDEV, NULL);
     free(fts_paths[0]);
@@ -104,7 +158,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     dir = NULL;
     
     while (( ent = fts_read(fts) )) {
-        if (m_seen % UPDATE_EVERY == 0 && [tw cancelled]) {
+        if (m_seen % UPDATE_EVERY == 0 && [self isCancelled]) {
             m_error = @"Scan cancelled";
             return NO;
         }
@@ -114,12 +168,11 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                 dir = [[FLDirectory alloc] initWithPath: stringPath(fm, ent)];
                 [dir autorelease];
                 [dirstack addObject: dir];
-                if (m_tree) {
-                    [self updateProgressWithDir: dir];
-                } else {
-                    m_tree = dir;
+                m_increment /= (ent->fts_statp->st_nlink - 1); // pre, children
+                if (!m_tree) {
+                    m_tree = [dir retain];
                 }
-                m_increment /= (ent->fts_statp->st_nlink - 2);
+                [self updateProgressWithPath: [dir path]];
                 
                 break;
             }
@@ -133,16 +186,17 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                             size: ent->fts_statp->st_blocks * BLOCK_SIZE];
                 [file autorelease];
                 [dir addChild: file];
-                [self updateProgressWithDir: dir];
+                [self updateProgressWithPath: [file path]];
                 break;
             }
                 
             case FTS_DNR:
-                NSLog(@"Can't scan in '%s': %s\n", ent->fts_path, strerror(ent->fts_errno));
+                NSLog(@"Can't scan in '%s': %s\n", ent->fts_path,
+                      strerror(ent->fts_errno));
                 // Fall through!
                 
             case FTS_DP: {
-                m_increment *= (ent->fts_statp->st_nlink - 2);
+                m_increment *= (ent->fts_statp->st_nlink - 1);
                 FLDirectory *subdir = dir;
                 [dirstack removeLastObject];
                 dir = [dirstack lastObject];
@@ -153,7 +207,8 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             }
                 
             default:
-                NSLog(@"Error scanning '%s': %s\n", ent->fts_path, strerror(ent->fts_errno));
+                NSLog(@"Error scanning '%s': %s\n", ent->fts_path,
+                      strerror(ent->fts_errno));
                 break;
         }
     }
@@ -162,5 +217,16 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     if (fts_close(fts) == -1) return [self error: errno inFunc: @"fts_close"];    
     return YES;
 }
+
+- (void) scanOnWorkerThread: (id) data
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    [self realScan];
+    [pool release];
+    [m_post_obj performSelectorOnMainThread: m_post_sel
+                                 withObject: nil
+                              waitUntilDone: NO];
+}
+
 
 @end

@@ -8,50 +8,45 @@
 
 @implementation FLController
 
+- (void) awakeFromNib
+{
+    m_scanner = nil;
+}
+
 - (BOOL) application: (NSApplication *)app openFile: (NSString *)filename
 {
+    if (m_scanner) {
+        return NO;
+    }
+    
     [tabView selectTabViewItemWithIdentifier: @"Progress"];
     [progress setDoubleValue: [progress minValue]];
     [scanDisplay setStringValue: @""];
     [window makeKeyAndOrderFront: self];
     
-    FLScanner *scanner = [[FLScanner alloc] initWithPath: filename
-                                                progress: progress
-                                                 display: scanDisplay];
-//    [scanner autorelease];
-    
-    if (m_worker) {
-        [m_worker release];
-    }
-    
-    m_worker = [[ThreadWorker workOn: self
-                        withSelector: @selector(startScan:worker:)
-                          withObject: scanner
-                      didEndSelector: @selector(finishScan:)] retain];
+    m_scanner = [[FLScanner alloc] initWithPath: filename
+                                       progress: progress
+                                        display: scanDisplay];
+    [m_scanner scanThenPerform: @selector(finishScan:)
+                            on: self];
     return YES;
-}
-
-- (id) startScan: (id) data worker: (ThreadWorker *) tw
-{
-    FLScanner *scanner = (FLScanner *)data;
-    [scanner scanWithWorker: tw];
-    return scanner;
 }
 
 - (void) finishScan: (id) data
 {
-    FLScanner *scanner = (FLScanner *)data;
-    if ([scanner scanError]) {
-        NSRunAlertPanel(@"Directory scan could not complete",
-                        [scanner scanError], nil, nil, nil);
+    if ([m_scanner scanError]) {
+        if (![m_scanner isCancelled]) {
+            NSRunAlertPanel(@"Directory scan could not complete",
+                            [m_scanner scanError], nil, nil, nil);
+        }
         [window orderOut: self];
     } else {
-        NSLog(@"%@", [self class]);
-        NSLog(@"%@", [[scanner test] class]);
-        NSLog(@"%@", [[[scanner test] copy] class]);
-        [[sizer dataSource] setRootDir: [scanner scanResult]];
+        [[sizer dataSource] setRootDir: [m_scanner scanResult]];
         [tabView selectTabViewItemWithIdentifier: @"Filelight"];       
     }
+    
+    [m_scanner release];
+    m_scanner = nil;
 }
 
 - (IBAction) open: (id) sender
@@ -75,8 +70,8 @@
 
 - (IBAction) cancelScan: (id) sender
 {
-    if (m_worker) {
-        [m_worker markAsCancelled];
+    if (m_scanner) {
+        [m_scanner cancel];
     }
 }
 
