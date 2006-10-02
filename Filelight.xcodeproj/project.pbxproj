@@ -15,6 +15,7 @@
 		59623EB00ABE674E00BBAEEE /* NSBezierPath+Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = 59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */; };
 		59727F950AD0EE9C0002CDF8 /* FLRadialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */; };
 		597282290AD176FA0002CDF8 /* FLScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 597282270AD176FA0002CDF8 /* FLScanner.m */; };
+		5972874A0AD1D4320002CDF8 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597287350AD1D4310002CDF8 /* Carbon.framework */; };
 		59A163290ABF8B27005C1217 /* FLDirectoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */; };
 		59A163380ABF8BEB005C1217 /* FLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A163370ABF8BEB005C1217 /* FLFile.m */; };
 		59A164EC0AC1E26B005C1217 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 59A164EB0AC1E26B005C1217 /* Credits.rtf */; };
@@ -49,6 +50,7 @@
 		59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRadialItem.m; sourceTree = "<group>"; };
 		597282270AD176FA0002CDF8 /* FLScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLScanner.m; sourceTree = "<group>"; };
 		597282280AD176FA0002CDF8 /* FLScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanner.h; sourceTree = "<group>"; };
+		597287350AD1D4310002CDF8 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		59A163270ABF8B27005C1217 /* FLDirectoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLDirectoryDataSource.h; sourceTree = "<group>"; };
 		59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLDirectoryDataSource.m; sourceTree = "<group>"; };
 		59A163360ABF8BEB005C1217 /* FLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFile.h; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		59A164EB0AC1E26B005C1217 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		59A164FE0AC1E304005C1217 /* Copying.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Copying.txt; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Filelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Filelight.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Filelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				5972874A0AD1D4320002CDF8 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +102,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				597287350AD1D4310002CDF8 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -260,10 +264,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Filelight;
@@ -279,6 +288,11 @@
 					ppc,
 					i386,
 				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;

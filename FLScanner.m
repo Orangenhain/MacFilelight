@@ -8,7 +8,7 @@
 // As defined in stat(2)
 #define BLOCK_SIZE 512
 
-#define UPDATE_EVERY 100
+#define UPDATE_EVERY 1000
 
 
 // Utility function to make NSFileManager less painful
@@ -78,8 +78,8 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     m_progress += m_increment;
     
     if (m_seen % UPDATE_EVERY == 0) {
-        double real_prog = m_nodes
-            ? 100.0 * m_seen / m_nodes
+        double real_prog = m_files
+            ? 100.0 * m_seen / m_files
             : m_progress;
         NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
             [NSNumber numberWithDouble: real_prog], @"progress",
@@ -101,7 +101,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 
 - (BOOL) error: (int) err inFunc: (NSString *) func
 {
-    m_error = [[NSString alloc] stringWithFormat: @"%@: %s", func,
+    m_error = [[NSString alloc] initWithFormat: @"%@: %s", func,
         strerror(errno)];
     return NO;
 }
@@ -116,15 +116,49 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                            withObject: nil];
 }
 
+- (OSStatus) numberOfFiles: (uint32_t *)outnum
+                  onVolume: (const char *) cpath
+{
+    OSStatus err;
+    FSRef ref;
+    FSCatalogInfo catInfo;
+    FSVolumeInfo volInfo;
+    
+    err = FSPathMakeRef((const UInt8 *)cpath, &ref, NULL);
+    if (err) return err;
+    
+    err = FSGetCatalogInfo(&ref, kFSCatInfoVolume , &catInfo, NULL, NULL, NULL);
+    if (err) return err;
+    
+    err = FSGetVolumeInfo(catInfo.volume, 0, NULL, kFSVolInfoFileCount,
+                          &volInfo, NULL, NULL);
+    if (err) return err;
+    *outnum = volInfo.fileCount;
+    
+    err = FSGetVolumeInfo(catInfo.volume, 0, NULL, kFSVolInfoDirCount,
+                          &volInfo, NULL, NULL);
+    if (!err) {
+        *outnum += volInfo.folderCount;
+    }
+    
+    return noErr;
+}
+
 // We can give more accurate progress if we're working on a complete disk
 - (void) checkIfMount: (const char *) cpath
 {
     struct statfs st;
-    int err = statfs(cpath, &st);
+    OSStatus err;
+    
+    m_files = 0;
+    err = statfs(cpath, &st);
     if (!err && strcmp(cpath, st.f_mntonname) == 0) {
-        m_nodes = st.f_files;
-    } else {
-        m_nodes = 0;
+        err = [self numberOfFiles: &m_files onVolume: cpath];
+        if (err) {
+            m_files = 0;
+            NSLog(@"Can't get number of files on volume '%s': error code %d",
+                  cpath, err);
+        }
     }
 }
 

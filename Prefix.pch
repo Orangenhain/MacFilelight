@@ -10,6 +10,8 @@
 #include <string.h>
 #include <fts.h>
 
+#include <Carbon/Carbon.h>
+
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif

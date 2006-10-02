@@ -14,8 +14,8 @@
     
     double m_increment;
     double m_progress;
-    unsigned long long m_nodes;
-    unsigned long long m_seen;
+    uint32_t m_files;
+    uint32_t m_seen;
     
     SEL m_post_sel;
     id m_post_obj;

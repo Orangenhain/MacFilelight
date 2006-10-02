@@ -34,6 +34,21 @@
     [super dealloc];
 }
 
+- (NSString *) humanReadableSizeOfType: (FLFileSizeType) type
+                               sigFigs: (size_t) figs
+{
+    NSArray *prefixes = [NSArray arrayWithObjects: @"", @"kilo", @"mega",
+        @"giga", @"peta", @"exa", @"zetta", @"yotta", nil];
+    
+}
+
+- (NSString *) displaySize
+{
+    return [self humanReadableSizeOfType:
+                                        SIZE_TYPE_OLD_BINARY | SIZE_TYPE_SHORT
+                                 sigFigs: 3];
+}
+
 @end
 
 
