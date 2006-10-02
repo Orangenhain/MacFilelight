@@ -32,13 +32,13 @@
     return item ? item : m_rootDir;
 }
 
-- (id) target: (id)target child: (int)index ofItem: (id)item
+- (id) child: (int)index ofItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return [[(FLDirectory *)file children] objectAtIndex: index];
 }
 
-- (int) target: (id)target numberOfChildrenOfItem: (id)item
+- (int) numberOfChildrenOfItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return [file respondsToSelector: @selector(children)]
@@ -46,7 +46,7 @@
         : 0;
 }
 
-- (float) target: (id)target weightOfItem: (id)item
+- (float) weightOfItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return (float)[file size];

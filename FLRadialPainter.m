@@ -6,6 +6,7 @@
 
 #import "FLPolar.h"
 #import "NSBezierPath+Segment.h"
+#import "FLRadialItem.h"
 
 @implementation NSView (FLRadialPainter)
 
@@ -26,141 +27,22 @@
 @end
 
 
-@interface FLRadialItem : NSObject {
-    id painter;
-    id item;
-    float weight;
-    float startAngle;
-    float endAngle;
-    int level;
-}
-
-- (id) initWithItem: (id)i
-            painter: (id)p
-             weight: (float)w
-         startAngle: (float)a1
-           endAngle: (float)a2
-              level: (int)l;
-
-- (id) painter;
-- (id) item;
-- (float) weight;
-- (float) startAngle;
-- (float) endAngle;
-- (float) midAngle;
-- (int) level;
-
-- (NSArray *) children;
-- (NSEnumerator *)childEnumerator;
-
-+ (FLRadialItem *) rootItemWithPainter: (id)p;
-
-@end
-
-@implementation FLRadialItem
-
-- (id) initWithItem: (id)i
-            painter: (id)p
-             weight: (float)w
-         startAngle: (float)a1
-           endAngle: (float)a2
-              level: (int)l;
-{
-    if (self = [super init]) {
-        item = i;
-        painter = p;
-        weight = w;
-        startAngle = a1;
-        endAngle = a2;
-        level = l;
-    }
-    return self;
-}
-
-- (id) painter { return painter; }
-- (id) item { return item; }
-- (float) weight { return weight; }
-- (float) startAngle { return startAngle; }
-- (float) endAngle { return endAngle; }
-- (int) level { return level; }
-
-- (float) midAngle {
-     return ([self startAngle] + [self endAngle]) / 2.0;
-}
-
-- (NSArray *) children;
-{
-    if (weight == 0) {
-        return [NSArray array];
-    }
-    
-    float curAngle = startAngle;
-    float anglePerWeight = (endAngle - curAngle) / weight;
-    id dataSource = [painter dataSource];
-    
-    int m = [dataSource target: painter numberOfChildrenOfItem: item];
-    NSMutableArray *children = [NSMutableArray arrayWithCapacity: m];
-    int i;
-    for (i = 0; i < m; ++i) {
-        id sub = [dataSource target: painter child: i ofItem: item];
-        float subw = [dataSource target: painter weightOfItem: sub];
-        float subAngle = anglePerWeight * subw;
-        float nextAngle = curAngle + subAngle;
-        
-        id child = [[FLRadialItem alloc]
-            initWithItem: sub
-                 painter: painter
-                  weight: subw
-              startAngle: curAngle
-                endAngle: nextAngle
-                   level: level + 1];
-        [children addObject: child];
-        [child release];
-        
-        curAngle = nextAngle;
-    }
-    return children;
-}
-
-- (NSEnumerator *)childEnumerator
-{
-    return [[self children] objectEnumerator];
-}
-
-+ (FLRadialItem *) rootItemWithPainter: (id)p
-{
-    return [[[FLRadialItem alloc]
-        initWithItem: nil
-             painter: p
-              weight: [[p dataSource] target: p weightOfItem: nil]
-          startAngle: 0
-            endAngle: 360
-               level: -1] autorelease];
-}
-
-
-@end
-
-
-
 @implementation FLRadialPainter
 
-- (id) init
+- (id) initWithView: (NSView <FLHasDataSource> *)view;
 {
     if (self = [super init]) {
         // Default values
         m_maxLevels = 5;
         m_minRadiusFraction = 0.1;
-        m_maxRadiusFraction = 0.9;        
+        m_maxRadiusFraction = 0.9;
+        m_minPaintAngle = 1.0;
+        
+        m_view = view; // No retain, view should own us
     }
     return self;
 }
 
-- (void) dealloc
-{
-    [dataSource release];
-    [super dealloc];
-}
 
 #pragma mark Accessors
 
@@ -203,26 +85,47 @@
     m_maxRadiusFraction = fraction;
 }
 
-- (id) dataSource
+- (float) minPaintAngle
 {
-    return [[dataSource retain] autorelease];
+    return m_minPaintAngle;
 }
 
-- (void) setDataSource: (id)source
+- (void) setMinPaintAngle: (float)angle
 {
-    if (dataSource != source) {
-        [dataSource release];
-        dataSource = [source retain];
-    }
+    m_minPaintAngle = angle;
 }
 
-#pragma mark Painting
+- (NSView <FLHasDataSource> *) view
+{
+    return m_view;
+}
+
+- (void) setView: (NSView <FLHasDataSource> *)view
+{
+    m_view = view; // No retain, view should own us
+}
+
+#pragma mark Misc
+
+- (FLRadialItem *) root
+{
+    return [FLRadialItem rootItemWithDataSource: [[self view] dataSource]];
+}
+
+- (BOOL) wantItem: (FLRadialItem *) ritem
+{
+    return [ritem level] < [self maxLevels]
+        && [ritem angleSpan] >= [self minPaintAngle];
+}
 
 - (float) radiusFractionPerLevel
 {
     float availFraction = [self maxRadiusFraction] - [self minRadiusFraction];
     return availFraction / [self maxLevels];
 }
+
+#pragma mark Painting
+
 
 - (float) innerRadiusFractionForLevel: (int)level
 {
@@ -257,11 +160,11 @@
     NSColor *fill = [self colorForItem: ritem];
     
     NSBezierPath *bp = [NSBezierPath
-        circleSegmentWithCenter: tmp_center
+        circleSegmentWithCenter: [[self view] center]
                      startAngle: [ritem startAngle]
                        endAngle: [ritem endAngle]
-                    smallRadius: inner * tmp_radius
-                      bigRadius: outer * tmp_radius];
+                    smallRadius: inner * [[self view] maxRadius]
+                      bigRadius: outer * [[self view] maxRadius]];
     
     [fill set];
     [bp fill];
@@ -273,7 +176,7 @@
 
 - (void) drawTreeForItem: (FLRadialItem *)ritem
 {
-    if ([ritem level] >= [self maxLevels]) {
+    if (![self wantItem: ritem]) {
         return;
     }
     
@@ -289,17 +192,10 @@
     }
 }
 
-- (void)drawInView: (NSView *)view
-              rect: (NSRect)rect
-            center: (NSPoint)center
-            radius: (float)radius;
+- (void)drawRect: (NSRect)rect
 {
-    tmp_view = view; // no retain!
-    tmp_center = center;
-    tmp_radius = radius;
-    
-    id ritem = [FLRadialItem rootItemWithPainter: self];
-    [self drawTreeForItem: ritem];
+    // TODO: Choose root item(s) from rect
+    [self drawTreeForItem: [self root]];
 }
 
 #pragma mark Hit testing
@@ -308,18 +204,22 @@
              depth: (int)depth
              angle: (float)th
 {
-    NSAssert(depth >= 1, @"Depth must be at least one");
+    NSAssert(depth >= 0, @"Depth must be at least zero");
     NSAssert(th >= [ritem startAngle], @"Not searching the correct tree");
+    
+    if (![self wantItem: ritem]) {
+        return nil;
+    }
+    
+    if (depth == 0) {
+        return [ritem item];
+    }
     
     NSEnumerator *e = [ritem childEnumerator];
     FLRadialItem *child;
     while (child = [e nextObject]) {
         if ([child endAngle] >= th) {
-            if (depth == 1) {
-                return [child item];
-            } else {
-                return [self findChildOf: child depth: depth - 1 angle: th];
-            }
+            return [self findChildOf: child depth: depth - 1 angle: th];
         }
     }
     
@@ -327,22 +227,18 @@
 }
 
 - (id) itemAt: (NSPoint)point
-       center: (NSPoint)center
-       radius: (float)radius
 {
     float r, th;
-    [FLPolar coordsForPoint: point center: center intoRadius: &r angle: &th];
-    // NSLog(@"Click: r = %f   th = %f", r, th);
+    [FLPolar coordsForPoint: point center: [[self view] center] intoRadius: &r angle: &th];
     
-    float rfrac = r / radius;
+    float rfrac = r / [[self view] maxRadius];
     if (rfrac < [self minRadiusFraction] || rfrac >= [self maxRadiusFraction]) {
         return nil;
     }
     
     float usedFracs = rfrac - [self minRadiusFraction];
     int depth = floorf(usedFracs / [self radiusFractionPerLevel]) + 1;
-    FLRadialItem *root = [FLRadialItem rootItemWithPainter: self];
-    return [self findChildOf: root depth: depth angle: th];
+    return [self findChildOf: [self root] depth: depth angle: th];
 }
 
 

@@ -3,7 +3,6 @@
  * see the file Copying.txt for details. */
 
 @interface FLController : NSObject {
-    IBOutlet id dataSource;
     IBOutlet id sizer;
 }
 

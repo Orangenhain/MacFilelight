@@ -10,8 +10,8 @@
 
 - (BOOL) application: (NSApplication *)app openFile: (NSString *)filename
 {
-    [dataSource setRootPath: filename];
-    [sizer makeKeyAndOrderFront: self];
+    [[sizer dataSource] setRootPath: filename];
+    [[sizer window] makeKeyAndOrderFront: self];
     return YES;
 }
 
@@ -29,7 +29,7 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification*) notification
 {
-    if (![sizer isVisible]) {
+    if (![[sizer window] isVisible]) {
         [self open: self];
     }
 }

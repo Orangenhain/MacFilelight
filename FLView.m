@@ -77,10 +77,8 @@
 - (void) mouseMoved: (NSEvent *) event
 {
     NSPoint where = [self convertPoint: [event locationInWindow] fromView: nil];
-    id item = [painter itemAt: where
-                       center: [self center]
-                       radius: [self maxRadius]];
-    if (item != nil) {
+    id item = [painter itemAt: where];
+    if (item) {
         [display setStringValue: [item path]];
     } else {
         [display setStringValue: @""];
@@ -92,18 +90,21 @@
 
 - (void) drawRect: (NSRect)rect
 {
-    [painter drawInView: self
-                   rect: rect
-                 center: [self center]
-                 radius: [self maxRadius]];
+    [painter drawRect: rect];
+}
+
+- (id) dataSource
+{
+    return dataSource;
 }
 
 - (void) awakeFromNib
 {
-    [painter addObserver: self
-              forKeyPath: @"dataSource.rootPath"
-                 options: NSKeyValueObservingOptionNew
-                 context: NULL];
+    painter = [[FLRadialPainter alloc] initWithView: self];
+    [dataSource addObserver: self
+                 forKeyPath: @"rootPath"
+                    options: NSKeyValueObservingOptionNew
+                    context: NULL];
 }
 
 - (void) observeValueForKeyPath: (NSString *) keyPath
@@ -111,7 +112,7 @@
                          change: (NSDictionary *) change
                         context: (void *) context
 {
-    if (object == painter) {
+    if (object == dataSource) {
         [self setNeedsDisplay: YES];
     }
 }

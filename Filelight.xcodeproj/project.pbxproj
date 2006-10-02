@@ -13,8 +13,7 @@
 		592647AB0AC225570091F0AF /* FLRadialPainter.m in Sources */ = {isa = PBXBuildFile; fileRef = 592647A90AC225570091F0AF /* FLRadialPainter.m */; };
 		592647B20AC225780091F0AF /* FLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592647B10AC225780091F0AF /* FLView.m */; };
 		59623EB00ABE674E00BBAEEE /* NSBezierPath+Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = 59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */; };
-		598E09B70ABF40B200DF3A65 /* DataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 598E09B60ABF40B200DF3A65 /* DataSource.plist */; };
-		598E09DA0ABF669100DF3A65 /* FLPlistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 598E09D80ABF669100DF3A65 /* FLPlistDataSource.m */; };
+		59727F950AD0EE9C0002CDF8 /* FLRadialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */; };
 		59A163290ABF8B27005C1217 /* FLDirectoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */; };
 		59A163380ABF8BEB005C1217 /* FLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A163370ABF8BEB005C1217 /* FLFile.m */; };
 		59A164EC0AC1E26B005C1217 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 59A164EB0AC1E26B005C1217 /* Credits.rtf */; };
@@ -45,9 +44,8 @@
 		59623EA60ABE66CF00BBAEEE /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+Segment.m"; sourceTree = "<group>"; };
 		59623EAF0ABE674E00BBAEEE /* NSBezierPath+Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+Segment.h"; sourceTree = "<group>"; };
-		598E09B60ABF40B200DF3A65 /* DataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DataSource.plist; sourceTree = "<group>"; };
-		598E09D80ABF669100DF3A65 /* FLPlistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPlistDataSource.m; sourceTree = "<group>"; };
-		598E09D90ABF669100DF3A65 /* FLPlistDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPlistDataSource.h; sourceTree = "<group>"; };
+		59727F930AD0EE9C0002CDF8 /* FLRadialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLRadialItem.h; sourceTree = "<group>"; };
+		59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRadialItem.m; sourceTree = "<group>"; };
 		59A163270ABF8B27005C1217 /* FLDirectoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLDirectoryDataSource.h; sourceTree = "<group>"; };
 		59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLDirectoryDataSource.m; sourceTree = "<group>"; };
 		59A163360ABF8BEB005C1217 /* FLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFile.h; sourceTree = "<group>"; };
@@ -73,22 +71,22 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				598E09D90ABF669100DF3A65 /* FLPlistDataSource.h */,
-				598E09D80ABF669100DF3A65 /* FLPlistDataSource.m */,
+				592164880AC2486E00AF1A37 /* FLController.h */,
+				592164890AC2486E00AF1A37 /* FLController.m */,
 				59A163270ABF8B27005C1217 /* FLDirectoryDataSource.h */,
 				59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */,
-				59623EAF0ABE674E00BBAEEE /* NSBezierPath+Segment.h */,
-				59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */,
 				59A163360ABF8BEB005C1217 /* FLFile.h */,
 				59A163370ABF8BEB005C1217 /* FLFile.m */,
 				592647120AC21BF10091F0AF /* FLPolar.h */,
 				592647110AC21BF10091F0AF /* FLPolar.m */,
+				59727F930AD0EE9C0002CDF8 /* FLRadialItem.h */,
+				59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */,
 				592647AA0AC225570091F0AF /* FLRadialPainter.h */,
 				592647A90AC225570091F0AF /* FLRadialPainter.m */,
 				592647B00AC225780091F0AF /* FLView.h */,
 				592647B10AC225780091F0AF /* FLView.m */,
-				592164880AC2486E00AF1A37 /* FLController.h */,
-				592164890AC2486E00AF1A37 /* FLController.m */,
+				59623EAF0ABE674E00BBAEEE /* NSBezierPath+Segment.h */,
+				59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -146,7 +144,6 @@
 				592165860AC2633600AF1A37 /* Filelight.icns */,
 				59A164FE0AC1E304005C1217 /* Copying.txt */,
 				59A164EB0AC1E26B005C1217 /* Credits.rtf */,
-				598E09B60ABF40B200DF3A65 /* DataSource.plist */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
@@ -206,7 +203,6 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				598E09B70ABF40B200DF3A65 /* DataSource.plist in Resources */,
 				59A164EC0AC1E26B005C1217 /* Credits.rtf in Resources */,
 				59A164FF0AC1E304005C1217 /* Copying.txt in Resources */,
 				592165870AC2633600AF1A37 /* Filelight.icns in Resources */,
@@ -222,13 +218,13 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				59623EB00ABE674E00BBAEEE /* NSBezierPath+Segment.m in Sources */,
-				598E09DA0ABF669100DF3A65 /* FLPlistDataSource.m in Sources */,
 				59A163290ABF8B27005C1217 /* FLDirectoryDataSource.m in Sources */,
 				59A163380ABF8BEB005C1217 /* FLFile.m in Sources */,
 				592647130AC21BF10091F0AF /* FLPolar.m in Sources */,
 				592647AB0AC225570091F0AF /* FLRadialPainter.m in Sources */,
 				592647B20AC225780091F0AF /* FLView.m in Sources */,
 				5921648A0AC2486E00AF1A37 /* FLController.m in Sources */,
+				59727F950AD0EE9C0002CDF8 /* FLRadialItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

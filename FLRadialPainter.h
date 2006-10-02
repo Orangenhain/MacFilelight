@@ -8,17 +8,18 @@
 - (float) maxRadius;
 @end
 
+@protocol FLHasDataSource
+- (id) dataSource;
+@end
+
 
 @interface FLRadialPainter : NSObject
 {
     int m_maxLevels;
     float m_minRadiusFraction, m_maxRadiusFraction;
+    float m_minPaintAngle;
     
-    IBOutlet id dataSource;
-    
-    NSView *tmp_view;
-    NSPoint tmp_center;
-    float tmp_radius;
+    NSView <FLHasDataSource> *m_view;
 }
 
 // Accessors
@@ -28,26 +29,15 @@
 - (void) setMinRadiusFraction: (float)fraction;
 - (float) maxRadiusFraction;
 - (void) setMaxRadiusFraction: (float)fraction;
-- (id) dataSource;
-- (void) setDataSource: (id)source;
+- (float) minPaintAngle;
+- (void) setMinPaintAngle: (float)angle;
 
-- (void)drawInView: (NSView *)view
-              rect: (NSRect)rect
-            center: (NSPoint)center
-            radius: (float)radius;
+- (NSView <FLHasDataSource> *) view;
+- (void) setView: (NSView <FLHasDataSource> *)view;
 
-- (id)itemAt: (NSPoint)point
-      center: (NSPoint)center
-      radius: (float)radius;
+- (id) initWithView: (NSView <FLHasDataSource> *)view;
 
-@end
+- (void)drawRect: (NSRect)rect;
+- (id)itemAt: (NSPoint)point;
 
-
-// Data source: generalization of NSOutlineViewDataSource
-// nil object means the root.
-@interface NSObject (FLRadialPainterDataSource)
-- (id) target: (id) target child: (int) index ofItem: (id) item;
-- (int) target: (id) target numberOfChildrenOfItem: (id) item;
-
-- (float) target: (id) target weightOfItem: (id) item;
 @end
