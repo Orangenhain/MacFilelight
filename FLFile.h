@@ -32,9 +32,11 @@ typedef enum {
 
 @interface FLDirectory : FLFile {
     NSMutableArray *m_children;
+    FLDirectory *m_parent;
 }
 
-- (id) initWithPath: (NSString *) path;
+- (id) initWithPath: (NSString *) path parent: (FLDirectory *) parent;
 - (void) addChild: (FLFile *) child;
 - (NSArray *) children;
+- (FLDirectory *) parent;
 @end

@@ -199,7 +199,8 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
         
         switch (ent->fts_info) {
             case FTS_D: {
-                dir = [[FLDirectory alloc] initWithPath: stringPath(fm, ent)];
+                dir = [[FLDirectory alloc] initWithPath: stringPath(fm, ent)
+                                                 parent: dir];
                 [dir autorelease];
                 [dirstack addObject: dir];
                 m_increment /= (ent->fts_statp->st_nlink - 1); // pre, children

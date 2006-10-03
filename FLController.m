@@ -11,6 +11,19 @@
 - (void) awakeFromNib
 {
     m_scanner = nil;
+    m_scanDir = nil;
+}
+
+- (FLDirectory *) scanDir
+{
+    return m_scanDir;
+}
+
+- (void) setScanDir: (FLDirectory *) dir
+{
+    [dir retain];
+    if (m_scanDir) [m_scanDir release];
+    m_scanDir = dir;
 }
 
 - (BOOL) application: (NSApplication *)app openFile: (NSString *)filename
@@ -48,7 +61,8 @@
         }
         [window orderOut: self];
     } else {
-        [self setRootDir: [m_scanner scanResult]];
+        [self setScanDir: [m_scanner scanResult]];
+        [self setRootDir: [self scanDir]];
         [tabView selectTabViewItemWithIdentifier: @"Filelight"];
     }
     

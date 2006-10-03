@@ -7,6 +7,21 @@
 #import "FLRadialPainter.h"
 #import "FLFile.h"
 #import "FLController.h"
+#import "FLDirectoryDataSource.h"
+
+@implementation NSString (CenteredDrawing)
+
+- (void) drawAtCenter: (NSPoint) center
+       withAttributes: (NSDictionary *) attr
+{
+    NSSize size = [self sizeWithAttributes: attr];
+    NSPoint p = NSMakePoint(center.x - size.width / 2,
+                            center.y - size.height / 2);
+    [self drawAtPoint: p withAttributes: attr];
+}
+
+@end
+
 
 @implementation FLView
 
@@ -104,7 +119,12 @@
 
 - (void) drawRect: (NSRect)rect
 {
+    NSString *size;
     [painter drawRect: rect];
+    
+    size = [[[self dataSource] rootDir] displaySize];
+    [size drawAtCenter: [self center]
+        withAttributes: [NSDictionary dictionary]];
 }
 
 - (id) dataSource

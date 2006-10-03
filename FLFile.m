@@ -97,10 +97,11 @@
 
 @implementation FLDirectory
 
-- (id) initWithPath: (NSString *) path
+- (id) initWithPath: (NSString *) path parent: (FLDirectory *) parent;
 {
     if (self = [super initWithPath: path size: 0]) {
         m_children = [[NSMutableArray alloc] init];
+        m_parent = parent;
     }
     return self;
 }
@@ -109,6 +110,11 @@
 {
     [m_children addObject: child];
     m_size += [child size];
+}
+
+- (FLDirectory *) parent
+{
+    return m_parent;
 }
 
 - (NSArray *) children

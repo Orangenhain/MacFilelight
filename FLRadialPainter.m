@@ -182,8 +182,6 @@
 
 - (void) drawItem: (FLRadialItem *)ritem
 {
-    float h, s, v, a;
-
     int level = [ritem level];
     float inner = [self innerRadiusFractionForLevel: level];
     float outer = [self innerRadiusFractionForLevel: level + 1];

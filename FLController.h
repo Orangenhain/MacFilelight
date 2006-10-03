@@ -12,6 +12,7 @@
     IBOutlet id window;
     
     FLScanner *m_scanner;
+    FLDirectory *m_scanDir;
 }
 
 - (IBAction) cancelScan: (id) sender;
