@@ -266,8 +266,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
-									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -321,23 +319,19 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>59A8CDD40AD240F80038A61E</string>
+										<string>59A8CEA50AD24DF60038A61E</string>
 										<key>history</key>
 										<array>
 											<string>598E08BE0ABE6ABD00DF3A65</string>
 											<string>598E08E10ABE6D7600DF3A65</string>
 											<string>598E08E50ABE6D7600DF3A65</string>
 											<string>598E0A4E0ABF6D6100DF3A65</string>
-											<string>592163A70AC2399900AF1A37</string>
 											<string>592165DE0AC2696A00AF1A37</string>
 											<string>592165DF0AC2696A00AF1A37</string>
-											<string>592165E00AC2696A00AF1A37</string>
-											<string>59727FD30AD0F11B0002CDF8</string>
 											<string>59727FD60AD0F11B0002CDF8</string>
 											<string>5972803B0AD0F6B40002CDF8</string>
 											<string>597281B20AD1706D0002CDF8</string>
 											<string>597283370AD18C6D0002CDF8</string>
-											<string>5972835D0AD18D030002CDF8</string>
 											<string>597284E90AD1AA7D0002CDF8</string>
 											<string>597284EB0AD1AA7D0002CDF8</string>
 											<string>597286060AD1BC4A0002CDF8</string>
@@ -353,21 +347,24 @@
 											<string>59A8CC440AD20DF50038A61E</string>
 											<string>59A8CC9B0AD217940038A61E</string>
 											<string>59A8CCC30AD21AB10038A61E</string>
-											<string>59A8CCC40AD21AB10038A61E</string>
 											<string>59A8CD240AD227820038A61E</string>
 											<string>59A8CD260AD227820038A61E</string>
 											<string>59A8CD3B0AD228320038A61E</string>
 											<string>59A8CD820AD230210038A61E</string>
 											<string>59A8CD830AD230210038A61E</string>
-											<string>59A8CD840AD230210038A61E</string>
-											<string>59A8CDB00AD23A650038A61E</string>
-											<string>59A8CDCE0AD240F80038A61E</string>
 											<string>59A8CDCF0AD240F80038A61E</string>
-											<string>59A8CDD00AD240F80038A61E</string>
-										</array>
-										<key>nextStack</key>
-										<array>
-											<string>59A8CDD30AD240F80038A61E</string>
+											<string>59A8CE270AD245750038A61E</string>
+											<string>59A8CE290AD245750038A61E</string>
+											<string>59A8CE2A0AD245750038A61E</string>
+											<string>59A8CE3E0AD246B00038A61E</string>
+											<string>59A8CE3F0AD246B00038A61E</string>
+											<string>59A8CE400AD246B00038A61E</string>
+											<string>59A8CE410AD246B00038A61E</string>
+											<string>59A8CE420AD246B00038A61E</string>
+											<string>59A8CE540AD247040038A61E</string>
+											<string>59A8CE560AD247040038A61E</string>
+											<string>59A8CE580AD247040038A61E</string>
+											<string>59A8CE6F0AD248AD0038A61E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -466,6 +463,24 @@
 											<string>59A8CDB20AD23A650038A61E</string>
 											<string>59A8CDD10AD240F80038A61E</string>
 											<string>59A8CDD20AD240F80038A61E</string>
+											<string>59A8CDE50AD242520038A61E</string>
+											<string>59A8CE2C0AD245750038A61E</string>
+											<string>59A8CE2D0AD245750038A61E</string>
+											<string>59A8CE2E0AD245750038A61E</string>
+											<string>59A8CE2F0AD245750038A61E</string>
+											<string>59A8CE300AD245750038A61E</string>
+											<string>59A8CE310AD245750038A61E</string>
+											<string>59A8CE440AD246B00038A61E</string>
+											<string>59A8CE450AD246B00038A61E</string>
+											<string>59A8CE460AD246B00038A61E</string>
+											<string>59A8CE470AD246B00038A61E</string>
+											<string>59A8CE480AD246B00038A61E</string>
+											<string>59A8CE490AD246B00038A61E</string>
+											<string>59A8CE4A0AD246B00038A61E</string>
+											<string>59A8CE5A0AD247040038A61E</string>
+											<string>59A8CE5B0AD247040038A61E</string>
+											<string>59A8CE5D0AD247040038A61E</string>
+											<string>59A8CE5F0AD247040038A61E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -477,14 +492,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {978, 901}}</string>
+								<string>{{0, 0}, {978, 631}}</string>
 								<key>RubberWindowFrame</key>
 								<string>66 58 1213 944 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>901pt</string>
+							<string>631pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -497,14 +512,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 906}, {978, 0}}</string>
+								<string>{{0, 636}, {978, 270}}</string>
 								<key>RubberWindowFrame</key>
 								<string>66 58 1213 944 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>270pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -663,10 +678,10 @@
 		<string>59A8CBD60AD205880038A61E</string>
 		<string>59A8CBD70AD205880038A61E</string>
 		<string>598E08B40ABE6A9C00DF3A65</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>59A8CBD20AD205880038A61E</string>
-		<string>59623E920ABE65E700BBAEEE</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>59623E920ABE65E700BBAEEE</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -686,8 +701,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -700,18 +713,22 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {901, 570}}</string>
+								<string>{{0, 0}, {901, 308}}</string>
 								<key>RubberWindowFrame</key>
 								<string>233 105 901 891 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>570pt</string>
+							<string>308pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
+								<key>PBXBuildLogShowsTranscriptDefaultKey</key>
+								<string>{{0, 257}, {901, 280}}</string>
 								<key>PBXProjectModuleGUID</key>
 								<string>XCMainBuildResultsModuleGUID</string>
 								<key>PBXProjectModuleLabel</key>
@@ -724,14 +741,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 575}, {901, 275}}</string>
+								<string>{{0, 313}, {901, 537}}</string>
 								<key>RubberWindowFrame</key>
 								<string>233 105 901 891 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
 							<key>Proportion</key>
-							<string>275pt</string>
+							<string>537pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -760,7 +777,7 @@
 			<key>WindowToolGUID</key>
 			<string>59623E920ABE65E700BBAEEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -871,7 +888,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -981,6 +998,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1122,7 +1141,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C0AD2B3069F1EA900FABCE6</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

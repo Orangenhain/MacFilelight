@@ -5,13 +5,6 @@
 #import "FLRadialPainter.h"
 #import "FLFile.h"
 
-/* This is really a category on NSString, but for some reason that makes
- * Interface Builder barf. */
-@interface NSObject (CenteredDrawing)
-- (void) drawAtCenter: (NSPoint) center
-       withAttributes: (NSDictionary *) attr;
-@end
-
 @interface FLView : NSView <FLHasDataSource> {
     IBOutlet id locationDisplay;
     IBOutlet id sizeDisplay;

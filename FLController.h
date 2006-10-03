@@ -17,6 +17,7 @@
 
 - (IBAction) cancelScan: (id) sender;
 - (IBAction) open: (id) sender; 
+- (IBAction) refresh: (id) sender; 
 
 - (void) setRootDir: (FLDirectory *) dir;
 - (FLDirectory *) rootDir;

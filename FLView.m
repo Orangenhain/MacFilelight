@@ -9,20 +9,6 @@
 #import "FLController.h"
 #import "FLDirectoryDataSource.h"
 
-@implementation NSObject (CenteredDrawing)
-
-- (void) drawAtCenter: (NSPoint) center
-       withAttributes: (NSDictionary *) attr
-{
-    NSString *s = (NSString *)self;
-    NSSize size = [s sizeWithAttributes: attr];
-    NSPoint p = NSMakePoint(center.x - size.width / 2,
-                            center.y - size.height / 2);
-    [s drawAtPoint: p withAttributes: attr];
-}
-
-@end
-
 
 @implementation FLView
 
@@ -178,8 +164,9 @@
     if (success) {
         [controller refresh: self];
     } else {
-        NSRunAlertPanel(@"Deletion failed",
-                        [m_scanner scanError], nil, nil, nil);
+        NSString *msg = [NSString stringWithFormat:
+            @"The path %@ could not be deleted.", path];
+        NSRunAlertPanel(@"Deletion failed", msg, nil, nil, nil);
     }
 }
 
@@ -194,14 +181,41 @@
 
 #pragma mark Drawing
 
+- (void) drawSize: (NSString *) str;
+{
+    double rfrac, wantr, haver;
+    float pts;
+    NSFont *font;
+    NSSize size;
+    NSDictionary *attrs;
+    NSPoint p, center;
+    
+    rfrac = [m_painter minRadiusFraction] - 0.02;
+    wantr = [self maxRadius] * rfrac;
+    
+    font = [NSFont systemFontOfSize: 0];
+    attrs = [NSMutableDictionary dictionary];
+    [attrs setValue: font forKey: NSFontAttributeName];
+    size = [str sizeWithAttributes: attrs];
+    haver = hypot(size.width, size.height) / 2;
+    
+    pts = [font pointSize] * wantr / haver;
+    font = [NSFont systemFontOfSize: pts];
+    [attrs setValue: font forKey: NSFontAttributeName];
+    size = [str sizeWithAttributes: attrs];
+    center = [self center];
+    p = NSMakePoint(center.x - size.width / 2,
+                    center.y - size.height / 2);
+    [str drawAtPoint: p withAttributes: attrs];
+}
+
 - (void) drawRect: (NSRect)rect
 {
     NSString *size;
     [m_painter drawRect: rect];
     
     size = [[[self dataSource] rootDir] displaySize];
-    [size drawAtCenter: [self center]
-        withAttributes: [NSDictionary dictionary]];
+    [self drawSize: size];
 }
 
 - (id) dataSource

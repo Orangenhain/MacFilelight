@@ -2,9 +2,9 @@
 {
 	089C165DFE840E0CC02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {683, 483}}";
-			sepNavSelRange = "{98, 0}";
-			sepNavVisRect = "{{0, 0}, {683, 483}}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 294}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {854, 294}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
@@ -544,6 +544,108 @@
 			59A8CDD20AD240F80038A61E /* PBXTextBookmark */ = 59A8CDD20AD240F80038A61E /* PBXTextBookmark */;
 			59A8CDD30AD240F80038A61E /* PBXTextBookmark */ = 59A8CDD30AD240F80038A61E /* PBXTextBookmark */;
 			59A8CDD40AD240F80038A61E /* PBXTextBookmark */ = 59A8CDD40AD240F80038A61E /* PBXTextBookmark */;
+			59A8CDD90AD242070038A61E /* PBXTextBookmark */ = 59A8CDD90AD242070038A61E /* PBXTextBookmark */;
+			59A8CDDD0AD2423F0038A61E /* PBXTextBookmark */ = 59A8CDDD0AD2423F0038A61E /* PBXTextBookmark */;
+			59A8CDDE0AD2423F0038A61E /* PBXTextBookmark */ = 59A8CDDE0AD2423F0038A61E /* PBXTextBookmark */;
+			59A8CDDF0AD2423F0038A61E /* PBXTextBookmark */ = 59A8CDDF0AD2423F0038A61E /* PBXTextBookmark */;
+			59A8CDE30AD242520038A61E /* PBXTextBookmark */ = 59A8CDE30AD242520038A61E /* PBXTextBookmark */;
+			59A8CDE40AD242520038A61E /* PBXTextBookmark */ = 59A8CDE40AD242520038A61E /* PBXTextBookmark */;
+			59A8CDE50AD242520038A61E /* PBXTextBookmark */ = 59A8CDE50AD242520038A61E /* PBXTextBookmark */;
+			59A8CDE60AD242520038A61E /* PBXTextBookmark */ = 59A8CDE60AD242520038A61E /* PBXTextBookmark */;
+			59A8CDFE0AD244020038A61E /* PBXTextBookmark */ = 59A8CDFE0AD244020038A61E /* PBXTextBookmark */;
+			59A8CDFF0AD244020038A61E /* PBXTextBookmark */ = 59A8CDFF0AD244020038A61E /* PBXTextBookmark */;
+			59A8CE010AD244020038A61E /* PBXTextBookmark */ = 59A8CE010AD244020038A61E /* PBXTextBookmark */;
+			59A8CE030AD244020038A61E /* PBXTextBookmark */ = 59A8CE030AD244020038A61E /* PBXTextBookmark */;
+			59A8CE040AD244020038A61E /* PBXTextBookmark */ = 59A8CE040AD244020038A61E /* PBXTextBookmark */;
+			59A8CE050AD244020038A61E /* PBXTextBookmark */ = 59A8CE050AD244020038A61E /* PBXTextBookmark */;
+			59A8CE070AD244020038A61E /* PBXTextBookmark */ = 59A8CE070AD244020038A61E /* PBXTextBookmark */;
+			59A8CE090AD244020038A61E /* PBXTextBookmark */ = 59A8CE090AD244020038A61E /* PBXTextBookmark */;
+			59A8CE0B0AD244020038A61E /* PBXTextBookmark */ = 59A8CE0B0AD244020038A61E /* PBXTextBookmark */;
+			59A8CE0D0AD244020038A61E /* PBXTextBookmark */ = 59A8CE0D0AD244020038A61E /* PBXTextBookmark */;
+			59A8CE0E0AD244020038A61E /* PBXTextBookmark */ = 59A8CE0E0AD244020038A61E /* PBXTextBookmark */;
+			59A8CE100AD244360038A61E /* PBXTextBookmark */ = 59A8CE100AD244360038A61E /* PBXTextBookmark */;
+			59A8CE110AD244360038A61E /* PBXTextBookmark */ = 59A8CE110AD244360038A61E /* PBXTextBookmark */;
+			59A8CE130AD244360038A61E /* PBXTextBookmark */ = 59A8CE130AD244360038A61E /* PBXTextBookmark */;
+			59A8CE140AD244360038A61E /* PBXTextBookmark */ = 59A8CE140AD244360038A61E /* PBXTextBookmark */;
+			59A8CE150AD244360038A61E /* PBXTextBookmark */ = 59A8CE150AD244360038A61E /* PBXTextBookmark */;
+			59A8CE190AD2450D0038A61E /* PBXTextBookmark */ = 59A8CE190AD2450D0038A61E /* PBXTextBookmark */;
+			59A8CE1A0AD2450D0038A61E /* PBXTextBookmark */ = 59A8CE1A0AD2450D0038A61E /* PBXTextBookmark */;
+			59A8CE1B0AD2450D0038A61E /* PBXTextBookmark */ = 59A8CE1B0AD2450D0038A61E /* PBXTextBookmark */;
+			59A8CE1C0AD2450D0038A61E /* PBXTextBookmark */ = 59A8CE1C0AD2450D0038A61E /* PBXTextBookmark */;
+			59A8CE1D0AD2450D0038A61E /* PBXTextBookmark */ = 59A8CE1D0AD2450D0038A61E /* PBXTextBookmark */;
+			59A8CE1F0AD245430038A61E /* PBXTextBookmark */ = 59A8CE1F0AD245430038A61E /* PBXTextBookmark */;
+			59A8CE200AD245430038A61E /* PBXTextBookmark */ = 59A8CE200AD245430038A61E /* PBXTextBookmark */;
+			59A8CE230AD245530038A61E /* PBXTextBookmark */ = 59A8CE230AD245530038A61E /* PBXTextBookmark */;
+			59A8CE240AD245530038A61E /* PBXTextBookmark */ = 59A8CE240AD245530038A61E /* PBXTextBookmark */;
+			59A8CE270AD245750038A61E /* PBXTextBookmark */ = 59A8CE270AD245750038A61E /* PBXTextBookmark */;
+			59A8CE280AD245750038A61E /* PBXTextBookmark */ = 59A8CE280AD245750038A61E /* PBXTextBookmark */;
+			59A8CE290AD245750038A61E /* PBXTextBookmark */ = 59A8CE290AD245750038A61E /* PBXTextBookmark */;
+			59A8CE2A0AD245750038A61E /* PBXTextBookmark */ = 59A8CE2A0AD245750038A61E /* PBXTextBookmark */;
+			59A8CE2B0AD245750038A61E /* PBXTextBookmark */ = 59A8CE2B0AD245750038A61E /* PBXTextBookmark */;
+			59A8CE2C0AD245750038A61E /* PBXTextBookmark */ = 59A8CE2C0AD245750038A61E /* PBXTextBookmark */;
+			59A8CE2D0AD245750038A61E /* PBXTextBookmark */ = 59A8CE2D0AD245750038A61E /* PBXTextBookmark */;
+			59A8CE2E0AD245750038A61E /* PBXTextBookmark */ = 59A8CE2E0AD245750038A61E /* PBXTextBookmark */;
+			59A8CE2F0AD245750038A61E /* PBXTextBookmark */ = 59A8CE2F0AD245750038A61E /* PBXTextBookmark */;
+			59A8CE300AD245750038A61E /* PBXTextBookmark */ = 59A8CE300AD245750038A61E /* PBXTextBookmark */;
+			59A8CE310AD245750038A61E /* PBXTextBookmark */ = 59A8CE310AD245750038A61E /* PBXTextBookmark */;
+			59A8CE320AD245750038A61E /* PBXTextBookmark */ = 59A8CE320AD245750038A61E /* PBXTextBookmark */;
+			59A8CE330AD245AB0038A61E /* PBXTextBookmark */ = 59A8CE330AD245AB0038A61E /* PBXTextBookmark */;
+			59A8CE340AD245AB0038A61E /* PBXTextBookmark */ = 59A8CE340AD245AB0038A61E /* PBXTextBookmark */;
+			59A8CE350AD245AB0038A61E /* PBXTextBookmark */ = 59A8CE350AD245AB0038A61E /* PBXTextBookmark */;
+			59A8CE360AD245AB0038A61E /* PBXTextBookmark */ = 59A8CE360AD245AB0038A61E /* PBXTextBookmark */;
+			59A8CE370AD245AB0038A61E /* PBXTextBookmark */ = 59A8CE370AD245AB0038A61E /* PBXTextBookmark */;
+			59A8CE3E0AD246B00038A61E /* PBXTextBookmark */ = 59A8CE3E0AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE3F0AD246B00038A61E /* PBXTextBookmark */ = 59A8CE3F0AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE400AD246B00038A61E /* PBXTextBookmark */ = 59A8CE400AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE410AD246B00038A61E /* PBXTextBookmark */ = 59A8CE410AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE420AD246B00038A61E /* PBXTextBookmark */ = 59A8CE420AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE430AD246B00038A61E /* PBXTextBookmark */ = 59A8CE430AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE440AD246B00038A61E /* PBXTextBookmark */ = 59A8CE440AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE450AD246B00038A61E /* PBXTextBookmark */ = 59A8CE450AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE460AD246B00038A61E /* PBXTextBookmark */ = 59A8CE460AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE470AD246B00038A61E /* PBXTextBookmark */ = 59A8CE470AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE480AD246B00038A61E /* PBXTextBookmark */ = 59A8CE480AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE490AD246B00038A61E /* PBXTextBookmark */ = 59A8CE490AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE4A0AD246B00038A61E /* PBXTextBookmark */ = 59A8CE4A0AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE4B0AD246B00038A61E /* PBXTextBookmark */ = 59A8CE4B0AD246B00038A61E /* PBXTextBookmark */;
+			59A8CE540AD247040038A61E /* PBXTextBookmark */ = 59A8CE540AD247040038A61E /* PBXTextBookmark */;
+			59A8CE560AD247040038A61E /* PBXTextBookmark */ = 59A8CE560AD247040038A61E /* PBXTextBookmark */;
+			59A8CE580AD247040038A61E /* PBXTextBookmark */ = 59A8CE580AD247040038A61E /* PBXTextBookmark */;
+			59A8CE590AD247040038A61E /* PBXTextBookmark */ = 59A8CE590AD247040038A61E /* PBXTextBookmark */;
+			59A8CE5A0AD247040038A61E /* PBXTextBookmark */ = 59A8CE5A0AD247040038A61E /* PBXTextBookmark */;
+			59A8CE5B0AD247040038A61E /* PBXTextBookmark */ = 59A8CE5B0AD247040038A61E /* PBXTextBookmark */;
+			59A8CE5D0AD247040038A61E /* PBXTextBookmark */ = 59A8CE5D0AD247040038A61E /* PBXTextBookmark */;
+			59A8CE5F0AD247040038A61E /* PBXTextBookmark */ = 59A8CE5F0AD247040038A61E /* PBXTextBookmark */;
+			59A8CE600AD247040038A61E /* PBXTextBookmark */ = 59A8CE600AD247040038A61E /* PBXTextBookmark */;
+			59A8CE630AD2475F0038A61E /* PBXTextBookmark */ = 59A8CE630AD2475F0038A61E /* PBXTextBookmark */;
+			59A8CE670AD247ED0038A61E /* PBXTextBookmark */ = 59A8CE670AD247ED0038A61E /* PBXTextBookmark */;
+			59A8CE680AD247ED0038A61E /* PBXTextBookmark */ = 59A8CE680AD247ED0038A61E /* PBXTextBookmark */;
+			59A8CE6B0AD2483A0038A61E /* PBXTextBookmark */ = 59A8CE6B0AD2483A0038A61E /* PBXTextBookmark */;
+			59A8CE6F0AD248AD0038A61E /* PBXTextBookmark */ = 59A8CE6F0AD248AD0038A61E /* PBXTextBookmark */;
+			59A8CE700AD248AD0038A61E /* PBXTextBookmark */ = 59A8CE700AD248AD0038A61E /* PBXTextBookmark */;
+			59A8CE740AD249F30038A61E /* PBXTextBookmark */ = 59A8CE740AD249F30038A61E /* PBXTextBookmark */;
+			59A8CE750AD249F30038A61E /* PBXTextBookmark */ = 59A8CE750AD249F30038A61E /* PBXTextBookmark */;
+			59A8CE760AD249F30038A61E /* PBXTextBookmark */ = 59A8CE760AD249F30038A61E /* PBXTextBookmark */;
+			59A8CE770AD249F30038A61E /* PBXTextBookmark */ = 59A8CE770AD249F30038A61E /* PBXTextBookmark */;
+			59A8CE780AD249F30038A61E /* PBXTextBookmark */ = 59A8CE780AD249F30038A61E /* PBXTextBookmark */;
+			59A8CE7B0AD24A200038A61E /* PBXTextBookmark */ = 59A8CE7B0AD24A200038A61E /* PBXTextBookmark */;
+			59A8CE7C0AD24A200038A61E /* PBXTextBookmark */ = 59A8CE7C0AD24A200038A61E /* PBXTextBookmark */;
+			59A8CE810AD24ABC0038A61E /* PBXTextBookmark */ = 59A8CE810AD24ABC0038A61E /* PBXTextBookmark */;
+			59A8CE820AD24ABC0038A61E /* PBXTextBookmark */ = 59A8CE820AD24ABC0038A61E /* PBXTextBookmark */;
+			59A8CE830AD24ABE0038A61E /* PBXTextBookmark */ = 59A8CE830AD24ABE0038A61E /* PBXTextBookmark */;
+			59A8CE860AD24BF00038A61E /* PBXTextBookmark */ = 59A8CE860AD24BF00038A61E /* PBXTextBookmark */;
+			59A8CE890AD24C3A0038A61E /* PBXTextBookmark */ = 59A8CE890AD24C3A0038A61E /* PBXTextBookmark */;
+			59A8CE8F0AD24CAF0038A61E /* PBXTextBookmark */ = 59A8CE8F0AD24CAF0038A61E /* PBXTextBookmark */;
+			59A8CE940AD24CD30038A61E /* PBXTextBookmark */ = 59A8CE940AD24CD30038A61E /* PBXTextBookmark */;
+			59A8CE950AD24CD30038A61E /* PBXTextBookmark */ = 59A8CE950AD24CD30038A61E /* PBXTextBookmark */;
+			59A8CE960AD24CFC0038A61E /* PBXTextBookmark */ = 59A8CE960AD24CFC0038A61E /* PBXTextBookmark */;
+			59A8CE990AD24DA10038A61E /* PBXTextBookmark */ = 59A8CE990AD24DA10038A61E /* PBXTextBookmark */;
+			59A8CE9A0AD24DA20038A61E /* PBXTextBookmark */ = 59A8CE9A0AD24DA20038A61E /* PBXTextBookmark */;
+			59A8CE9C0AD24DA80038A61E /* PBXTextBookmark */ = 59A8CE9C0AD24DA80038A61E /* PBXTextBookmark */;
+			59A8CEA00AD24DCD0038A61E /* PBXTextBookmark */ = 59A8CEA00AD24DCD0038A61E /* PBXTextBookmark */;
+			59A8CEA10AD24DEF0038A61E /* PBXTextBookmark */ = 59A8CEA10AD24DEF0038A61E /* PBXTextBookmark */;
+			59A8CEA20AD24DEF0038A61E /* PBXTextBookmark */ = 59A8CEA20AD24DEF0038A61E /* PBXTextBookmark */;
+			59A8CEA50AD24DF60038A61E /* PBXTextBookmark */ = 59A8CEA50AD24DF60038A61E /* PBXTextBookmark */;
 		};
 		sourceControlManager = 59512EA70ABE641A00B87E44 /* Source Control */;
 		userBuildSettings = {
@@ -551,9 +653,9 @@
 	};
 	29B97316FDCFA39411CA2CEA /* main.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {935, 869}}";
-			sepNavSelRange = "{144, 0}";
-			sepNavVisRect = "{{0, 0}, {935, 869}}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 294}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {854, 294}}";
 		};
 	};
 	592163A70AC2399900AF1A37 /* PBXTextBookmark */ = {
@@ -569,7 +671,7 @@
 	592164880AC2486E00AF1A37 /* FLController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 869}}";
-			sepNavSelRange = "{535, 0}";
+			sepNavSelRange = "{486, 0}";
 			sepNavVisRect = "{{0, 0}, {931, 869}}";
 			sepNavWindowFrame = "{{124, 45}, {754, 910}}";
 		};
@@ -685,22 +787,22 @@
 	592647AA0AC225570091F0AF /* FLRadialPainter.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 869}}";
-			sepNavSelRange = "{673, 0}";
+			sepNavSelRange = "{755, 17}";
 			sepNavVisRect = "{{0, 0}, {931, 869}}";
 		};
 	};
 	592647B00AC225780091F0AF /* FLView.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 869}}";
-			sepNavSelRange = "{901, 36}";
+			sepNavSelRange = "{193, 0}";
 			sepNavVisRect = "{{0, 0}, {931, 869}}";
 		};
 	};
 	592647B10AC225780091F0AF /* FLView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 3712}}";
-			sepNavSelRange = "{4391, 0}";
-			sepNavVisRect = "{{0, 2528}, {931, 869}}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 3936}}";
+			sepNavSelRange = "{4680, 0}";
+			sepNavVisRect = "{{0, 2865}, {931, 599}}";
 		};
 	};
 	592648290AC22B7C0091F0AF /* PBXTextBookmark */ = {
@@ -728,7 +830,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 11";
 		rLen = 0;
-		rLoc = 5589;
+		rLoc = 6081;
 		rType = 0;
 		vrLen = 201;
 		vrLoc = 0;
@@ -776,9 +878,9 @@
 	};
 	59623EA60ABE66CF00BBAEEE /* Prefix.pch */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {935, 869}}";
-			sepNavSelRange = "{371, 0}";
-			sepNavVisRect = "{{0, 0}, {935, 869}}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 294}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {854, 294}}";
 		};
 	};
 	59623EA80ABE671300BBAEEE /* XCBreakpointsBucket */ = {
@@ -790,16 +892,16 @@
 	};
 	59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {935, 869}}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 624}}";
 			sepNavSelRange = "{1141, 0}";
-			sepNavVisRect = "{{0, 0}, {935, 869}}";
+			sepNavVisRect = "{{0, 0}, {931, 599}}";
 		};
 	};
 	59623EAF0ABE674E00BBAEEE /* NSBezierPath+Segment.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {683, 704}}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 869}}";
 			sepNavSelRange = "{539, 0}";
-			sepNavVisRect = "{{0, 0}, {683, 704}}";
+			sepNavVisRect = "{{0, 0}, {931, 869}}";
 		};
 	};
 	59623ED80ABE687800BBAEEE /* PBXTextBookmark */ = {
@@ -838,9 +940,9 @@
 	};
 	59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {935, 1856}}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1856}}";
 			sepNavSelRange = "{1501, 0}";
-			sepNavVisRect = "{{0, 598}, {935, 869}}";
+			sepNavVisRect = "{{0, 603}, {931, 869}}";
 		};
 	};
 	59727FCA0AD0F11B0002CDF8 /* PBXTextBookmark */ = {
@@ -1310,7 +1412,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 98";
 		rLen = 0;
-		rLoc = 5052;
+		rLoc = 5544;
 		rType = 0;
 		vrLen = 1194;
 		vrLoc = 1141;
@@ -1320,7 +1422,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 76";
 		rLen = 0;
-		rLoc = 2291;
+		rLoc = 1910;
 		rType = 0;
 		vrLen = 1301;
 		vrLoc = 1141;
@@ -1350,7 +1452,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 18";
 		rLen = 0;
-		rLoc = 876;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 1158;
 		vrLoc = 0;
@@ -1360,7 +1462,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 18";
 		rLen = 0;
-		rLoc = 943;
+		rLoc = 710;
 		rType = 0;
 		vrLen = 425;
 		vrLoc = 0;
@@ -1390,7 +1492,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 90";
 		rLen = 0;
-		rLoc = 2829;
+		rLoc = 2448;
 		rType = 0;
 		vrLen = 1208;
 		vrLoc = 1118;
@@ -1400,7 +1502,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 18";
 		rLen = 0;
-		rLoc = 943;
+		rLoc = 710;
 		rType = 0;
 		vrLen = 425;
 		vrLoc = 0;
@@ -1420,7 +1522,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 18";
 		rLen = 0;
-		rLoc = 943;
+		rLoc = 710;
 		rType = 0;
 		vrLen = 425;
 		vrLoc = 0;
@@ -1440,7 +1542,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 98";
 		rLen = 0;
-		rLoc = 5008;
+		rLoc = 5500;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 1510;
@@ -1480,7 +1582,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 101";
 		rLen = 0;
-		rLoc = 5029;
+		rLoc = 5521;
 		rType = 0;
 		vrLen = 1158;
 		vrLoc = 0;
@@ -1490,7 +1592,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 19";
 		rLen = 0;
-		rLoc = 943;
+		rLoc = 710;
 		rType = 0;
 		vrLen = 453;
 		vrLoc = 0;
@@ -1520,7 +1622,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: 19";
 		rLen = 0;
-		rLoc = 466;
+		rLoc = 502;
 		rType = 0;
 		vrLen = 487;
 		vrLoc = 0;
@@ -1540,7 +1642,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: 19";
 		rLen = 0;
-		rLoc = 466;
+		rLoc = 502;
 		rType = 0;
 		vrLen = 487;
 		vrLoc = 0;
@@ -1560,7 +1662,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 75";
 		rLen = 0;
-		rLoc = 2142;
+		rLoc = 1761;
 		rType = 0;
 		vrLen = 1313;
 		vrLoc = 1186;
@@ -1670,7 +1772,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 118";
 		rLen = 0;
-		rLoc = 5175;
+		rLoc = 5667;
 		rType = 0;
 		vrLen = 1304;
 		vrLoc = 1320;
@@ -1680,7 +1782,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: id";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 464;
 		vrLoc = 0;
@@ -1710,7 +1812,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5575;
+		rLoc = 6067;
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 1734;
@@ -1720,7 +1822,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: id";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 464;
 		vrLoc = 0;
@@ -1734,7 +1836,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: id";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 464;
 		vrLoc = 0;
@@ -1744,7 +1846,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5575;
+		rLoc = 6067;
 		rType = 0;
 		vrLen = 1328;
 		vrLoc = 1695;
@@ -1784,7 +1886,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5562;
+		rLoc = 6054;
 		rType = 0;
 		vrLen = 1328;
 		vrLoc = 1695;
@@ -1794,7 +1896,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: id";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 464;
 		vrLoc = 0;
@@ -1804,7 +1906,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5562;
+		rLoc = 6054;
 		rType = 0;
 		vrLen = 1328;
 		vrLoc = 1695;
@@ -1824,7 +1926,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5575;
+		rLoc = 6067;
 		rType = 0;
 		vrLen = 1328;
 		vrLoc = 1695;
@@ -1858,7 +1960,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: id";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 464;
 		vrLoc = 0;
@@ -1868,7 +1970,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5575;
+		rLoc = 6067;
 		rType = 0;
 		vrLen = 1328;
 		vrLoc = 1695;
@@ -2194,7 +2296,7 @@
 		delayBeforeContinue = 0;
 		hitCount = 1;
 		location = Foundation;
-		modificationTime = 181536114.867569;
+		modificationTime = 181554405.152661;
 		state = 1;
 		symbolName = "[NSException raise]";
 	};
@@ -2205,7 +2307,7 @@
 		rLen = 0;
 		rLoc = 0;
 		rType = 0;
-		vrLen = 98;
+		vrLen = 97;
 		vrLoc = 0;
 	};
 	59A164EB0AC1E26B005C1217 /* Credits.rtf */ = {
@@ -2301,7 +2403,7 @@
 		comments = "error: cannot find protocol declaration for 'FLColorer'";
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		rLen = 1;
-		rLoc = 14;
+		rLoc = 7;
 		rType = 1;
 	};
 	59A8CBE00AD2064C0038A61E /* PBXTextBookmark */ = {
@@ -2329,7 +2431,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
 		rLen = 0;
-		rLoc = 470;
+		rLoc = 237;
 		rType = 0;
 		vrLen = 453;
 		vrLoc = 0;
@@ -2339,7 +2441,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5562;
+		rLoc = 6054;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 1695;
@@ -2399,7 +2501,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 130";
 		rLen = 0;
-		rLoc = 5562;
+		rLoc = 6054;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 1695;
@@ -2803,7 +2905,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 108";
 		rLen = 0;
-		rLoc = 5006;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 769;
 		vrLoc = 2255;
@@ -2822,8 +2924,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -2833,7 +2935,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 112";
 		rLen = 0;
-		rLoc = 5029;
+		rLoc = 5521;
 		rType = 0;
 		vrLen = 902;
 		vrLoc = 0;
@@ -2843,7 +2945,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 112";
 		rLen = 0;
-		rLoc = 5029;
+		rLoc = 5521;
 		rType = 0;
 		vrLen = 902;
 		vrLoc = 0;
@@ -2852,8 +2954,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -2863,7 +2965,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 16";
 		rLen = 0;
-		rLoc = 644;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 916;
 		vrLoc = 0;
@@ -2883,7 +2985,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 16";
 		rLen = 0;
-		rLoc = 644;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 962;
 		vrLoc = 0;
@@ -2922,8 +3024,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -2933,7 +3035,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 124";
 		rLen = 0;
-		rLoc = 4898;
+		rLoc = 5453;
 		rType = 0;
 		vrLen = 724;
 		vrLoc = 2707;
@@ -2943,7 +3045,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 122";
 		rLen = 0;
-		rLoc = 4882;
+		rLoc = 5437;
 		rType = 0;
 		vrLen = 1064;
 		vrLoc = 0;
@@ -2952,8 +3054,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -2963,7 +3065,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 124";
 		rLen = 0;
-		rLoc = 4898;
+		rLoc = 5453;
 		rType = 0;
 		vrLen = 724;
 		vrLoc = 2707;
@@ -2972,8 +3074,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3002,8 +3104,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3013,7 +3115,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 127";
 		rLen = 0;
-		rLoc = 5006;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 2519;
@@ -3033,7 +3135,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 19";
 		rLen = 0;
-		rLoc = 581;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1047;
 		vrLoc = 0;
@@ -3053,7 +3155,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 12";
 		rLen = 0;
-		rLoc = 470;
+		rLoc = 237;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3063,7 +3165,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 12";
 		rLen = 0;
-		rLoc = 470;
+		rLoc = 237;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3073,7 +3175,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: drawAtCenter:withAttributes:";
 		rLen = 0;
-		rLoc = 356;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1047;
 		vrLoc = 0;
@@ -3103,7 +3205,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: drawAtCenter:withAttributes:";
 		rLen = 0;
-		rLoc = 356;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1047;
 		vrLoc = 0;
@@ -3153,7 +3255,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 12";
 		rLen = 0;
-		rLoc = 470;
+		rLoc = 237;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3171,7 +3273,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 12";
 		rLen = 0;
-		rLoc = 470;
+		rLoc = 237;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3261,7 +3363,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -3289,7 +3391,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -3377,7 +3479,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -3437,7 +3539,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -3675,7 +3777,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: drawAtCenter:withAttributes:";
 		rLen = 0;
-		rLoc = 356;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1319;
 		vrLoc = 0;
@@ -3695,7 +3797,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 119";
 		rLen = 0;
-		rLoc = 3235;
+		rLoc = 2854;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 2313;
@@ -3715,7 +3817,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 119";
 		rLen = 0;
-		rLoc = 3235;
+		rLoc = 2854;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 2313;
@@ -3725,7 +3827,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 120";
 		rLen = 0;
-		rLoc = 3235;
+		rLoc = 2854;
 		rType = 0;
 		vrLen = 1400;
 		vrLoc = 1602;
@@ -3745,7 +3847,7 @@
 		comments = "warning: 'NSCursor' may not respond to '+arrow'";
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		rLen = 1;
-		rLoc = 99;
+		rLoc = 85;
 		rType = 1;
 	};
 	59A8CD0D0AD2208D0038A61E /* PBXTextBookmark */ = {
@@ -3763,7 +3865,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "[[NSCursor arrowCursor] set];";
 		rLen = 0;
-		rLoc = 2291;
+		rLoc = 1910;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 1624;
@@ -3773,7 +3875,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 95";
 		rLen = 0;
-		rLoc = 2292;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1400;
 		vrLoc = 1602;
@@ -3783,7 +3885,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 106";
 		rLen = 0;
-		rLoc = 2814;
+		rLoc = 2433;
 		rType = 0;
 		vrLen = 1408;
 		vrLoc = 1602;
@@ -3793,7 +3895,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 106";
 		rLen = 0;
-		rLoc = 2671;
+		rLoc = 2290;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 1602;
@@ -3803,7 +3905,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: mouseMoved:";
 		rLen = 0;
-		rLoc = 2839;
+		rLoc = 2458;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 1602;
@@ -3866,8 +3968,8 @@
 		isa = PBXTextBookmark;
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 7";
-		rLen = 129;
-		rLoc = 297;
+		rLen = 0;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 583;
 		vrLoc = 0;
@@ -3877,7 +3979,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: mouseMoved:";
 		rLen = 0;
-		rLoc = 2839;
+		rLoc = 2458;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 1602;
@@ -3935,7 +4037,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: ";
 		rLen = 0;
-		rLoc = 801;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 603;
 		vrLoc = 0;
@@ -3955,7 +4057,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 0;
-		rLoc = 801;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -3965,7 +4067,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 91";
 		rLen = 0;
-		rLoc = 2245;
+		rLoc = 1864;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 1602;
@@ -3985,7 +4087,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 0;
-		rLoc = 801;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -3995,7 +4097,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 91";
 		rLen = 0;
-		rLoc = 2245;
+		rLoc = 1864;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 1602;
@@ -4005,7 +4107,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 0;
-		rLoc = 801;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -4015,7 +4117,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 142";
 		rLen = 0;
-		rLoc = 5052;
+		rLoc = 5544;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 2703;
@@ -4025,7 +4127,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 142";
 		rLen = 0;
-		rLoc = 5052;
+		rLoc = 5544;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 2703;
@@ -4035,7 +4137,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 0;
-		rLoc = 801;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -4045,7 +4147,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 142";
 		rLen = 0;
-		rLoc = 5052;
+		rLoc = 5544;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 2703;
@@ -4055,7 +4157,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: drawAtCenter:withAttributes:";
 		rLen = 0;
-		rLoc = 355;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -4065,7 +4167,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "- (IBAction) zoom: (id) sender;";
 		rLen = 32;
-		rLoc = 770;
+		rLoc = 537;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -4075,7 +4177,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 142";
 		rLen = 0;
-		rLoc = 5052;
+		rLoc = 5544;
 		rType = 0;
 		vrLen = 1222;
 		vrLoc = 2665;
@@ -4085,7 +4187,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "- (IBAction) zoom: (id) sender;";
 		rLen = 32;
-		rLoc = 770;
+		rLoc = 537;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -4095,7 +4197,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 135";
 		rLen = 0;
-		rLoc = 3235;
+		rLoc = 2854;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 1940;
@@ -4105,7 +4207,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 135";
 		rLen = 0;
-		rLoc = 3235;
+		rLoc = 2854;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 1940;
@@ -4115,7 +4217,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "- (IBAction) zoom: (id) sender;";
 		rLen = 32;
-		rLoc = 770;
+		rLoc = 537;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 0;
@@ -4125,7 +4227,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 135";
 		rLen = 0;
-		rLoc = 3235;
+		rLoc = 2854;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 1940;
@@ -4135,7 +4237,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: contextMenu";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 686;
 		vrLoc = 0;
@@ -4155,7 +4257,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -4165,7 +4267,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 140";
 		rLen = 0;
-		rLoc = 3521;
+		rLoc = 3140;
 		rType = 0;
 		vrLen = 1324;
 		vrLoc = 2021;
@@ -4175,7 +4277,7 @@
 		comments = "error: parse error before 'FLFile'";
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		rLen = 1;
-		rLoc = 25;
+		rLoc = 18;
 		rType = 1;
 	};
 	59A8CD640AD229D30038A61E /* PBXTextBookmark */ = {
@@ -4183,7 +4285,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: contextMenu";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 387;
 		rType = 0;
 		vrLen = 686;
 		vrLoc = 0;
@@ -4193,7 +4295,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 140";
 		rLen = 0;
-		rLoc = 3521;
+		rLoc = 3140;
 		rType = 0;
 		vrLen = 1294;
 		vrLoc = 2021;
@@ -4203,7 +4305,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -4223,7 +4325,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -4233,7 +4335,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 140";
 		rLen = 0;
-		rLoc = 3521;
+		rLoc = 3140;
 		rType = 0;
 		vrLen = 1324;
 		vrLoc = 2021;
@@ -4243,7 +4345,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 26";
 		rLen = 0;
-		rLoc = 769;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 0;
@@ -4253,7 +4355,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 26";
 		rLen = 0;
-		rLoc = 769;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 0;
@@ -4263,7 +4365,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 26";
 		rLen = 0;
-		rLoc = 769;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 0;
@@ -4273,7 +4375,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 26";
 		rLen = 0;
-		rLoc = 769;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 0;
@@ -4293,7 +4395,7 @@
 		comments = "warning: passing argument 1 of 'setRootDir:' from distinct Objective-C type";
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		rLen = 1;
-		rLoc = 148;
+		rLoc = 134;
 		rType = 1;
 	};
 	59A8CD770AD22DD20038A61E /* PBXTextBookmark */ = {
@@ -4301,7 +4403,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 99";
 		rLen = 0;
-		rLoc = 2291;
+		rLoc = 1910;
 		rType = 0;
 		vrLen = 1017;
 		vrLoc = 1634;
@@ -4321,7 +4423,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 143";
 		rLen = 0;
-		rLoc = 3423;
+		rLoc = 3042;
 		rType = 0;
 		vrLen = 666;
 		vrLoc = 2942;
@@ -4331,7 +4433,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 26";
 		rLen = 0;
-		rLoc = 769;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 0;
@@ -4341,7 +4443,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: menuForEvent:";
 		rLen = 0;
-		rLoc = 3257;
+		rLoc = 2876;
 		rType = 0;
 		vrLen = 666;
 		vrLoc = 2942;
@@ -4381,7 +4483,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 12";
 		rLen = 0;
-		rLoc = 297;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 0;
@@ -4391,7 +4493,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 9";
 		rLen = 0;
-		rLoc = 296;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -4401,7 +4503,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 26";
 		rLen = 0;
-		rLoc = 769;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 705;
 		vrLoc = 0;
@@ -4441,7 +4543,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 9";
 		rLen = 0;
-		rLoc = 296;
+		rLoc = 193;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -4451,7 +4553,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 12";
 		rLen = 0;
-		rLoc = 297;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 0;
@@ -4461,7 +4563,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: reveal:";
 		rLen = 0;
-		rLoc = 850;
+		rLoc = 617;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -4471,7 +4573,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 131;
-		rLoc = 770;
+		rLoc = 537;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -4481,7 +4583,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 12";
 		rLen = 0;
-		rLoc = 297;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 0;
@@ -4491,7 +4593,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 131;
-		rLoc = 770;
+		rLoc = 537;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -4501,7 +4603,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 155";
 		rLen = 0;
-		rLoc = 3631;
+		rLoc = 3250;
 		rType = 0;
 		vrLen = 1122;
 		vrLoc = 3179;
@@ -4511,7 +4613,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 159";
 		rLen = 0;
-		rLoc = 3791;
+		rLoc = 3410;
 		rType = 0;
 		vrLen = 1079;
 		vrLoc = 3095;
@@ -4521,7 +4623,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = selectFile;
 		rLen = 0;
-		rLoc = 4019;
+		rLoc = 3638;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 3095;
@@ -4531,7 +4633,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 172";
 		rLen = 0;
-		rLoc = 4462;
+		rLoc = 4148;
 		rType = 0;
 		vrLen = 1346;
 		vrLoc = 3095;
@@ -4541,7 +4643,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 167";
 		rLen = 0;
-		rLoc = 3965;
+		rLoc = 3584;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 3109;
@@ -4551,7 +4653,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 167";
 		rLen = 0;
-		rLoc = 3965;
+		rLoc = 3584;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 3109;
@@ -4561,7 +4663,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 174";
 		rLen = 0;
-		rLoc = 4462;
+		rLoc = 4148;
 		rType = 0;
 		vrLen = 1336;
 		vrLoc = 3109;
@@ -4571,7 +4673,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 174";
 		rLen = 0;
-		rLoc = 4462;
+		rLoc = 4148;
 		rType = 0;
 		vrLen = 1336;
 		vrLoc = 3109;
@@ -4581,7 +4683,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: zoom:";
 		rLen = 131;
-		rLoc = 770;
+		rLoc = 537;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -4591,7 +4693,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 174";
 		rLen = 0;
-		rLoc = 4462;
+		rLoc = 4148;
 		rType = 0;
 		vrLen = 1336;
 		vrLoc = 3109;
@@ -4601,7 +4703,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "FLView.h: 33";
 		rLen = 0;
-		rLoc = 922;
+		rLoc = 689;
 		rType = 0;
 		vrLen = 943;
 		vrLoc = 0;
@@ -4611,7 +4713,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "- (IBAction) copyPath: (id) sender;";
 		rLen = 36;
-		rLoc = 901;
+		rLoc = 668;
 		rType = 0;
 		vrLen = 943;
 		vrLoc = 0;
@@ -4621,7 +4723,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 174";
 		rLen = 0;
-		rLoc = 4462;
+		rLoc = 4148;
 		rType = 0;
 		vrLen = 1336;
 		vrLoc = 3109;
@@ -4631,7 +4733,7 @@
 		fRef = 592647B00AC225780091F0AF /* FLView.h */;
 		name = "- (IBAction) copyPath: (id) sender;";
 		rLen = 36;
-		rLoc = 901;
+		rLoc = 668;
 		rType = 0;
 		vrLen = 943;
 		vrLoc = 0;
@@ -4641,7 +4743,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 179";
 		rLen = 0;
-		rLoc = 4565;
+		rLoc = 4251;
 		rType = 0;
 		vrLen = 1232;
 		vrLoc = 3109;
@@ -4651,7 +4753,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 183";
 		rLen = 0;
-		rLoc = 4664;
+		rLoc = 4350;
 		rType = 0;
 		vrLen = 1368;
 		vrLoc = 3109;
@@ -4661,7 +4763,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 188";
 		rLen = 0;
-		rLoc = 4771;
+		rLoc = 5326;
 		rType = 0;
 		vrLen = 1445;
 		vrLoc = 3667;
@@ -4671,7 +4773,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 178";
 		rLen = 0;
-		rLoc = 4286;
+		rLoc = 3905;
 		rType = 0;
 		vrLen = 1397;
 		vrLoc = 3667;
@@ -4680,8 +4782,8 @@
 		isa = PBXTextBookmark;
 		comments = "warning: 'NSObject' may not respond to '-sizeWithAttributes:'";
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
-		rLen = 1;
-		rLoc = 17;
+		rLen = 0;
+		rLoc = 11;
 		rType = 1;
 	};
 	59A8CDC60AD240DF0038A61E /* PBXTextBookmark */ = {
@@ -4689,7 +4791,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 21";
 		rLen = 0;
-		rLoc = 606;
+		rLoc = 273;
 		rType = 0;
 		vrLen = 866;
 		vrLoc = 0;
@@ -4716,7 +4818,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -4736,7 +4838,7 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 177";
 		rLen = 0;
-		rLoc = 4281;
+		rLoc = 3900;
 		rType = 0;
 		vrLen = 1377;
 		vrLoc = 3667;
@@ -4756,7 +4858,7 @@
 		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
 		name = "FLController.h: rootDir";
 		rLen = 0;
-		rLoc = 535;
+		rLoc = 571;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 0;
@@ -4776,10 +4878,1088 @@
 		fRef = 592647B10AC225780091F0AF /* FLView.m */;
 		name = "FLView.m: 181";
 		rLen = 0;
-		rLoc = 4391;
+		rLoc = 4119;
 		rType = 0;
 		vrLen = 1413;
 		vrLoc = 3667;
+	};
+	59A8CDD90AD242070038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 183";
+		rLen = 0;
+		rLoc = 4125;
+		rType = 0;
+		vrLen = 1478;
+		vrLoc = 3667;
+	};
+	59A8CDDD0AD2423F0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: no '-refresh:' method found";
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		rLen = 1;
+		rLoc = 164;
+		rType = 1;
+	};
+	59A8CDDE0AD2423F0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "[controller refresh: self];";
+		rLen = 36;
+		rLoc = 3920;
+		rType = 0;
+		vrLen = 1045;
+		vrLoc = 3793;
+	};
+	59A8CDDF0AD2423F0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CDE30AD242520038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 184";
+		rLen = 0;
+		rLoc = 4148;
+		rType = 0;
+		vrLen = 1478;
+		vrLoc = 3667;
+	};
+	59A8CDE40AD242520038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
+		name = "FLController.h: rootDir";
+		rLen = 0;
+		rLoc = 571;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	59A8CDE50AD242520038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 184";
+		rLen = 0;
+		rLoc = 4148;
+		rType = 0;
+		vrLen = 1478;
+		vrLoc = 3667;
+	};
+	59A8CDE60AD242520038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
+		name = "FLController.h: refresh:";
+		rLen = 0;
+		rLoc = 486;
+		rType = 0;
+		vrLen = 578;
+		vrLoc = 0;
+	};
+	59A8CDFE0AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "[controller refresh: self];";
+		rLen = 36;
+		rLoc = 3920;
+		rType = 0;
+		vrLen = 1045;
+		vrLoc = 3793;
+	};
+	59A8CDFF0AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE000AD244020038A61E /* stdbool.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stdbool.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/stdbool.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {931, 599}}";
+			sepNavSelRange = "{233, 47}";
+			sepNavVisRect = "{{0, 0}, {931, 599}}";
+		};
+	};
+	59A8CE010AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE020AD244020038A61E /* CFBase.h */;
+		name = "#include <stdbool.h>";
+		rLen = 21;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 964;
+		vrLoc = 0;
+	};
+	59A8CE020AD244020038A61E /* CFBase.h */ = {
+		isa = PBXFileReference;
+		name = CFBase.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE030AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Precompiling Prefix.pch";
+		fRef = 59623EA60ABE66CF00BBAEEE /* Prefix.pch */;
+		rLen = 0;
+		rLoc = 0;
+		rType = 1;
+	};
+	59A8CE040AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "[controller refresh: self];";
+		rLen = 36;
+		rLoc = 3920;
+		rType = 0;
+		vrLen = 1045;
+		vrLoc = 3793;
+	};
+	59A8CE050AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE060AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE060AD244020038A61E /* stdbool.h */ = {
+		isa = PBXFileReference;
+		name = stdbool.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/stdbool.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE070AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE080AD244020038A61E /* CFBase.h */;
+		name = "#include <stdbool.h>";
+		rLen = 21;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 964;
+		vrLoc = 0;
+	};
+	59A8CE080AD244020038A61E /* CFBase.h */ = {
+		isa = PBXFileReference;
+		name = CFBase.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE090AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE0A0AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE0A0AD244020038A61E /* stdbool.h */ = {
+		isa = PBXFileReference;
+		name = stdbool.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/stdbool.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE0B0AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE0C0AD244020038A61E /* CFBase.h */;
+		name = "#include <stdbool.h>";
+		rLen = 21;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 964;
+		vrLoc = 0;
+	};
+	59A8CE0C0AD244020038A61E /* CFBase.h */ = {
+		isa = PBXFileReference;
+		name = CFBase.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE0D0AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EA60ABE66CF00BBAEEE /* Prefix.pch */;
+		name = "Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 371;
+		vrLoc = 0;
+	};
+	59A8CE0E0AD244020038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE100AD244360038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EA60ABE66CF00BBAEEE /* Prefix.pch */;
+		name = "Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 371;
+		vrLoc = 0;
+	};
+	59A8CE110AD244360038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: #error \"This header only supports __MWERKS__.\"";
+		fRef = 59A8CE120AD244360038A61E /* stdbool.h */;
+		rLen = 1;
+		rLoc = 7;
+		rType = 1;
+	};
+	59A8CE120AD244360038A61E /* stdbool.h */ = {
+		isa = PBXFileReference;
+		name = stdbool.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/stdbool.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE130AD244360038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EA60ABE66CF00BBAEEE /* Prefix.pch */;
+		name = "Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 371;
+		vrLoc = 0;
+	};
+	59A8CE140AD244360038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE150AD244360038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE190AD2450D0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE1A0AD2450D0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Compiling /Users/vasi/Desktop/Filelight/main.m";
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		rLen = 0;
+		rLoc = 0;
+		rType = 1;
+	};
+	59A8CE1B0AD2450D0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE1C0AD2450D0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	59A8CE1D0AD2450D0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE1F0AD245430038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	59A8CE200AD245430038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE230AD245530038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	59A8CE240AD245530038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE270AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
+		name = "FLController.h: refresh:";
+		rLen = 0;
+		rLoc = 486;
+		rType = 0;
+		vrLen = 578;
+		vrLoc = 0;
+	};
+	59A8CE280AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B00AC225780091F0AF /* FLView.h */;
+		name = "- (IBAction) copyPath: (id) sender;";
+		rLen = 36;
+		rLoc = 668;
+		rType = 0;
+		vrLen = 943;
+		vrLoc = 0;
+	};
+	59A8CE290AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */;
+		name = "FLRadialItem.m: 79";
+		rLen = 0;
+		rLoc = 1501;
+		rType = 0;
+		vrLen = 1402;
+		vrLoc = 725;
+	};
+	59A8CE2A0AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A163360ABF8BEB005C1217 /* FLFile.h */;
+		name = "FLFile.h: initWithPath:parent:";
+		rLen = 0;
+		rLoc = 1006;
+		rType = 0;
+		vrLen = 1152;
+		vrLoc = 0;
+	};
+	59A8CE2B0AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 184";
+		rLen = 0;
+		rLoc = 4148;
+		rType = 0;
+		vrLen = 1156;
+		vrLoc = 3828;
+	};
+	59A8CE2C0AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164880AC2486E00AF1A37 /* FLController.h */;
+		name = "FLController.h: refresh:";
+		rLen = 0;
+		rLoc = 486;
+		rType = 0;
+		vrLen = 578;
+		vrLoc = 0;
+	};
+	59A8CE2D0AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 184";
+		rLen = 0;
+		rLoc = 4148;
+		rType = 0;
+		vrLen = 1478;
+		vrLoc = 3667;
+	};
+	59A8CE2E0AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B00AC225780091F0AF /* FLView.h */;
+		name = "- (IBAction) copyPath: (id) sender;";
+		rLen = 36;
+		rLoc = 668;
+		rType = 0;
+		vrLen = 943;
+		vrLoc = 0;
+	};
+	59A8CE2F0AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */;
+		name = "FLRadialItem.m: 79";
+		rLen = 0;
+		rLoc = 1501;
+		rType = 0;
+		vrLen = 1402;
+		vrLoc = 725;
+	};
+	59A8CE300AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A163360ABF8BEB005C1217 /* FLFile.h */;
+		name = "FLFile.h: initWithPath:parent:";
+		rLen = 0;
+		rLoc = 1006;
+		rType = 0;
+		vrLen = 1152;
+		vrLoc = 0;
+	};
+	59A8CE310AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 184";
+		rLen = 0;
+		rLoc = 4148;
+		rType = 0;
+		vrLen = 1156;
+		vrLoc = 3828;
+	};
+	59A8CE320AD245750038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE330AD245AB0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	59A8CE340AD245AB0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Copying English.lproj/InfoPlist.strings";
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		rLen = 0;
+		rLoc = 0;
+		rType = 1;
+	};
+	59A8CE350AD245AB0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	59A8CE360AD245AB0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 97;
+		vrLoc = 0;
+	};
+	59A8CE370AD245AB0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE3E0AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE3F0AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 97;
+		vrLoc = 0;
+	};
+	59A8CE400AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */;
+		name = "NSBezierPath+Segment.m: 28";
+		rLen = 0;
+		rLoc = 1141;
+		rType = 0;
+		vrLen = 1435;
+		vrLoc = 0;
+	};
+	59A8CE410AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647AA0AC225570091F0AF /* FLRadialPainter.h */;
+		name = minRadiusFraction;
+		rLen = 17;
+		rLoc = 755;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 0;
+	};
+	59A8CE420AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B00AC225780091F0AF /* FLView.h */;
+		name = "FLView.h: 7";
+		rLen = 0;
+		rLoc = 193;
+		rType = 0;
+		vrLen = 710;
+		vrLoc = 0;
+	};
+	59A8CE430AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4720;
+		rType = 0;
+		vrLen = 936;
+		vrLoc = 4021;
+	};
+	59A8CE440AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE000AD244020038A61E /* stdbool.h */;
+		name = "#error \"This header only supports __MWERKS__.\"";
+		rLen = 47;
+		rLoc = 233;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	59A8CE450AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 97;
+		vrLoc = 0;
+	};
+	59A8CE460AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */;
+		name = "NSBezierPath+Segment.m: 28";
+		rLen = 0;
+		rLoc = 1141;
+		rType = 0;
+		vrLen = 1435;
+		vrLoc = 0;
+	};
+	59A8CE470AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B00AC225780091F0AF /* FLView.h */;
+		name = "FLView.h: 7";
+		rLen = 0;
+		rLoc = 193;
+		rType = 0;
+		vrLen = 710;
+		vrLoc = 0;
+	};
+	59A8CE480AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4720;
+		rType = 0;
+		vrLen = 936;
+		vrLoc = 4021;
+	};
+	59A8CE490AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647AA0AC225570091F0AF /* FLRadialPainter.h */;
+		name = minRadiusFraction;
+		rLen = 17;
+		rLoc = 755;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 0;
+	};
+	59A8CE4A0AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B00AC225780091F0AF /* FLView.h */;
+		name = "FLView.h: 7";
+		rLen = 0;
+		rLoc = 193;
+		rType = 0;
+		vrLen = 710;
+		vrLoc = 0;
+	};
+	59A8CE4B0AD246B00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 193";
+		rLen = 0;
+		rLoc = 4929;
+		rType = 0;
+		vrLen = 1401;
+		vrLoc = 3688;
+	};
+	59A8CE540AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE550AD247040038A61E /* math.h */;
+		name = "(null): 26";
+		rLen = 0;
+		rLoc = 1017;
+		rType = 0;
+		vrLen = 1157;
+		vrLoc = 0;
+	};
+	59A8CE550AD247040038A61E /* math.h */ = {
+		isa = PBXFileReference;
+		name = math.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/math.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE560AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE570AD247040038A61E /* math.h */;
+		name = hypot;
+		rLen = 5;
+		rLoc = 10900;
+		rType = 0;
+		vrLen = 1194;
+		vrLoc = 10401;
+	};
+	59A8CE570AD247040038A61E /* math.h */ = {
+		isa = PBXFileReference;
+		name = math.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/architecture/ppc/math.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE580AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EAF0ABE674E00BBAEEE /* NSBezierPath+Segment.h */;
+		name = "NSBezierPath+Segment.h: 15";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 540;
+		vrLoc = 0;
+	};
+	59A8CE590AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 193";
+		rLen = 0;
+		rLoc = 4929;
+		rType = 0;
+		vrLen = 1401;
+		vrLoc = 3688;
+	};
+	59A8CE5A0AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 193";
+		rLen = 0;
+		rLoc = 4929;
+		rType = 0;
+		vrLen = 1401;
+		vrLoc = 3688;
+	};
+	59A8CE5B0AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE5C0AD247040038A61E /* math.h */;
+		name = "(null): 26";
+		rLen = 0;
+		rLoc = 1017;
+		rType = 0;
+		vrLen = 1157;
+		vrLoc = 0;
+	};
+	59A8CE5C0AD247040038A61E /* math.h */ = {
+		isa = PBXFileReference;
+		name = math.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/math.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE5D0AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59A8CE5E0AD247040038A61E /* math.h */;
+		name = hypot;
+		rLen = 5;
+		rLoc = 10900;
+		rType = 0;
+		vrLen = 1194;
+		vrLoc = 10401;
+	};
+	59A8CE5E0AD247040038A61E /* math.h */ = {
+		isa = PBXFileReference;
+		name = math.h;
+		path = /Developer/SDKs/MacOSX10.3.9.sdk/usr/include/architecture/ppc/math.h;
+		sourceTree = "<absolute>";
+	};
+	59A8CE5F0AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59623EAF0ABE674E00BBAEEE /* NSBezierPath+Segment.h */;
+		name = "NSBezierPath+Segment.h: 15";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 540;
+		vrLoc = 0;
+	};
+	59A8CE600AD247040038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4527;
+		rType = 0;
+		vrLen = 1499;
+		vrLoc = 3630;
+	};
+	59A8CE630AD2475F0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 199";
+		rLen = 0;
+		rLoc = 5073;
+		rType = 0;
+		vrLen = 1623;
+		vrLoc = 3630;
+	};
+	59A8CE670AD247ED0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 97;
+		vrLoc = 0;
+	};
+	59A8CE680AD247ED0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE6B0AD2483A0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 172";
+		rLen = 0;
+		rLoc = 4151;
+		rType = 0;
+		vrLen = 1130;
+		vrLoc = 3478;
+	};
+	59A8CE6F0AD248AD0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'rfrac' undeclared (first use in this function)";
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		rLen = 1;
+		rLoc = 192;
+		rType = 1;
+	};
+	59A8CE700AD248AD0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 192";
+		rLen = 0;
+		rLoc = 4647;
+		rType = 0;
+		vrLen = 1111;
+		vrLoc = 4152;
+	};
+	59A8CE740AD249F30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 97;
+		vrLoc = 0;
+	};
+	59A8CE750AD249F30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'rfrac' undeclared (first use in this function)";
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		rLen = 1;
+		rLoc = 192;
+		rType = 1;
+	};
+	59A8CE760AD249F30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 97;
+		vrLoc = 0;
+	};
+	59A8CE770AD249F30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4518;
+		rType = 0;
+		vrLen = 700;
+		vrLoc = 4458;
+	};
+	59A8CE780AD249F30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE7B0AD24A200038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4518;
+		rType = 0;
+		vrLen = 700;
+		vrLoc = 4458;
+	};
+	59A8CE7C0AD24A200038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE810AD24ABC0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4518;
+		rType = 0;
+		vrLen = 628;
+		vrLoc = 4615;
+	};
+	59A8CE820AD24ABC0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE830AD24ABE0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 189";
+		rLen = 0;
+		rLoc = 4602;
+		rType = 0;
+		vrLen = 1111;
+		vrLoc = 4152;
+	};
+	59A8CE860AD24BF00038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 194";
+		rLen = 0;
+		rLoc = 4724;
+		rType = 0;
+		vrLen = 1113;
+		vrLoc = 4152;
+	};
+	59A8CE890AD24C3A0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 197";
+		rLen = 0;
+		rLoc = 4846;
+		rType = 0;
+		vrLen = 1167;
+		vrLoc = 4152;
+	};
+	59A8CE8F0AD24CAF0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 208";
+		rLen = 0;
+		rLoc = 5296;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 4433;
+	};
+	59A8CE940AD24CD30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4518;
+		rType = 0;
+		vrLen = 657;
+		vrLoc = 4627;
+	};
+	59A8CE950AD24CD30038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE960AD24CFC0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 208";
+		rLen = 0;
+		rLoc = 5296;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 4433;
+	};
+	59A8CE990AD24DA10038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4518;
+		rType = 0;
+		vrLen = 699;
+		vrLoc = 4627;
+	};
+	59A8CE9A0AD24DA20038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CE9C0AD24DA80038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 209";
+		rLen = 0;
+		rLoc = 5296;
+		rType = 0;
+		vrLen = 1039;
+		vrLoc = 4433;
+	};
+	59A8CEA00AD24DCD0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 193";
+		rLen = 0;
+		rLoc = 4680;
+		rType = 0;
+		vrLen = 1039;
+		vrLoc = 4433;
+	};
+	59A8CEA10AD24DEF0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 186";
+		rLen = 0;
+		rLoc = 4518;
+		rType = 0;
+		vrLen = 699;
+		vrLoc = 4627;
+	};
+	59A8CEA20AD24DEF0038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592164890AC2486E00AF1A37 /* FLController.m */;
+		name = "FLController.m: 124";
+		rLen = 133;
+		rLoc = 3309;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 2778;
+	};
+	59A8CEA50AD24DF60038A61E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 592647B10AC225780091F0AF /* FLView.m */;
+		name = "FLView.m: 193";
+		rLen = 0;
+		rLoc = 4680;
+		rType = 0;
+		vrLen = 1039;
+		vrLoc = 4433;
 	};
 	8D1107260486CEB800E47090 /* Filelight */ = {
 		activeExec = 0;
