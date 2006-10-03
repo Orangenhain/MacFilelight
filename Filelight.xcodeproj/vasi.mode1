@@ -321,7 +321,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>59A8CCB00AD218E70038A61E</string>
+										<string>59A8CCFB0AD21E890038A61E</string>
 										<key>history</key>
 										<array>
 											<string>598E08BE0ABE6ABD00DF3A65</string>
@@ -349,18 +349,18 @@
 											<string>59764DF40AD1F244005C181D</string>
 											<string>59764F670AD20517005C181D</string>
 											<string>59A8CBE70AD206E00038A61E</string>
-											<string>59A8CC0A0AD208650038A61E</string>
-											<string>59A8CC0B0AD208650038A61E</string>
-											<string>59A8CC0C0AD208650038A61E</string>
-											<string>59A8CC210AD2094B0038A61E</string>
 											<string>59A8CC240AD2094B0038A61E</string>
 											<string>59A8CC250AD2094B0038A61E</string>
 											<string>59A8CC440AD20DF50038A61E</string>
 											<string>59A8CC450AD20DF50038A61E</string>
 											<string>59A8CC6D0AD214100038A61E</string>
 											<string>59A8CC9B0AD217940038A61E</string>
-											<string>59A8CCAC0AD218E70038A61E</string>
-											<string>59A8CCAD0AD218E70038A61E</string>
+											<string>59A8CCC30AD21AB10038A61E</string>
+											<string>59A8CCC40AD21AB10038A61E</string>
+											<string>59A8CCC50AD21AB10038A61E</string>
+											<string>59A8CCE40AD21DF30038A61E</string>
+											<string>59A8CCE50AD21DF30038A61E</string>
+											<string>59A8CCE60AD21DF30038A61E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -432,6 +432,19 @@
 											<string>59A8CC720AD214100038A61E</string>
 											<string>59A8CCAE0AD218E70038A61E</string>
 											<string>59A8CCAF0AD218E70038A61E</string>
+											<string>59A8CCC70AD21AB10038A61E</string>
+											<string>59A8CCC80AD21AB10038A61E</string>
+											<string>59A8CCC90AD21AB10038A61E</string>
+											<string>59A8CCCA0AD21AB10038A61E</string>
+											<string>59A8CCCB0AD21AB10038A61E</string>
+											<string>59A8CCE70AD21DF30038A61E</string>
+											<string>59A8CCE80AD21DF30038A61E</string>
+											<string>59A8CCE90AD21DF30038A61E</string>
+											<string>59A8CCEA0AD21DF30038A61E</string>
+											<string>59A8CCEB0AD21DF30038A61E</string>
+											<string>59A8CCEC0AD21DF30038A61E</string>
+											<string>59A8CCED0AD21DF30038A61E</string>
+											<string>59A8CCEE0AD21DF30038A61E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -630,8 +643,8 @@
 		<string>598E08B40ABE6A9C00DF3A65</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>59A8CBD20AD205880038A61E</string>
-		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
 		<string>59623E920ABE65E700BBAEEE</string>
+		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
 	</array>
 	<key>WindowString</key>
@@ -658,7 +671,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FLController.m</string>
+								<string>FLScanner.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -725,7 +738,7 @@
 			<key>WindowToolGUID</key>
 			<string>59623E920ABE65E700BBAEEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

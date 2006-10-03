@@ -36,4 +36,7 @@
 - (FLDirectory *) scanResult;
 - (NSString *) scanError;
 
++ (BOOL) isMountPoint: (NSString *) path;
++ (BOOL) isMountPointCPath: (const char *) cpath;
+
 @end

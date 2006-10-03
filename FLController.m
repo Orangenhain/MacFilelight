@@ -8,7 +8,8 @@
 
 
 static NSString *ToolbarID = @"Filelight Toolbar";
-static NSString *ToolbarItemUpID = @"Filelight Toolbar";
+static NSString *ToolbarItemUpID = @"Up ToolbarItem";
+static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 
 @implementation FLController
@@ -19,6 +20,8 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
 {
     NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier: ToolbarID];
     [toolbar setDelegate: self];
+    [toolbar setAllowsUserCustomization: YES];
+    [toolbar setAutosavesConfiguration: YES];
     [window setToolbar: toolbar];
 }
 
@@ -34,6 +37,11 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
         [item setToolTip: @"Go to the parent directory"];
         [item setImage: [NSImage imageNamed: @"arrowUp"]];
         [item setAction: @selector(parentDir:)];
+    } else if ([itemID isEqual: ToolbarItemRefreshID]) {
+        [item setLabel: @"Refresh"];
+        [item setToolTip: @"Rescan the current directory"];
+        [item setImage: [NSImage imageNamed: @"reload"]];
+        [item setAction: @selector(refresh:)];
     } else {
         [item release];
         return nil;
@@ -52,6 +60,7 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
 {
     return [NSArray arrayWithObjects:
         ToolbarItemUpID,
+        ToolbarItemRefreshID,
         nil];
 }
 
@@ -59,6 +68,7 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
 {
     return [NSArray arrayWithObjects:
         ToolbarItemUpID,
+        ToolbarItemRefreshID,
         NSToolbarCustomizeToolbarItemIdentifier,
         NSToolbarFlexibleSpaceItemIdentifier,
         NSToolbarSpaceItemIdentifier,
@@ -69,9 +79,9 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
 - (BOOL) validateToolbarItem: (NSToolbarItem *) item
 {
     if ([[item itemIdentifier] isEqual: ToolbarItemUpID]) {
-        return ([[self rootDir] parent] != nil);
+        return ![FLScanner isMountPoint: [[self rootDir] path]];
     }
-    return NO;
+    return YES;
 }
 
 #pragma mark Scanning
@@ -88,7 +98,7 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
     m_scanDir = dir;
 }
 
-- (BOOL) application: (NSApplication *)app openFile: (NSString *)filename
+- (BOOL) startScan: (NSString *) path
 {
     if (m_scanner) {
         return NO;
@@ -99,7 +109,7 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
     [scanDisplay setStringValue: @""];
     [window makeKeyAndOrderFront: self];
     
-    m_scanner = [[FLScanner alloc] initWithPath: filename
+    m_scanner = [[FLScanner alloc] initWithPath: path
                                        progress: progress
                                         display: scanDisplay];
     [m_scanner scanThenPerform: @selector(finishScan:)
@@ -134,6 +144,11 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
 
 #pragma mark Misc
 
+- (BOOL) application: (NSApplication *) app openFile: (NSString *) filename
+{
+    return [self startScan: filename];
+}
+
 - (void) awakeFromNib
 {
     m_scanner = nil;
@@ -150,7 +165,7 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
     int result = [openPanel runModalForTypes: nil];
     if (result == NSOKButton) {
         NSString *path = [[openPanel filenames] objectAtIndex: 0];
-        [self application: [NSApplication sharedApplication] openFile: path];
+        [self startScan: path];
     }
 }
 
@@ -175,7 +190,19 @@ static NSString *ToolbarItemUpID = @"Filelight Toolbar";
 
 - (void) parentDir: (id) sender
 {
-    [self setRootDir: [[self rootDir] parent]];
+    FLDirectory *parent = [[self rootDir] parent];
+    if (parent) {
+        [self setRootDir: parent];
+    } else {
+        NSString *path = [[self rootDir] path];
+        path = [path stringByDeletingLastPathComponent];
+        [self startScan: path];
+    }
+}
+
+- (void) refresh: (id) sender
+{
+    [self startScan: [[self rootDir] path]];
 }
 
 @end

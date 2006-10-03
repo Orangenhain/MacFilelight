@@ -144,15 +144,25 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     return noErr;
 }
 
++ (BOOL) isMountPoint: (NSString *) path
+{
+    return [self isMountPointCPath: [path fileSystemRepresentation]];
+}
+
++ (BOOL) isMountPointCPath: (const char *) cpath
+{
+    struct statfs st;
+    int err = statfs(cpath, &st);
+    return !err && strcmp(cpath, st.f_mntonname) == 0;
+}
+
 // We can give more accurate progress if we're working on a complete disk
 - (void) checkIfMount: (const char *) cpath
 {
-    struct statfs st;
     OSStatus err;
     
     m_files = 0;
-    err = statfs(cpath, &st);
-    if (!err && strcmp(cpath, st.f_mntonname) == 0) {
+    if ([FLScanner isMountPointCPath: cpath]) {
         err = [self numberOfFiles: &m_files onVolume: cpath];
         if (err) {
             m_files = 0;
