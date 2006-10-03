@@ -19,5 +19,6 @@
 - (IBAction) open: (id) sender; 
 
 - (void) setRootDir: (FLDirectory *) dir;
+- (FLDirectory *) rootDir;
 
 @end

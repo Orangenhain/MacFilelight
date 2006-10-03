@@ -185,48 +185,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>59A8CBF10AD206E00038A61E</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>map.cpp</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>59A8CBF20AD206E00038A61E</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>map.cpp</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>59A8CC540AD20E250038A61E</string>
-						<key>history</key>
-						<array>
-							<string>59A8CBF30AD206E00038A61E</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {670, 808}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>78 148 670 849 0 0 1280 1002 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -307,7 +266,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
+									<integer>3</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -350,7 +309,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FLView.m</string>
+								<string>FLController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -358,11 +317,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FLView.m</string>
+										<string>FLController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>59A8CC530AD20E250038A61E</string>
+										<string>59A8CCB00AD218E70038A61E</string>
 										<key>history</key>
 										<array>
 											<string>598E08BE0ABE6ABD00DF3A65</string>
@@ -373,7 +332,6 @@
 											<string>592165DE0AC2696A00AF1A37</string>
 											<string>592165DF0AC2696A00AF1A37</string>
 											<string>592165E00AC2696A00AF1A37</string>
-											<string>59727FCA0AD0F11B0002CDF8</string>
 											<string>59727FD30AD0F11B0002CDF8</string>
 											<string>59727FD60AD0F11B0002CDF8</string>
 											<string>5972803B0AD0F6B40002CDF8</string>
@@ -395,13 +353,14 @@
 											<string>59A8CC0B0AD208650038A61E</string>
 											<string>59A8CC0C0AD208650038A61E</string>
 											<string>59A8CC210AD2094B0038A61E</string>
-											<string>59A8CC220AD2094B0038A61E</string>
 											<string>59A8CC240AD2094B0038A61E</string>
 											<string>59A8CC250AD2094B0038A61E</string>
-											<string>59A8CC430AD20DF50038A61E</string>
 											<string>59A8CC440AD20DF50038A61E</string>
 											<string>59A8CC450AD20DF50038A61E</string>
-											<string>59A8CC460AD20DF50038A61E</string>
+											<string>59A8CC6D0AD214100038A61E</string>
+											<string>59A8CC9B0AD217940038A61E</string>
+											<string>59A8CCAC0AD218E70038A61E</string>
+											<string>59A8CCAD0AD218E70038A61E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -425,7 +384,6 @@
 											<string>5926482A0AC22B7C0091F0AF</string>
 											<string>5926482F0AC22B7C0091F0AF</string>
 											<string>592164BF0AC24C6700AF1A37</string>
-											<string>592164C20AC24C6700AF1A37</string>
 											<string>592165E30AC2696A00AF1A37</string>
 											<string>59727FEA0AD0F11B0002CDF8</string>
 											<string>59727FF20AD0F11B0002CDF8</string>
@@ -450,9 +408,7 @@
 											<string>59A8CBEE0AD206E00038A61E</string>
 											<string>59A8CBEF0AD206E00038A61E</string>
 											<string>59A8CC0E0AD208650038A61E</string>
-											<string>59A8CC0F0AD208650038A61E</string>
 											<string>59A8CC100AD208650038A61E</string>
-											<string>59A8CC110AD208650038A61E</string>
 											<string>59A8CC120AD208650038A61E</string>
 											<string>59A8CC130AD208650038A61E</string>
 											<string>59A8CC140AD208650038A61E</string>
@@ -461,9 +417,7 @@
 											<string>59A8CC170AD208650038A61E</string>
 											<string>59A8CC260AD2094B0038A61E</string>
 											<string>59A8CC270AD2094B0038A61E</string>
-											<string>59A8CC280AD2094B0038A61E</string>
 											<string>59A8CC290AD2094B0038A61E</string>
-											<string>59A8CC2A0AD2094B0038A61E</string>
 											<string>59A8CC2B0AD2094B0038A61E</string>
 											<string>59A8CC2C0AD2094B0038A61E</string>
 											<string>59A8CC350AD20CD80038A61E</string>
@@ -472,9 +426,12 @@
 											<string>59A8CC480AD20DF50038A61E</string>
 											<string>59A8CC490AD20DF50038A61E</string>
 											<string>59A8CC4A0AD20DF50038A61E</string>
-											<string>59A8CC4B0AD20DF50038A61E</string>
 											<string>59A8CC4C0AD20DF50038A61E</string>
 											<string>59A8CC4D0AD20DF50038A61E</string>
+											<string>59A8CC700AD214100038A61E</string>
+											<string>59A8CC720AD214100038A61E</string>
+											<string>59A8CCAE0AD218E70038A61E</string>
+											<string>59A8CCAF0AD218E70038A61E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -486,14 +443,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {978, 631}}</string>
+								<string>{{0, 0}, {978, 901}}</string>
 								<key>RubberWindowFrame</key>
 								<string>66 58 1213 944 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>631pt</string>
+							<string>901pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -506,14 +463,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 636}, {978, 270}}</string>
+								<string>{{0, 906}, {978, 0}}</string>
 								<key>RubberWindowFrame</key>
 								<string>66 58 1213 944 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>270pt</string>
+							<string>0pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -671,11 +628,10 @@
 		<string>59A8CBD60AD205880038A61E</string>
 		<string>59A8CBD70AD205880038A61E</string>
 		<string>598E08B40ABE6A9C00DF3A65</string>
-		<string>59A8CBD20AD205880038A61E</string>
-		<string>59623E920ABE65E700BBAEEE</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>59A8CBF10AD206E00038A61E</string>
+		<string>59A8CBD20AD205880038A61E</string>
 		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
+		<string>59623E920ABE65E700BBAEEE</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
 	</array>
 	<key>WindowString</key>
@@ -702,7 +658,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FLView.h</string>
+								<string>FLController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -769,7 +725,7 @@
 			<key>WindowToolGUID</key>
 			<string>59623E920ABE65E700BBAEEE</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -880,7 +836,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

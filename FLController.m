@@ -6,13 +6,75 @@
 
 #import "FLDirectoryDataSource.h"
 
+
+static NSString *ToolbarID = @"Filelight Toolbar";
+static NSString *ToolbarItemUpID = @"Filelight Toolbar";
+
+
 @implementation FLController
 
-- (void) awakeFromNib
+#pragma mark Toolbar
+
+- (void) setupToolbar
 {
-    m_scanner = nil;
-    m_scanDir = nil;
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier: ToolbarID];
+    [toolbar setDelegate: self];
+    [window setToolbar: toolbar];
 }
+
+- (NSToolbarItem *) toolbar: (NSToolbar *) toolbar
+      itemForItemIdentifier: (NSString *) itemID
+  willBeInsertedIntoToolbar: (BOOL) willInsert
+{
+    NSToolbarItem *item = [[NSToolbarItem alloc]
+        initWithItemIdentifier: itemID];
+    
+    if ([itemID isEqual: ToolbarItemUpID]) {
+        [item setLabel: @"Up"];
+        [item setToolTip: @"Go to the parent directory"];
+        [item setImage: [NSImage imageNamed: @"arrowUp"]];
+        [item setAction: @selector(parentDir:)];
+    } else {
+        [item release];
+        return nil;
+    }
+    
+    if (![item paletteLabel]) {
+        [item setPaletteLabel: [item label]];
+    }
+    if (![item target]) {
+        [item setTarget: self];
+    }
+    return [item autorelease];
+}
+
+- (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar *) toolbar
+{
+    return [NSArray arrayWithObjects:
+        ToolbarItemUpID,
+        nil];
+}
+
+- (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar *) toolbar
+{
+    return [NSArray arrayWithObjects:
+        ToolbarItemUpID,
+        NSToolbarCustomizeToolbarItemIdentifier,
+        NSToolbarFlexibleSpaceItemIdentifier,
+        NSToolbarSpaceItemIdentifier,
+        NSToolbarSeparatorItemIdentifier,
+        nil];
+}
+
+- (BOOL) validateToolbarItem: (NSToolbarItem *) item
+{
+    if ([[item itemIdentifier] isEqual: ToolbarItemUpID]) {
+        return ([[self rootDir] parent] != nil);
+    }
+    return NO;
+}
+
+#pragma mark Scanning
 
 - (FLDirectory *) scanDir
 {
@@ -45,13 +107,6 @@
     return YES;
 }
 
-- (void) setRootDir: (FLDirectory *) dir
-{
-    [[sizer dataSource] setRootDir: dir];
-    [sizer setNeedsDisplay: YES];
-    [window setTitle: [dir path]];
-}
-
 - (void) finishScan: (id) data
 {
     if ([m_scanner scanError]) {
@@ -68,6 +123,23 @@
     
     [m_scanner release];
     m_scanner = nil;
+}
+
+- (IBAction) cancelScan: (id) sender
+{
+    if (m_scanner) {
+        [m_scanner cancel];
+    }
+}
+
+#pragma mark Misc
+
+- (void) awakeFromNib
+{
+    m_scanner = nil;
+    m_scanDir = nil;
+    
+    [self setupToolbar];
 }
 
 - (IBAction) open: (id) sender
@@ -89,11 +161,21 @@
     }
 }
 
-- (IBAction) cancelScan: (id) sender
+- (void) setRootDir: (FLDirectory *) dir
 {
-    if (m_scanner) {
-        [m_scanner cancel];
-    }
+    [[sizer dataSource] setRootDir: dir];
+    [sizer setNeedsDisplay: YES];
+    [window setTitle: [dir path]];
+}
+
+- (FLDirectory *) rootDir
+{
+    return [[sizer dataSource] rootDir];
+}
+
+- (void) parentDir: (id) sender
+{
+    [self setRootDir: [[self rootDir] parent]];
 }
 
 @end
