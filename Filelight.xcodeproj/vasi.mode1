@@ -266,7 +266,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
+									<integer>17</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -309,7 +309,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FLController.m</string>
+								<string>FLView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -317,11 +317,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FLController.m</string>
+										<string>FLView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>59A8CCFB0AD21E890038A61E</string>
+										<string>59A8CDD40AD240F80038A61E</string>
 										<key>history</key>
 										<array>
 											<string>598E08BE0ABE6ABD00DF3A65</string>
@@ -350,17 +350,24 @@
 											<string>59764F670AD20517005C181D</string>
 											<string>59A8CBE70AD206E00038A61E</string>
 											<string>59A8CC240AD2094B0038A61E</string>
-											<string>59A8CC250AD2094B0038A61E</string>
 											<string>59A8CC440AD20DF50038A61E</string>
-											<string>59A8CC450AD20DF50038A61E</string>
-											<string>59A8CC6D0AD214100038A61E</string>
 											<string>59A8CC9B0AD217940038A61E</string>
 											<string>59A8CCC30AD21AB10038A61E</string>
 											<string>59A8CCC40AD21AB10038A61E</string>
-											<string>59A8CCC50AD21AB10038A61E</string>
-											<string>59A8CCE40AD21DF30038A61E</string>
-											<string>59A8CCE50AD21DF30038A61E</string>
-											<string>59A8CCE60AD21DF30038A61E</string>
+											<string>59A8CD240AD227820038A61E</string>
+											<string>59A8CD260AD227820038A61E</string>
+											<string>59A8CD3B0AD228320038A61E</string>
+											<string>59A8CD820AD230210038A61E</string>
+											<string>59A8CD830AD230210038A61E</string>
+											<string>59A8CD840AD230210038A61E</string>
+											<string>59A8CDB00AD23A650038A61E</string>
+											<string>59A8CDCE0AD240F80038A61E</string>
+											<string>59A8CDCF0AD240F80038A61E</string>
+											<string>59A8CDD00AD240F80038A61E</string>
+										</array>
+										<key>nextStack</key>
+										<array>
+											<string>59A8CDD30AD240F80038A61E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -382,7 +389,6 @@
 											<string>592647580AC21D230091F0AF</string>
 											<string>592648290AC22B7C0091F0AF</string>
 											<string>5926482A0AC22B7C0091F0AF</string>
-											<string>5926482F0AC22B7C0091F0AF</string>
 											<string>592164BF0AC24C6700AF1A37</string>
 											<string>592165E30AC2696A00AF1A37</string>
 											<string>59727FEA0AD0F11B0002CDF8</string>
@@ -402,7 +408,6 @@
 											<string>59A8CBC60AD205880038A61E</string>
 											<string>59A8CBC70AD205880038A61E</string>
 											<string>59A8CBEA0AD206E00038A61E</string>
-											<string>59A8CBEB0AD206E00038A61E</string>
 											<string>59A8CBEC0AD206E00038A61E</string>
 											<string>59A8CBED0AD206E00038A61E</string>
 											<string>59A8CBEE0AD206E00038A61E</string>
@@ -420,15 +425,11 @@
 											<string>59A8CC290AD2094B0038A61E</string>
 											<string>59A8CC2B0AD2094B0038A61E</string>
 											<string>59A8CC2C0AD2094B0038A61E</string>
-											<string>59A8CC350AD20CD80038A61E</string>
 											<string>59A8CC360AD20CD80038A61E</string>
-											<string>59A8CC470AD20DF50038A61E</string>
 											<string>59A8CC480AD20DF50038A61E</string>
-											<string>59A8CC490AD20DF50038A61E</string>
 											<string>59A8CC4A0AD20DF50038A61E</string>
 											<string>59A8CC4C0AD20DF50038A61E</string>
 											<string>59A8CC4D0AD20DF50038A61E</string>
-											<string>59A8CC700AD214100038A61E</string>
 											<string>59A8CC720AD214100038A61E</string>
 											<string>59A8CCAE0AD218E70038A61E</string>
 											<string>59A8CCAF0AD218E70038A61E</string>
@@ -445,6 +446,26 @@
 											<string>59A8CCEC0AD21DF30038A61E</string>
 											<string>59A8CCED0AD21DF30038A61E</string>
 											<string>59A8CCEE0AD21DF30038A61E</string>
+											<string>59A8CD010AD21F860038A61E</string>
+											<string>59A8CD2C0AD227820038A61E</string>
+											<string>59A8CD2E0AD227820038A61E</string>
+											<string>59A8CD3E0AD228320038A61E</string>
+											<string>59A8CD3F0AD228320038A61E</string>
+											<string>59A8CD410AD228320038A61E</string>
+											<string>59A8CD4D0AD2291A0038A61E</string>
+											<string>59A8CD640AD229D30038A61E</string>
+											<string>59A8CD660AD229D30038A61E</string>
+											<string>59A8CD670AD229D30038A61E</string>
+											<string>59A8CD680AD229D30038A61E</string>
+											<string>59A8CD870AD230210038A61E</string>
+											<string>59A8CD880AD230210038A61E</string>
+											<string>59A8CD890AD230210038A61E</string>
+											<string>59A8CD8A0AD230210038A61E</string>
+											<string>59A8CD8B0AD230210038A61E</string>
+											<string>59A8CD920AD230B30038A61E</string>
+											<string>59A8CDB20AD23A650038A61E</string>
+											<string>59A8CDD10AD240F80038A61E</string>
+											<string>59A8CDD20AD240F80038A61E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -638,14 +659,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>59A8CBD60AD205880038A61E</string>
 		<string>59A8CBD70AD205880038A61E</string>
 		<string>598E08B40ABE6A9C00DF3A65</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>59A8CBD20AD205880038A61E</string>
 		<string>59623E920ABE65E700BBAEEE</string>
-		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>66 58 1213 944 0 0 1280 1002 </string>
@@ -671,7 +693,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FLScanner.m</string>
+								<string>FLView.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -738,7 +760,7 @@
 			<key>WindowToolGUID</key>
 			<string>59623E920ABE65E700BBAEEE</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -874,7 +896,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FLScanner.m</string>
+										<string>FLController.m</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -930,8 +952,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>597285730AD1AEEE0002CDF8</string>
-				<string>597285740AD1AEEE0002CDF8</string>
+				<string>59A8CDCA0AD240DF0038A61E</string>
+				<string>59A8CDCB0AD240DF0038A61E</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
