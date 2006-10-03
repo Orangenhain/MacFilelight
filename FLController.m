@@ -32,6 +32,13 @@
     return YES;
 }
 
+- (void) setRootDir: (FLDirectory *) dir
+{
+    [[sizer dataSource] setRootDir: dir];
+    [sizer setNeedsDisplay: YES];
+    [window setTitle: [dir path]];
+}
+
 - (void) finishScan: (id) data
 {
     if ([m_scanner scanError]) {
@@ -41,8 +48,8 @@
         }
         [window orderOut: self];
     } else {
-        [[sizer dataSource] setRootDir: [m_scanner scanResult]];
-        [tabView selectTabViewItemWithIdentifier: @"Filelight"];       
+        [self setRootDir: [m_scanner scanResult]];
+        [tabView selectTabViewItemWithIdentifier: @"Filelight"];
     }
     
     [m_scanner release];

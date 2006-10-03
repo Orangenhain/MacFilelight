@@ -8,10 +8,16 @@
 - (float) maxRadius;
 @end
 
+// Colorer
+@interface NSObject (FLColorer)
+- (NSColor *) colorForItem: (id) item
+                 angleFrac: (float) angle
+                 levelFrac: (float) level;
+@end
+
 @protocol FLHasDataSource
 - (id) dataSource;
 @end
-
 
 @interface FLRadialPainter : NSObject
 {
@@ -20,6 +26,7 @@
     float m_minPaintAngle;
     
     NSView <FLHasDataSource> *m_view;
+    id m_colorer;
 }
 
 // Accessors
@@ -31,6 +38,9 @@
 - (void) setMaxRadiusFraction: (float)fraction;
 - (float) minPaintAngle;
 - (void) setMinPaintAngle: (float)angle;
+
+- (id) colorer;
+- (void) setColorer: (id) c;
 
 - (NSView <FLHasDataSource> *) view;
 - (void) setView: (NSView <FLHasDataSource> *)view;

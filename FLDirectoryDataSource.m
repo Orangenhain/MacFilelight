@@ -21,10 +21,11 @@
 
 - (void) setRootDir: (FLDirectory *) root
 {
+    [root retain];
     if (m_rootDir) {
         [m_rootDir release];
     }
-    m_rootDir = [root retain];
+    m_rootDir = root;
 }
 
 - (FLFile *) realItemFor: (id)item

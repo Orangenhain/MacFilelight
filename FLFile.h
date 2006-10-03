@@ -5,12 +5,14 @@
 typedef unsigned long long FLFile_size;
 
 typedef enum {
-    SIZE_TYPE_SI_BINARY     = 0x1,  // 1 KiB = 1024 bytes
-    SIZE_TYPE_SI_DECIMAL    = 0x2,  // 1 KB = 1000 bytes
-    SIZE_TYPE_OLD_BINARY    = 0x3,  // 1 KB = 1024 bytes
+    SizeTypeSIBinary    = 0x0,  // 1 KiB = 1024 bytes
+    SizeTypeSIDecimal   = 0x1,  // 1 KB = 1000 bytes
+    SizeTypeOldBinary   = 0x2,  // 1 KB = 1024 bytes
+    SizeTypeBaseMask    = 0xF,
     
-    SIZE_TYPE_SHORT         = 0x10,
-    SIZE_TYPE_LONG          = 0x20
+    SizeTypeShort       = 0x00,
+    SizeTypeLong        = 0x10,
+    SizeTypeLengthMask  = 0xF0
 } FLFileSizeType;
 
 @interface FLFile : NSObject {
@@ -22,8 +24,9 @@ typedef enum {
 - (NSString *) path;
 - (FLFile_size) size;
 
-- (NSString *) humanReadableSizeOfType: (FLFileSizeType) type
-                               sigFigs: (size_t) figs;
++ (NSString *) humanReadableSize: (FLFile_size) size
+                            type: (FLFileSizeType) type
+                         sigFigs: (size_t) figs;
 - (NSString *) displaySize;
 @end
 

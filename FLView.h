@@ -5,8 +5,10 @@
 #import "FLRadialPainter.h"
 
 @interface FLView : NSView <FLHasDataSource> {
-    IBOutlet id display;
+    IBOutlet id locationDisplay;
+    IBOutlet id sizeDisplay;
     IBOutlet id dataSource;
+    IBOutlet id controller;
     
     FLRadialPainter *painter;
     NSTrackingRectTag trackingRect;

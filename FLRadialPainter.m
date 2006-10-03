@@ -39,8 +39,15 @@
         m_minPaintAngle = 1.0;
         
         m_view = view; // No retain, view should own us
+        m_colorer = nil;
     }
     return self;
+}
+
+- (void) dealloc
+{
+    if (m_colorer) [m_colorer release];
+    [super dealloc];
 }
 
 
@@ -95,6 +102,18 @@
     m_minPaintAngle = angle;
 }
 
+- (id) colorer
+{
+    return m_colorer;
+}
+
+- (void) setColorer: (id) c
+{
+    [c retain];
+    if (m_colorer) [m_colorer release];
+    m_colorer = c;
+}
+
 - (NSView <FLHasDataSource> *) view
 {
     return m_view;
@@ -134,6 +153,16 @@
     return [self minRadiusFraction] + ([self radiusFractionPerLevel] * level);
 }
 
+// Default coloring scheme
+- (NSColor *) colorForItem: (id) item
+                 angleFrac: (float) angle
+                 levelFrac: (float) level
+{
+    return [NSColor colorWithCalibratedHue: angle
+                                saturation: 0.6 - (level / 4)
+                                brightness: 1.0
+                                     alpha: 1.0];
+}
 
 - (NSColor *) colorForItem: (FLRadialItem *)ritem
 {
@@ -145,15 +174,16 @@
     NSAssert(angleFrac >= 0 && angleFrac <= 1.0,
              @"Angle fraction must be between zero and one");
     
-    NSColor *color = [NSColor colorWithCalibratedHue: angleFrac
-                                          saturation: 0.6 - (levelFrac / 4)
-                                          brightness: 1.0
-                                               alpha: 1.0];
-    return color;
+    id c = m_colorer ? m_colorer : self;
+    return [c colorForItem: [ritem item]
+                 angleFrac: angleFrac
+                 levelFrac: levelFrac];
 }
 
 - (void) drawItem: (FLRadialItem *)ritem
 {
+    float h, s, v, a;
+
     int level = [ritem level];
     float inner = [self innerRadiusFractionForLevel: level];
     float outer = [self innerRadiusFractionForLevel: level + 1];
@@ -168,7 +198,7 @@
     
     [fill set];
     [bp fill];
-    [[NSColor blackColor] set];
+    [[fill shadowWithLevel: 0.4] set];
     [bp stroke];
 }
 

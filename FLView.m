@@ -5,6 +5,8 @@
 #import "FLView.h"
 
 #import "FLRadialPainter.h"
+#import "FLFile.h"
+#import "FLController.h"
 
 @implementation FLView
 
@@ -71,7 +73,8 @@
 - (void) mouseExited: (NSEvent *) event
 {
     [[self window] setAcceptsMouseMovedEvents: wasAcceptingMouseEvents];
-    [display setStringValue: @""];
+    [locationDisplay setStringValue: @""];
+    [sizeDisplay setStringValue: @""];
 }
 
 - (void) mouseMoved: (NSEvent *) event
@@ -79,9 +82,20 @@
     NSPoint where = [self convertPoint: [event locationInWindow] fromView: nil];
     id item = [painter itemAt: where];
     if (item) {
-        [display setStringValue: [item path]];
+        [locationDisplay setStringValue: [item path]];
+        [sizeDisplay setStringValue: [item displaySize]];
     } else {
-        [display setStringValue: @""];
+        [locationDisplay setStringValue: @""];
+        [sizeDisplay setStringValue: @""];
+    }
+}
+
+- (void) mouseUp: (NSEvent *) event
+{
+    NSPoint where = [self convertPoint: [event locationInWindow] fromView: nil];
+    id item = [painter itemAt: where];
+    if (item && [item isKindOfClass: [FLDirectory class]]) {
+        [controller setRootDir: item];
     }
 }
 
@@ -101,19 +115,19 @@
 - (void) awakeFromNib
 {
     painter = [[FLRadialPainter alloc] initWithView: self];
-    [dataSource addObserver: self
-                 forKeyPath: @"rootPath"
-                    options: NSKeyValueObservingOptionNew
-                    context: NULL];
+    [painter setColorer: self];
 }
 
-- (void) observeValueForKeyPath: (NSString *) keyPath
-                       ofObject: (id) object 
-                         change: (NSDictionary *) change
-                        context: (void *) context
+- (NSColor *) colorForItem: (id) item
+                 angleFrac: (float) angle
+                 levelFrac: (float) level
 {
-    if (object == dataSource) {
-        [self setNeedsDisplay: YES];
+    if ([item isKindOfClass: [FLDirectory class]]) {
+        return [painter colorForItem: item
+                           angleFrac: angle
+                           levelFrac: level];
+    } else {
+        return [NSColor colorWithCalibratedWhite: 0.85 alpha: 1.0];
     }
 }
 
