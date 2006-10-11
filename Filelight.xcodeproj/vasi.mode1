@@ -266,6 +266,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>26</integer>
+									<integer>23</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -300,8 +302,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -319,7 +319,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>59A8CEA50AD24DF60038A61E</string>
+										<string>59A8CEAE0AD325200038A61E</string>
 										<key>history</key>
 										<array>
 											<string>598E08BE0ABE6ABD00DF3A65</string>
@@ -502,6 +502,8 @@
 							<string>631pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -678,10 +680,10 @@
 		<string>59A8CBD60AD205880038A61E</string>
 		<string>59A8CBD70AD205880038A61E</string>
 		<string>598E08B40ABE6A9C00DF3A65</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>59A8CBD20AD205880038A61E</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
 		<string>59623E920ABE65E700BBAEEE</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/vasi/Desktop/Filelight/Filelight.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -888,7 +890,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
