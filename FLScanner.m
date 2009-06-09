@@ -72,7 +72,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     [m_lock unlock];
 }
 
-- (void) updateProgressWithPath: (NSString *) path
+- (void) updateProgress
 {
     ++m_seen;
     m_progress += m_increment;
@@ -83,7 +83,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             : m_progress;
         NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
             [NSNumber numberWithDouble: real_prog], @"progress",
-            path, @"path",
+            m_last_path, @"path",
             nil];
         
         SEL sel = @selector(updateProgressOnMainThread:);
@@ -95,7 +95,9 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 - (void) updateProgressOnMainThread: (NSDictionary *) data
 {
     [m_pi setDoubleValue: [[data objectForKey: @"progress"] doubleValue]];
-    [m_display setStringValue: [data objectForKey: @"path"]];
+	NSString *p;
+	if ((p = [data objectForKey: @"path"]))
+		[m_display setStringValue: p];
     [data release];
 }
 
@@ -184,6 +186,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     
     m_progress = 0.0;
     m_increment = 100.0;
+	m_last_path = nil;
     m_seen = 0;
     
     errno = 0; // Why is this non-zero here?
@@ -207,18 +210,19 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             return NO;
         }
         
+		BOOL err = NO, pop = NO;
+		
         switch (ent->fts_info) {
             case FTS_D: {
                 dir = [[FLDirectory alloc] initWithPath: stringPath(fm, ent)
                                                  parent: dir];
+				m_last_path = [dir path];
                 [dir autorelease];
                 [dirstack addObject: dir];
-                m_increment /= (ent->fts_statp->st_nlink - 1); // pre, children
+                m_increment /= ent->fts_statp->st_nlink; // pre, children, post
                 if (!m_tree) {
                     m_tree = [dir retain];
                 }
-                [self updateProgressWithPath: [dir path]];
-                
                 break;
             }
                 
@@ -229,33 +233,42 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                 FLFile *file = [[FLFile alloc]
                     initWithPath: stringPath(fm, ent)
                             size: ent->fts_statp->st_blocks * BLOCK_SIZE];
+                m_last_path = [file path];
                 [file autorelease];
                 [dir addChild: file];
-                [self updateProgressWithPath: [file path]];
-                break;
+				break;
             }
+			
+			case FTS_DNR:
+				err = pop = YES;
+				break;
                 
-            case FTS_DNR:
-                NSLog(@"Can't scan in '%s': %s\n", ent->fts_path,
-                      strerror(ent->fts_errno));
-                // Fall through!
+            case FTS_DP:
+				pop = YES;
+                break;
                 
-            case FTS_DP: {
-                m_increment *= (ent->fts_statp->st_nlink - 1);
+            default:
+				err = YES;
+				// we can get an error on exiting a dir!
+				pop = ent->fts_path && [[dir path] isEqualToString:
+					stringPath(fm, ent)];
+        }
+		
+		if (err) {
+			NSLog(@"Error scanning '%s': %s\n", ent->fts_path,
+				  strerror(ent->fts_errno));
+		}
+		
+		[self updateProgress];
+		if (pop) {
+				m_increment *= ent->fts_statp->st_nlink;
                 FLDirectory *subdir = dir;
                 [dirstack removeLastObject];
                 dir = [dirstack lastObject];
                 if (dir) {
                     [dir addChild: subdir];
                 }
-                break;
-            }
-                
-            default:
-                NSLog(@"Error scanning '%s': %s\n", ent->fts_path,
-                      strerror(ent->fts_errno));
-                break;
-        }
+		}
     }
     if (errno) return [self error: errno inFunc: @"fts_read"];
     

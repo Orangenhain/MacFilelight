@@ -14,6 +14,8 @@
     
     double m_increment;
     double m_progress;
+	NSString *m_last_path;
+	
     uint32_t m_files;
     uint32_t m_seen;
     

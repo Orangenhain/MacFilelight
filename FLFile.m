@@ -108,7 +108,7 @@
 
 - (void) addChild: (FLFile *) child
 {
-    [m_children addObject: child];
+	[m_children addObject: child];
     m_size += [child size];
 }
 
