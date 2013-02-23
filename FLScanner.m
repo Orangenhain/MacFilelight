@@ -4,6 +4,9 @@
 
 #import "FLScanner.h"
 
+#include <sys/mount.h>
+#include <sys/stat.h>
+#include <fts.h>
 
 // As defined in stat(2)
 #define BLOCK_SIZE 512
