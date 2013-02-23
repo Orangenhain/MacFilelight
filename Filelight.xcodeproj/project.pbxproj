@@ -51,7 +51,6 @@
 		59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRadialItem.m; sourceTree = "<group>"; };
 		597282270AD176FA0002CDF8 /* FLScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLScanner.m; sourceTree = "<group>"; };
 		597282280AD176FA0002CDF8 /* FLScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanner.h; sourceTree = "<group>"; };
-		597287350AD1D4310002CDF8 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		59A163270ABF8B27005C1217 /* FLDirectoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLDirectoryDataSource.h; sourceTree = "<group>"; };
 		59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLDirectoryDataSource.m; sourceTree = "<group>"; };
 		59A163360ABF8BEB005C1217 /* FLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFile.h; sourceTree = "<group>"; };
@@ -104,7 +103,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				597287350AD1D4310002CDF8 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
