@@ -15,7 +15,6 @@
 		59623EB00ABE674E00BBAEEE /* NSBezierPath+Segment.m in Sources */ = {isa = PBXBuildFile; fileRef = 59623EAE0ABE674E00BBAEEE /* NSBezierPath+Segment.m */; };
 		59727F950AD0EE9C0002CDF8 /* FLRadialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59727F940AD0EE9C0002CDF8 /* FLRadialItem.m */; };
 		597282290AD176FA0002CDF8 /* FLScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 597282270AD176FA0002CDF8 /* FLScanner.m */; };
-		5972874A0AD1D4320002CDF8 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597287350AD1D4310002CDF8 /* Carbon.framework */; };
 		59A163290ABF8B27005C1217 /* FLDirectoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A163280ABF8B27005C1217 /* FLDirectoryDataSource.m */; };
 		59A163380ABF8BEB005C1217 /* FLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A163370ABF8BEB005C1217 /* FLFile.m */; };
 		59A164EC0AC1E26B005C1217 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 59A164EB0AC1E26B005C1217 /* Credits.rtf */; };
@@ -71,7 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				5972874A0AD1D4320002CDF8 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +304,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -316,6 +315,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

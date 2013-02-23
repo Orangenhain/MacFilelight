@@ -118,32 +118,24 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                            withObject: nil];
 }
 
-- (OSStatus) numberOfFiles: (uint32_t *)outnum
-                  onVolume: (const char *) cpath
+- (NSUInteger) numberOfResourcesOnVolume:(NSString *)volumePath
 {
-    OSStatus err;
-    FSRef ref;
-    FSCatalogInfo catInfo;
-    FSVolumeInfo volInfo;
+    NSURL   *volumeURL = [NSURL fileURLWithPath:volumePath];
+    id       value     = nil;
+    NSError *error     = nil;
     
-    err = FSPathMakeRef((const UInt8 *)cpath, &ref, NULL);
-    if (err) return err;
+    // resourceCount = kFSVolInfoDirCount + kFSVolInfoFileCount
+    [volumeURL getResourceValue:&value
+                         forKey:NSURLVolumeResourceCountKey
+                          error:&error];
     
-    err = FSGetCatalogInfo(&ref, kFSCatInfoVolume , &catInfo, NULL, NULL, NULL);
-    if (err) return err;
-    
-    err = FSGetVolumeInfo(catInfo.volume, 0, NULL, kFSVolInfoFileCount,
-                          &volInfo, NULL, NULL);
-    if (err) return err;
-    *outnum = volInfo.fileCount;
-    
-    err = FSGetVolumeInfo(catInfo.volume, 0, NULL, kFSVolInfoDirCount,
-                          &volInfo, NULL, NULL);
-    if (!err) {
-        *outnum += volInfo.folderCount;
+    if (error || ( [value isKindOfClass:[NSNumber class]] == NO ) )
+    {
+        NSLog(@"ERROR: could not get numberOfResourcesOnVolume: %@ - %@\n%@", volumePath, value, error);
+        return NSNotFound;
     }
     
-    return noErr;
+    return [(NSNumber *)value integerValue];
 }
 
 + (BOOL) isMountPoint: (NSString *) path
@@ -161,15 +153,11 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 // We can give more accurate progress if we're working on a complete disk
 - (void) checkIfMount: (const char *) cpath
 {
-    OSStatus err;
-    
     m_files = 0;
     if ([FLScanner isMountPointCPath: cpath]) {
-        err = [self numberOfFiles: &m_files onVolume: cpath];
-        if (err) {
-            m_files = 0;
-            NSLog(@"Can't get number of files on volume '%s': error code %d",
-                  cpath, err);
+        NSUInteger resourceCount = [self numberOfResourcesOnVolume:[NSString stringWithCString:cpath encoding:NSUTF8StringEncoding]];
+        if (resourceCount != NSNotFound) {
+            m_files = resourceCount;
         }
     }
 }
