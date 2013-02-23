@@ -4,8 +4,10 @@
 
 #import "FLScanner.h"
 
+@class FLView;
+
 @interface FLController : NSObject {
-    IBOutlet id sizer;
+    IBOutlet FLView * sizer;
     IBOutlet id tabView;
     IBOutlet id progress;
     IBOutlet id scanDisplay;

@@ -5,12 +5,15 @@
 #import "FLController.h"
 
 #import "FLDirectoryDataSource.h"
-
+#import "FLView.h"
 
 static NSString *ToolbarID = @"Filelight Toolbar";
 static NSString *ToolbarItemUpID = @"Up ToolbarItem";
 static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
+@interface FLController () <NSToolbarDelegate>
+
+@end
 
 @implementation FLController
 
@@ -162,9 +165,10 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
     [openPanel setCanChooseDirectories: YES];
     [openPanel setCanChooseFiles: NO];
-    int result = [openPanel runModalForTypes: nil];
+    [openPanel setAllowedFileTypes:nil];
+    int result = [openPanel runModal];
     if (result == NSOKButton) {
-        NSString *path = [[openPanel filenames] objectAtIndex: 0];
+        NSString *path = [(NSURL *)[[openPanel URLs] objectAtIndex:0] path];
         [self startScan: path];
     }
 }
