@@ -6,6 +6,8 @@
 
 #import "FLDirectoryDataSource.h"
 #import "FLView.h"
+#import "FLScanner.h"
+#import "FLFile.h"
 
 static NSString *ToolbarID = @"Filelight Toolbar";
 static NSString *ToolbarItemUpID = @"Up ToolbarItem";

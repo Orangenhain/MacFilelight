@@ -2,8 +2,8 @@
  * This file is licensed under the GNU General Public License,
  * see the file Copying.txt for details. */
 
-#import "FLScanner.h"
-
+@class FLScanner;
+@class FLDirectory;
 @class FLView;
 
 @interface FLController : NSObject {

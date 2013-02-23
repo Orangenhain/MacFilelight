@@ -2,7 +2,7 @@
  * This file is licensed under the GNU General Public License,
  * see the file Copying.txt for details. */
 
-#import "FLFile.h"
+@class FLDirectory;
 
 @interface FLScanner : NSObject {
     NSString *m_path;

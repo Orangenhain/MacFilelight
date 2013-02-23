@@ -3,6 +3,7 @@
  * see the file Copying.txt for details. */
 
 #import "FLScanner.h"
+#import "FLFile.h"
 
 #include <sys/mount.h>
 #include <sys/stat.h>

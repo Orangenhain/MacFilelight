@@ -3,6 +3,7 @@
  * see the file Copying.txt for details. */
 
 #import "FLDirectoryDataSource.h"
+#import "FLFile.h"
 
 @implementation FLDirectoryDataSource
 
