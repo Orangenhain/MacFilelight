@@ -37,7 +37,7 @@
 - (id) child: (int)index ofItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
-    return [[(FLDirectory *)file children] objectAtIndex: index];
+    return [(FLDirectory *)file children][index];
 }
 
 - (int) numberOfChildrenOfItem: (id)item

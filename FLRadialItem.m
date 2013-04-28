@@ -63,7 +63,7 @@
 - (NSArray *) children
 {
     if ([self weight] == 0.0) {
-        return [NSArray array];
+        return @[];
     }
     
     float curAngle = [self startAngle];

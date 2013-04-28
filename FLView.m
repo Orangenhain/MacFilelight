@@ -158,7 +158,7 @@
         performFileOperation: NSWorkspaceRecycleOperation
                       source: [path stringByDeletingLastPathComponent]
                  destination: @""
-                       files: [NSArray arrayWithObject: basename]
+                       files: @[basename]
                          tag: &tag];
     
     if (success) {
@@ -173,7 +173,7 @@
 - (IBAction) copyPath: (id __attribute__ ((unused))) sender
 {
     NSPasteboard *pb = [NSPasteboard generalPasteboard];
-    [pb declareTypes: [NSArray arrayWithObject: NSStringPboardType]
+    [pb declareTypes: @[NSStringPboardType]
                owner: self];
     [pb setString: [[m_context_target path] copy]
           forType: NSStringPboardType];

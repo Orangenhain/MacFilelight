@@ -43,8 +43,7 @@
     FLFileSizeType length, baseType;
     NSString *pref, *suf;
     
-    NSArray *prefixes = [NSArray arrayWithObjects: @"", @"kilo", @"mega",
-        @"giga", @"peta", @"exa", @"zetta", @"yotta", nil];
+    NSArray *prefixes = @[@"", @"kilo", @"mega", @"giga", @"peta", @"exa", @"zetta", @"yotta"];
     
     baseType = type & SizeTypeBaseMask;
     base = (baseType == SizeTypeSIDecimal) ? 1000 : 1024;
@@ -56,7 +55,7 @@
         ++idx;
         fsize /= base;
     }
-    pref = [prefixes objectAtIndex: idx];
+    pref = prefixes[idx];
     
     // Precision
     digits = 1 + (unsigned)log10(fsize);

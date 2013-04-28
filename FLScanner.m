@@ -86,7 +86,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             ? 100.0 * m_seen / m_files
             : m_progress;
         NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
-            [NSNumber numberWithDouble: real_prog], @"progress",
+            @(real_prog), @"progress",
             m_last_path, @"path",
             nil];
         
@@ -98,9 +98,9 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 
 - (void) updateProgressOnMainThread: (NSDictionary *) data
 {
-    [m_pi setDoubleValue: [[data objectForKey: @"progress"] doubleValue]];
+    [m_pi setDoubleValue: [data[@"progress"] doubleValue]];
 	NSString *p;
-	if ((p = [data objectForKey: @"path"]))
+	if ((p = data[@"path"]))
 		[m_display setStringValue: p];
     [data release];
 }
@@ -159,7 +159,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 {
     m_files = 0;
     if ([FLScanner isMountPointCPath: cpath]) {
-        NSUInteger resourceCount = [self numberOfResourcesOnVolume:[NSString stringWithCString:cpath encoding:NSUTF8StringEncoding]];
+        NSUInteger resourceCount = [self numberOfResourcesOnVolume:@(cpath)];
         if (resourceCount != NSNotFound) {
             m_files = resourceCount;
         }

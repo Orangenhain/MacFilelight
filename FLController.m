@@ -63,22 +63,17 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 - (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
 {
-    return [NSArray arrayWithObjects:
-        ToolbarItemUpID,
-        ToolbarItemRefreshID,
-        nil];
+    return @[ToolbarItemUpID, ToolbarItemRefreshID];
 }
 
 - (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
 {
-    return [NSArray arrayWithObjects:
-        ToolbarItemUpID,
-        ToolbarItemRefreshID,
-        NSToolbarCustomizeToolbarItemIdentifier,
-        NSToolbarFlexibleSpaceItemIdentifier,
-        NSToolbarSpaceItemIdentifier,
-        NSToolbarSeparatorItemIdentifier,
-        nil];
+    return @[ToolbarItemUpID,
+             ToolbarItemRefreshID,
+             NSToolbarCustomizeToolbarItemIdentifier,
+             NSToolbarFlexibleSpaceItemIdentifier,
+             NSToolbarSpaceItemIdentifier,
+             NSToolbarSeparatorItemIdentifier];
 }
 
 - (BOOL) validateToolbarItem: (NSToolbarItem *) item
@@ -170,7 +165,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     [openPanel setAllowedFileTypes:nil];
     int result = [openPanel runModal];
     if (result == NSOKButton) {
-        NSString *path = [(NSURL *)[[openPanel URLs] objectAtIndex:0] path];
+        NSString *path = [(NSURL *)[openPanel URLs][0] path];
         [self startScan: path];
     }
 }
