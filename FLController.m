@@ -30,9 +30,9 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     [window setToolbar: toolbar];
 }
 
-- (NSToolbarItem *) toolbar: (NSToolbar *) toolbar
+- (NSToolbarItem *) toolbar: (NSToolbar * __attribute__ ((unused))) toolbar
       itemForItemIdentifier: (NSString *) itemID
-  willBeInsertedIntoToolbar: (BOOL) willInsert
+  willBeInsertedIntoToolbar: (BOOL __attribute__ ((unused))) willInsert
 {
     NSToolbarItem *item = [[NSToolbarItem alloc]
         initWithItemIdentifier: itemID];
@@ -61,7 +61,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     return [item autorelease];
 }
 
-- (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar *) toolbar
+- (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
 {
     return [NSArray arrayWithObjects:
         ToolbarItemUpID,
@@ -69,7 +69,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
         nil];
 }
 
-- (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar *) toolbar
+- (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
 {
     return [NSArray arrayWithObjects:
         ToolbarItemUpID,
@@ -122,7 +122,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     return YES;
 }
 
-- (void) finishScan: (id) data
+- (void) finishScan: (id __attribute__ ((unused))) data
 {
     if ([m_scanner scanError]) {
         if (![m_scanner isCancelled]) {
@@ -140,7 +140,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     m_scanner = nil;
 }
 
-- (IBAction) cancelScan: (id) sender
+- (IBAction) cancelScan: (id __attribute__ ((unused))) sender
 {
     if (m_scanner) {
         [m_scanner cancel];
@@ -149,7 +149,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 #pragma mark Misc
 
-- (BOOL) application: (NSApplication *) app openFile: (NSString *) filename
+- (BOOL) application: (NSApplication * __attribute__ ((unused))) app openFile: (NSString *) filename
 {
     return [self startScan: filename];
 }
@@ -162,7 +162,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     [self setupToolbar];
 }
 
-- (IBAction) open: (id) sender
+- (IBAction) open: (id __attribute__ ((unused))) sender
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
     [openPanel setCanChooseDirectories: YES];
@@ -175,7 +175,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     }
 }
 
-- (void) applicationDidFinishLaunching: (NSNotification*) notification
+- (void) applicationDidFinishLaunching: (NSNotification* __attribute__ ((unused))) notification
 {
     if (![window isVisible]) {
         [self open: self];
@@ -194,7 +194,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     return [[sizer dataSource] rootDir];
 }
 
-- (void) parentDir: (id) sender
+- (void) parentDir: (id __attribute__ ((unused))) sender
 {
     FLDirectory *parent = [[self rootDir] parent];
     if (parent) {
@@ -206,7 +206,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     }
 }
 
-- (void) refresh: (id) sender
+- (void) refresh: (id __attribute__ ((unused))) sender
 {
     [self startScan: [[self rootDir] path]];
 }

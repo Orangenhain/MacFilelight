@@ -65,7 +65,7 @@
     }
 }
 
-- (void) mouseEntered: (NSEvent *) event
+- (void) mouseEntered: (NSEvent * __attribute__ ((unused))) event
 {
     m_wasAcceptingMouseEvents = [[self window] acceptsMouseMovedEvents];
     [[self window] setAcceptsMouseMovedEvents: YES];
@@ -78,7 +78,7 @@
     return [m_painter itemAt: where];
 }
 
-- (void) mouseExited: (NSEvent *) event
+- (void) mouseExited: (NSEvent * __attribute__ ((unused))) event
 {
     [[self window] setAcceptsMouseMovedEvents: m_wasAcceptingMouseEvents];
     [locationDisplay setStringValue: @""];
@@ -130,23 +130,23 @@
     return YES;
 }
 
-- (IBAction) zoom: (id) sender
+- (IBAction) zoom: (id __attribute__ ((unused))) sender
 {
     [controller setRootDir: (FLDirectory *)m_context_target];
 }
 
-- (IBAction) open: (id) sender
+- (IBAction) open: (id __attribute__ ((unused))) sender
 {
     [[NSWorkspace sharedWorkspace] openFile: [m_context_target path]];
 }
 
-- (IBAction) reveal: (id) sender
+- (IBAction) reveal: (id __attribute__ ((unused))) sender
 {
     [[NSWorkspace sharedWorkspace] selectFile: [m_context_target path]
                      inFileViewerRootedAtPath: @""];
 }
 
-- (IBAction) trash: (id) sender
+- (IBAction) trash: (id __attribute__ ((unused))) sender
 {
     NSInteger tag;
     BOOL success;
@@ -170,7 +170,7 @@
     }
 }
 
-- (IBAction) copyPath: (id) sender
+- (IBAction) copyPath: (id __attribute__ ((unused))) sender
 {
     NSPasteboard *pb = [NSPasteboard generalPasteboard];
     [pb declareTypes: [NSArray arrayWithObject: NSStringPboardType]
@@ -181,7 +181,7 @@
 
 #pragma mark Drawing
 
-- (void) drawSize: (NSString *) str;
+- (void) drawSize: (NSString * __attribute__ ((unused))) str
 {
     double rfrac, wantr, haver;
     float pts;

@@ -105,7 +105,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     [data release];
 }
 
-- (BOOL) error: (int) err inFunc: (NSString *) func
+- (BOOL) error: (int __attribute__ ((unused))) err inFunc: (NSString *) func
 {
     m_error = [[NSString alloc] initWithFormat: @"%@: %s", func,
         strerror(errno)];
@@ -268,7 +268,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     return YES;
 }
 
-- (void) scanOnWorkerThread: (id) data
+- (void) scanOnWorkerThread: (id __attribute__ ((unused))) data
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     [self realScan];

@@ -29,7 +29,7 @@
 
 @implementation FLRadialPainter
 
-- (id) initWithView: (NSView <FLHasDataSource> *)view;
+- (id) initWithView: (NSView <FLHasDataSource> *)view
 {
     if (self = [super init]) {
         // Default values
@@ -154,7 +154,7 @@
 }
 
 // Default coloring scheme
-- (NSColor *) colorForItem: (id) item
+- (NSColor *) colorForItem: (id __attribute__ ((unused))) item
                  angleFrac: (float) angle
                  levelFrac: (float) level
 {
@@ -220,7 +220,7 @@
     }
 }
 
-- (void)drawRect: (NSRect)rect
+- (void)drawRect: (NSRect __attribute__ ((unused)))rect
 {
     // TODO: Choose root item(s) from rect
     [self drawTreeForItem: [self root]];

@@ -97,7 +97,7 @@
 
 @implementation FLDirectory
 
-- (id) initWithPath: (NSString *) path parent: (FLDirectory *) parent;
+- (id) initWithPath: (NSString *) path parent: (FLDirectory * __attribute__ ((unused))) parent
 {
     if (self = [super initWithPath: path size: 0]) {
         m_children = [[NSMutableArray alloc] init];

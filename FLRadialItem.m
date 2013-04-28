@@ -60,7 +60,7 @@
     return [self endAngle] - [self startAngle];
 }
 
-- (NSArray *) children;
+- (NSArray *) children
 {
     if ([self weight] == 0.0) {
         return [NSArray array];
