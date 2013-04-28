@@ -5,11 +5,8 @@
 @class FLDirectory;
 
 // Data source using files in a directory
-@interface FLDirectoryDataSource : NSObject {
-    FLDirectory *m_rootDir;
-}
+@interface FLDirectoryDataSource : NSObject
 
-- (FLDirectory *) rootDir;
-- (void) setRootDir: (FLDirectory *) root;
+@property (retain) FLDirectory *rootDir;
 
 @end

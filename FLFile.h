@@ -15,28 +15,26 @@ typedef enum {
     SizeTypeLengthMask  = 0xF0
 } FLFileSizeType;
 
-@interface FLFile : NSObject {
-    NSString *m_path;
-    FLFile_size m_size;
-}
+@interface FLFile : NSObject
+
+@property (copy)   NSString    *path;
+@property (assign) FLFile_size  size;
 
 - (id) initWithPath: (NSString *) path size: (FLFile_size) size;
-- (NSString *) path;
-- (FLFile_size) size;
 
 + (NSString *) humanReadableSize: (FLFile_size) size
                             type: (FLFileSizeType) type
                          sigFigs: (size_t) figs;
 - (NSString *) displaySize;
+
 @end
 
-@interface FLDirectory : FLFile {
-    NSMutableArray *m_children;
-    FLDirectory *m_parent;
-}
+@interface FLDirectory : FLFile
+
+@property (readonly) FLDirectory *parent;
+@property (readonly) NSArray     *children;
 
 - (id) initWithPath: (NSString *) path parent: (FLDirectory *) parent;
 - (void) addChild: (FLFile *) child;
-- (NSArray *) children;
-- (FLDirectory *) parent;
+
 @end

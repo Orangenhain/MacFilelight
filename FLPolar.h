@@ -4,8 +4,7 @@
 
 // Utilities for polar points
 // NB: Angles are all in degrees
-@interface FLPolar : NSObject {
-}
+@interface FLPolar : NSObject
 
 // Create a point with polar coordinates
 + (NSPoint) pointWithPolarCenter: (NSPoint)center

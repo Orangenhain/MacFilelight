@@ -6,20 +6,9 @@
 @class FLDirectory;
 @class FLView;
 
-@interface FLController : NSObject {
-    IBOutlet FLView * sizer;
-    IBOutlet id tabView;
-    IBOutlet id progress;
-    IBOutlet id scanDisplay;
-    IBOutlet id window;
-    
-    FLScanner *m_scanner;
-    FLDirectory *m_scanDir;
-}
+@interface FLController : NSObject 
 
-- (IBAction) cancelScan: (id) sender;
-- (IBAction) open: (id) sender; 
-- (IBAction) refresh: (id) sender; 
+- (void) refresh;
 
 - (void) setRootDir: (FLDirectory *) dir;
 - (FLDirectory *) rootDir;

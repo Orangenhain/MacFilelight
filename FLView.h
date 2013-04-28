@@ -4,26 +4,6 @@
 
 #import "FLRadialPainter.h" // need to import for FLHasDataSource protocol
 
-@class FLFile;
-
-@interface FLView : NSView <FLHasDataSource> {
-    IBOutlet id locationDisplay;
-    IBOutlet id sizeDisplay;
-    IBOutlet id dataSource;
-    IBOutlet id controller;
-    IBOutlet id contextMenu;
-    
-    FLRadialPainter *m_painter;
-    NSTrackingRectTag m_trackingRect;
-    BOOL m_wasAcceptingMouseEvents;
-    
-    FLFile *m_context_target;
-}
-
-- (IBAction) zoom: (id) sender;
-- (IBAction) open: (id) sender;
-- (IBAction) reveal: (id) sender;
-- (IBAction) trash: (id) sender;
-- (IBAction) copyPath: (id) sender;
+@interface FLView : NSView <FLHasDataSource>
 
 @end

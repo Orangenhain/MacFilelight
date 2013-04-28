@@ -20,30 +20,12 @@
 @end
 
 @interface FLRadialPainter : NSObject
-{
-    int m_maxLevels;
-    float m_minRadiusFraction, m_maxRadiusFraction;
-    float m_minPaintAngle;
-    
-    NSView <FLHasDataSource> *m_view;
-    id m_colorer;
-}
 
-// Accessors
-- (int) maxLevels;
-- (void) setMaxLevels: (int)levels;
-- (float) minRadiusFraction;
-- (void) setMinRadiusFraction: (float)fraction;
-- (float) maxRadiusFraction;
-- (void) setMaxRadiusFraction: (float)fraction;
-- (float) minPaintAngle;
-- (void) setMinPaintAngle: (float)angle;
-
-- (id) colorer;
-- (void) setColorer: (id) c;
-
-- (NSView <FLHasDataSource> *) view;
-- (void) setView: (NSView <FLHasDataSource> *)view;
+@property (nonatomic, assign) int maxLevels;
+@property (nonatomic, assign) float minRadiusFraction, maxRadiusFraction;
+@property (assign) float minPaintAngle;
+@property (assign) NSView <FLHasDataSource> *view;
+@property (retain) id colorer;
 
 - (id) initWithView: (NSView <FLHasDataSource> *)view;
 

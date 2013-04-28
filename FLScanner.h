@@ -4,27 +4,7 @@
 
 @class FLDirectory;
 
-@interface FLScanner : NSObject {
-    NSString *m_path;
-    NSProgressIndicator *m_pi;
-    NSTextField *m_display;
-    
-    FLDirectory *m_tree;
-    NSString *m_error;
-    
-    double m_increment;
-    double m_progress;
-	NSString *m_last_path;
-	
-    uint32_t m_files;
-    uint32_t m_seen;
-    
-    SEL m_post_sel;
-    id m_post_obj;
-    
-    NSLock *m_lock;
-    BOOL m_cancelled;
-}
+@interface FLScanner : NSObject
 
 - (id) initWithPath: (NSString *) path
            progress: (NSProgressIndicator *) progress

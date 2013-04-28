@@ -11,13 +11,15 @@
 - (float) weightOfItem: (id) item;
 @end
 
-@interface FLRadialItem : NSObject {
-    id m_dataSource;
-    id m_item;
-    float m_weight;
-    float m_startAngle, m_endAngle;
-    int m_level;
-}
+@interface FLRadialItem : NSObject
+
+@property (readonly) id    item;
+@property (readonly) float weight;
+@property (readonly) float startAngle;
+@property (readonly) float endAngle;
+@property (readonly) int   level;
+
++ (FLRadialItem *) rootItemWithDataSource: (id)dataSource;
 
 - (id) initWithItem: (id)item
          dataSource: (id)dataSource
@@ -26,18 +28,11 @@
            endAngle: (float)a2
               level: (int)level;
 
-- (id) item;
-- (float) weight;
-- (float) startAngle;
-- (float) endAngle;
-- (int) level;
-
 - (float) midAngle;
 - (float) angleSpan;
 
 - (NSArray *) children;
 - (NSEnumerator *)childEnumerator;
 
-+ (FLRadialItem *) rootItemWithDataSource: (id)dataSource;
 
 @end

@@ -12,25 +12,16 @@
 - (id) initWithPath: (NSString *) path size: (FLFile_size) size
 {
     if (self = [super init]) {
-        m_path = [path retain];
-        m_size = size;
+        self.path = path;
+        self.size = size;
     }
     return self;
 }
 
-- (NSString *) path
-{
-    return m_path;
-}
-
-- (FLFile_size) size
-{
-    return m_size;
-}
-
 - (void) dealloc
 {
-    [m_path release];
+    self.path = nil;
+
     [super dealloc];
 }
 
@@ -94,38 +85,35 @@
 @end
 
 
+@interface FLDirectory ()
+
+@property (readwrite, retain) NSArray     *children;
+@property (assign)            FLDirectory *parent;
+
+@end
+
 @implementation FLDirectory
 
 - (id) initWithPath: (NSString *) path parent: (FLDirectory * __attribute__ ((unused))) parent
 {
     if (self = [super initWithPath: path size: 0]) {
-        m_children = [[NSMutableArray alloc] init];
-        m_parent = parent;
+        self.parent   = parent;
+        self.children = @[];
     }
     return self;
 }
 
 - (void) addChild: (FLFile *) child
 {
-	[m_children addObject: child];
-    m_size += [child size];
-}
-
-- (FLDirectory *) parent
-{
-    return m_parent;
-}
-
-- (NSArray *) children
-{
-    return m_children;
+	self.children  = [self.children arrayByAddingObject:child];
+    self.size     += [child size];
 }
 
 - (void) dealloc
 {
-    if (m_children) {
-        [m_children release];
-    }
+    self.parent   = nil;
+    self.children = nil;
+
     [super dealloc];
 }
 

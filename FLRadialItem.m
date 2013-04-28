@@ -5,6 +5,17 @@
 #import "FLRadialItem.h"
 #import "FLRadialPainter.h"
 
+@interface FLRadialItem ()
+
+@property (readwrite, assign) id    dataSource;
+@property (readwrite, assign) id    item;
+@property (readwrite, assign) float weight;
+@property (readwrite, assign) float startAngle;
+@property (readwrite, assign) float endAngle;
+@property (readwrite, assign) int   level;
+
+@end
+
 @implementation FLRadialItem
 
 - (id) initWithItem: (id)item
@@ -15,39 +26,14 @@
               level: (int)level
 {
     if (self = [super init]) {
-        m_item = item;
-        m_dataSource = dataSource;
-        m_weight = weight;
-        m_startAngle = a1;
-        m_endAngle = a2;
-        m_level = level;
+        self.item = item;
+        self.dataSource = dataSource;
+        self.weight = weight;
+        self.startAngle = a1;
+        self.endAngle = a2;
+        self.level = level;
     }
     return self;
-}
-
-- (id) item
-{
-    return m_item;
-}
-
-- (float) weight
-{
-    return m_weight;
-}
-
-- (float) startAngle
-{
-    return m_startAngle;
-}
-
-- (float) endAngle
-{
-    return m_endAngle;
-}
-
-- (int) level
-{
-    return m_level;
 }
 
 - (float) midAngle
@@ -70,18 +56,18 @@
     float anglePerWeight = [self angleSpan] / [self weight];
     id item = [self item];
     
-    int m = [m_dataSource numberOfChildrenOfItem: item];
+    int m = [self.dataSource numberOfChildrenOfItem: item];
     NSMutableArray *children = [NSMutableArray arrayWithCapacity: m];
     
     int i;
     for (i = 0; i < m; ++i) {
-        id sub = [m_dataSource child: i ofItem: item];
-        float subw = [m_dataSource weightOfItem: sub];
+        id sub = [self.dataSource child: i ofItem: item];
+        float subw = [self.dataSource weightOfItem: sub];
         float subAngle = anglePerWeight * subw;
         float nextAngle = curAngle + subAngle;
         
         id child = [[FLRadialItem alloc] initWithItem: sub
-                                           dataSource: m_dataSource
+                                           dataSource: self.dataSource
                                                weight: subw
                                            startAngle: curAngle
                                              endAngle: nextAngle

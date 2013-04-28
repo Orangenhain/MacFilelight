@@ -26,102 +26,55 @@
 
 @end
 
-
 @implementation FLRadialPainter
 
 - (id) initWithView: (NSView <FLHasDataSource> *)view
 {
     if (self = [super init]) {
         // Default values
-        m_maxLevels = 5;
-        m_minRadiusFraction = 0.1;
-        m_maxRadiusFraction = 0.9;
-        m_minPaintAngle = 1.0;
+        self.maxLevels = 5;
+        // {min,max}RadiusFraction setters check new values based on each other, so we have to initialize at least one of those without using its setter
+        _minRadiusFraction = 0.1;
+        _maxRadiusFraction = 0.9;
+        self.minPaintAngle = 1.0;
         
-        m_view = view; // No retain, view should own us
-        m_colorer = nil;
+        self.view = view; // No retain, view should own us
+        self.colorer = nil;
     }
     return self;
 }
 
 - (void) dealloc
 {
-    if (m_colorer) [m_colorer release];
+    self.colorer = nil;
+    
     [super dealloc];
 }
 
 
 #pragma mark Accessors
 
-- (int) maxLevels
-{
-    return m_maxLevels;
-}
-
 - (void) setMaxLevels: (int)levels
 {
-    NSAssert(levels > 0, @"maxLevels must be positive!");
-    m_maxLevels = levels;
-}
+    NSParameterAssert(levels > 0);
 
-- (float) minRadiusFraction
-{
-    return m_minRadiusFraction;
+    _maxLevels = levels;
 }
 
 - (void) setMinRadiusFraction: (float)fraction
 {
-    NSAssert(fraction >= 0.0 && fraction <= 1.0,
-             @"fraction must be between zero and one!");
-    NSAssert(fraction < [self maxRadiusFraction],
-             @"minRadius must be less than maxRadius!");
-    m_minRadiusFraction = fraction;
-}
+    NSParameterAssert(fraction >= 0.0 && fraction <= 1.0);
+    NSParameterAssert(fraction < [self maxRadiusFraction]);
 
-- (float) maxRadiusFraction
-{
-    return m_maxRadiusFraction;
+    _minRadiusFraction = fraction;
 }
 
 - (void) setMaxRadiusFraction: (float)fraction
 {
-    NSAssert(fraction >= 0.0 && fraction <= 1.0,
-             @"fraction must be between zero and one!");
-    NSAssert(fraction > [self minRadiusFraction],
-             @"minRadius must be less than maxRadius!");
-    m_maxRadiusFraction = fraction;
-}
+    NSParameterAssert(fraction >= 0.0 && fraction <= 1.0);
+    NSParameterAssert(fraction > [self minRadiusFraction]);
 
-- (float) minPaintAngle
-{
-    return m_minPaintAngle;
-}
-
-- (void) setMinPaintAngle: (float)angle
-{
-    m_minPaintAngle = angle;
-}
-
-- (id) colorer
-{
-    return m_colorer;
-}
-
-- (void) setColorer: (id) c
-{
-    [c retain];
-    if (m_colorer) [m_colorer release];
-    m_colorer = c;
-}
-
-- (NSView <FLHasDataSource> *) view
-{
-    return m_view;
-}
-
-- (void) setView: (NSView <FLHasDataSource> *)view
-{
-    m_view = view; // No retain, view should own us
+    _maxRadiusFraction = fraction;
 }
 
 #pragma mark Misc
@@ -174,7 +127,7 @@
     NSAssert(angleFrac >= 0 && angleFrac <= 1.0,
              @"Angle fraction must be between zero and one");
     
-    id c = m_colorer ? m_colorer : self;
+    id c = self.colorer ?: self;
     return [c colorForItem: [ritem item]
                  angleFrac: angleFrac
                  levelFrac: levelFrac];

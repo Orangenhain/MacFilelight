@@ -21,6 +21,30 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                                            length: ent->fts_pathlen];
 }
 
+@interface FLScanner ()
+
+@property (retain) NSProgressIndicator *pi;
+@property (retain) NSTextField *display;
+
+@property (copy) NSString      *path;
+@property (retain) FLDirectory *tree;
+@property (retain) NSString    *error;
+
+@property (assign) double    increment;
+@property (assign) double    progress;
+@property (retain) NSString *lastPath;
+
+@property (assign) uint32_t files;
+@property (assign) uint32_t seen;
+
+@property (assign) SEL postSel;
+@property (assign) id  postObj;
+
+@property (retain) NSLock *lock;
+@property (assign, nonatomic, getter = isCancelled) BOOL cancelled;
+
+@end
+
 @implementation FLScanner
 
 - (id) initWithPath: (NSString *) path
@@ -28,94 +52,86 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             display: (NSTextField *) display
 {
     if (self = [super init]) {
-        m_path = [path retain];
-        m_pi = [progress retain];
-        m_display = [display retain];
-        m_error = nil;
-        m_tree = nil;
-        m_lock = [[NSLock alloc] init];
-        m_cancelled = NO;
+        self.path = path;
+        self.pi = progress;
+        self.display = display;
+        self.lock = [[[NSLock alloc] init] autorelease];
+        self.cancelled = NO;
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [m_path release];
-    [m_pi release];
-    [m_display release];
-    [m_lock release];
-    if (m_tree) [m_tree release];
-    if (m_error) [m_error release];
+    [_path release];
+    [_pi release];
+    [_display release];
+    [_lock release];
+    [_tree release];
+    [_error release];
     [super dealloc];
 }
 
 - (FLDirectory *) scanResult
 {
-    return m_tree;
+    return self.tree;
 }
 
 - (NSString *) scanError
 {
-    return m_error;
+    return self.error;
 }
 
 - (BOOL) isCancelled
 {
     BOOL b;
-    [m_lock lock];
-    b = m_cancelled;
-    [m_lock unlock];
+    [self.lock lock];
+    b = _cancelled;
+    [self.lock unlock];
     return b;
 }
 
 - (void) cancel
 {
-    [m_lock lock];
-    m_cancelled = YES;
-    [m_lock unlock];
+    [self.lock lock];
+    _cancelled = YES;
+    [self.lock unlock];
 }
 
 - (void) updateProgress
 {
-    ++m_seen;
-    m_progress += m_increment;
+    ++self.seen;
+    self.progress += self.increment;
     
-    if (m_seen % UPDATE_EVERY == 0) {
-        double real_prog = m_files
-            ? 100.0 * m_seen / m_files
-            : m_progress;
-        NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
-            @(real_prog), @"progress",
-            m_last_path, @"path",
-            nil];
+    if (self.seen % UPDATE_EVERY == 0) {
+        double real_prog = self.files ? (100.0 * self.seen / self.files) : self.progress;
+        NSDictionary *data = @{@"progress": @(real_prog), @"path": self.lastPath};
         
         SEL sel = @selector(updateProgressOnMainThread:);
         [self performSelectorOnMainThread: sel
-                               withObject: data waitUntilDone: NO];
+                               withObject: data
+                            waitUntilDone: NO];
     }
 }
 
 - (void) updateProgressOnMainThread: (NSDictionary *) data
 {
-    [m_pi setDoubleValue: [data[@"progress"] doubleValue]];
+    [self.pi setDoubleValue: [data[@"progress"] doubleValue]];
 	NSString *p;
 	if ((p = data[@"path"]))
-		[m_display setStringValue: p];
-    [data release];
+		[self.display setStringValue: p];
 }
 
 - (BOOL) error: (int __attribute__ ((unused))) err inFunc: (NSString *) func
 {
-    m_error = [[NSString alloc] initWithFormat: @"%@: %s", func,
-        strerror(errno)];
+    self.error = [[[NSString alloc] initWithFormat: @"%@: %s", func, strerror(errno)] autorelease];
     return NO;
 }
 
 - (void) scanThenPerform: (SEL) sel on: (id) obj
 {
-    m_post_sel = sel;
-    m_post_obj = obj;
+    self.postSel = sel;
+    self.postObj = obj;
     
     [NSThread detachNewThreadSelector: @selector(scanOnWorkerThread:)
                              toTarget: self
@@ -157,11 +173,11 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 // We can give more accurate progress if we're working on a complete disk
 - (void) checkIfMount: (const char *) cpath
 {
-    m_files = 0;
+    self.files = 0;
     if ([FLScanner isMountPointCPath: cpath]) {
         NSUInteger resourceCount = [self numberOfResourcesOnVolume:@(cpath)];
         if (resourceCount != NSNotFound) {
-            m_files = resourceCount;
+            self.files = resourceCount;
         }
     }
 }
@@ -176,15 +192,15 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     FLDirectory *dir;
     char *cpath;
     
-    m_progress = 0.0;
-    m_increment = 100.0;
-	m_last_path = nil;
-    m_seen = 0;
+    self.progress = 0.0;
+    self.increment = 100.0;
+	self.lastPath = nil;
+    self.seen = 0;
     
     errno = 0; // Why is this non-zero here?
     
     // Silly constness issues
-    cpath = strdup([m_path fileSystemRepresentation]);
+    cpath = strdup([self.path fileSystemRepresentation]);
     [self checkIfMount: cpath];
     fts_paths[0] = cpath;
     fts_paths[1] = NULL;
@@ -197,8 +213,8 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     dir = NULL;
     
     while (( ent = fts_read(fts) )) {
-        if (m_seen % UPDATE_EVERY == 0 && [self isCancelled]) {
-            m_error = @"Scan cancelled";
+        if (self.seen % UPDATE_EVERY == 0 && [self isCancelled]) {
+            self.error = @"Scan cancelled";
             return NO;
         }
         
@@ -208,12 +224,12 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             case FTS_D: {
                 dir = [[FLDirectory alloc] initWithPath: stringPath(fm, ent)
                                                  parent: dir];
-				m_last_path = [dir path];
+				self.lastPath = [dir path];
                 [dir autorelease];
                 [dirstack addObject: dir];
-                m_increment /= ent->fts_statp->st_nlink; // pre, children, post
-                if (!m_tree) {
-                    m_tree = [dir retain];
+                self.increment /= ent->fts_statp->st_nlink; // pre, children, post
+                if (!self.tree) {
+                    self.tree = dir;
                 }
                 break;
             }
@@ -225,7 +241,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
                 FLFile *file = [[FLFile alloc]
                     initWithPath: stringPath(fm, ent)
                             size: ent->fts_statp->st_blocks * BLOCK_SIZE];
-                m_last_path = [file path];
+                self.lastPath = [file path];
                 [file autorelease];
                 [dir addChild: file];
 				break;
@@ -247,13 +263,12 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
         }
 		
 		if (err) {
-			NSLog(@"Error scanning '%s': %s\n", ent->fts_path,
-				  strerror(ent->fts_errno));
+			NSLog(@"Error scanning '%s': %s\n", ent->fts_path, strerror(ent->fts_errno));
 		}
 		
 		[self updateProgress];
 		if (pop) {
-				m_increment *= ent->fts_statp->st_nlink;
+				self.increment *= ent->fts_statp->st_nlink;
                 FLDirectory *subdir = dir;
                 [dirstack removeLastObject];
                 dir = [dirstack lastObject];
@@ -273,7 +288,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     [self realScan];
     [pool release];
-    [m_post_obj performSelectorOnMainThread: m_post_sel
+    [self.postObj performSelectorOnMainThread: self.postSel
                                  withObject: nil
                               waitUntilDone: NO];
 }

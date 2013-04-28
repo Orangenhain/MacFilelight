@@ -15,6 +15,15 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 @interface FLController () <NSToolbarDelegate>
 
+@property (retain) FLScanner   *scanner;
+@property (retain) FLDirectory *scanDir;
+
+@property (assign) IBOutlet FLView * sizer;
+@property (assign) IBOutlet id tabView;
+@property (assign) IBOutlet id progress;
+@property (assign) IBOutlet id scanDisplay;
+@property (assign) IBOutlet id window;
+
 @end
 
 @implementation FLController
@@ -27,7 +36,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     [toolbar setDelegate: self];
     [toolbar setAllowsUserCustomization: YES];
     [toolbar setAutosavesConfiguration: YES];
-    [window setToolbar: toolbar];
+    [self.window setToolbar: toolbar];
 }
 
 - (NSToolbarItem *) toolbar: (NSToolbar * __attribute__ ((unused))) toolbar
@@ -86,75 +95,47 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 #pragma mark Scanning
 
-- (FLDirectory *) scanDir
-{
-    return m_scanDir;
-}
-
-- (void) setScanDir: (FLDirectory *) dir
-{
-    [dir retain];
-    if (m_scanDir) [m_scanDir release];
-    m_scanDir = dir;
-}
-
 - (BOOL) startScan: (NSString *) path
 {
-    if (m_scanner) {
+    if (self.scanner) {
         return NO;
     }
     
-    [tabView selectTabViewItemWithIdentifier: @"Progress"];
-    [progress setDoubleValue: [progress minValue]];
-    [scanDisplay setStringValue: @""];
-    [window makeKeyAndOrderFront: self];
+    [self.tabView selectTabViewItemWithIdentifier: @"Progress"];
+    [self.progress setDoubleValue: [self.progress minValue]];
+    [self.scanDisplay setStringValue: @""];
+    [self.window makeKeyAndOrderFront: self];
     
-    m_scanner = [[FLScanner alloc] initWithPath: path
-                                       progress: progress
-                                        display: scanDisplay];
-    [m_scanner scanThenPerform: @selector(finishScan:)
-                            on: self];
+    self.scanner = [[[FLScanner alloc] initWithPath: path
+                                           progress: self.progress
+                                            display: self.scanDisplay] autorelease];
+    [self.scanner scanThenPerform: @selector(finishScan:)
+                               on: self];
     return YES;
 }
 
 - (void) finishScan: (id __attribute__ ((unused))) data
 {
-    if ([m_scanner scanError]) {
-        if (![m_scanner isCancelled]) {
+    if ([self.scanner scanError]) {
+        if (![self.scanner isCancelled]) {
             NSRunAlertPanel(@"Directory scan could not complete",
-                            [m_scanner scanError], nil, nil, nil);
+                            [self.scanner scanError], nil, nil, nil);
         }
-        [window orderOut: self];
+        [self.window orderOut: self];
     } else {
-        [self setScanDir: [m_scanner scanResult]];
+        [self setScanDir: [self.scanner scanResult]];
         [self setRootDir: [self scanDir]];
-        [tabView selectTabViewItemWithIdentifier: @"Filelight"];
+        [self.tabView selectTabViewItemWithIdentifier: @"Filelight"];
     }
     
-    [m_scanner release];
-    m_scanner = nil;
+    self.scanner = nil;
 }
+
+#pragma mark - IBActions
 
 - (IBAction) cancelScan: (id __attribute__ ((unused))) sender
 {
-    if (m_scanner) {
-        [m_scanner cancel];
-    }
-}
-
-#pragma mark Misc
-
-- (BOOL) application: (NSApplication * __attribute__ ((unused))) app openFile: (NSString *) filename
-{
-    return [self startScan: filename];
-}
-
-- (void) awakeFromNib
-{
-    m_scanner = nil;
-    m_scanDir = nil;
-    
-    [self setupToolbar];
+    [self.scanner cancel];
 }
 
 - (IBAction) open: (id __attribute__ ((unused))) sender
@@ -170,23 +151,40 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     }
 }
 
+- (IBAction) refresh: (id __attribute__ ((unused))) sender
+{
+    [self startScan: [[self rootDir] path]];
+}
+
+#pragma mark Misc
+
+- (BOOL) application: (NSApplication * __attribute__ ((unused))) app openFile: (NSString *) filename
+{
+    return [self startScan: filename];
+}
+
+- (void) awakeFromNib
+{
+    [self setupToolbar];
+}
+
 - (void) applicationDidFinishLaunching: (NSNotification* __attribute__ ((unused))) notification
 {
-    if (![window isVisible]) {
+    if (![self.window isVisible]) {
         [self open: self];
     }
 }
 
 - (void) setRootDir: (FLDirectory *) dir
 {
-    [[sizer dataSource] setRootDir: dir];
-    [sizer setNeedsDisplay: YES];
-    [window setTitle: [dir path]];
+    [[self.sizer dataSource] setRootDir: dir];
+    [self.sizer setNeedsDisplay: YES];
+    [self.window setTitle: [dir path]];
 }
 
 - (FLDirectory *) rootDir
 {
-    return [[sizer dataSource] rootDir];
+    return [[self.sizer dataSource] rootDir];
 }
 
 - (void) parentDir: (id __attribute__ ((unused))) sender
@@ -201,9 +199,9 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     }
 }
 
-- (void) refresh: (id __attribute__ ((unused))) sender
+- (void) refresh
 {
-    [self startScan: [[self rootDir] path]];
+    [self refresh:nil];
 }
 
 @end

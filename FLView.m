@@ -9,8 +9,30 @@
 #import "FLController.h"
 #import "FLDirectoryDataSource.h"
 
+@interface FLView ()
+
+@property (assign) IBOutlet id locationDisplay;
+@property (assign) IBOutlet id sizeDisplay;
+@property (assign) IBOutlet id dataSource;
+@property (assign) IBOutlet id controller;
+@property (assign) IBOutlet id contextMenu;
+
+@property (assign) BOOL               wasAcceptingMouseEvents;
+@property (assign) NSTrackingRectTag  trackingRect;
+@property (retain) FLFile            *context_target;
+@property (retain) FLRadialPainter   *painter;
+
+@end
 
 @implementation FLView
+
+-(void)dealloc
+{
+    self.context_target = nil;
+    self.painter = nil;
+    
+    [super dealloc];
+}
 
 #pragma mark Tracking
 
@@ -20,10 +42,10 @@
     NSPoint where = [self convertPoint: mouse fromView: nil];
     BOOL inside = ([self hitTest: where] == self);
     
-    m_trackingRect = [self addTrackingRect: [self visibleRect]
-                                     owner: self
-                                  userData: NULL
-                              assumeInside: inside];
+    self.trackingRect = [self addTrackingRect: [self visibleRect]
+                                        owner: self
+                                     userData: NULL
+                                 assumeInside: inside];
     if (inside) {
         [self mouseEntered: nil];
     }
@@ -31,7 +53,7 @@
 
 - (void) clearTrackingRect
 {
-	[self removeTrackingRect: m_trackingRect];
+	[self removeTrackingRect: self.trackingRect];
 }
 
 - (BOOL) acceptsFirstResponder
@@ -67,7 +89,7 @@
 
 - (void) mouseEntered: (NSEvent * __attribute__ ((unused))) event
 {
-    m_wasAcceptingMouseEvents = [[self window] acceptsMouseMovedEvents];
+    self.wasAcceptingMouseEvents = [[self window] acceptsMouseMovedEvents];
     [[self window] setAcceptsMouseMovedEvents: YES];
     [[self window] makeFirstResponder: self];
 }
@@ -75,30 +97,30 @@
 - (FLFile *) itemForEvent: (NSEvent *) event
 {
     NSPoint where = [self convertPoint: [event locationInWindow] fromView: nil];
-    return [m_painter itemAt: where];
+    return [self.painter itemAt: where];
 }
 
 - (void) mouseExited: (NSEvent * __attribute__ ((unused))) event
 {
-    [[self window] setAcceptsMouseMovedEvents: m_wasAcceptingMouseEvents];
-    [locationDisplay setStringValue: @""];
-    [sizeDisplay setStringValue: @""];
+    [[self window] setAcceptsMouseMovedEvents: self.wasAcceptingMouseEvents];
+    [self.locationDisplay setStringValue: @""];
+    [self.sizeDisplay setStringValue: @""];
 }
 
 - (void) mouseMoved: (NSEvent *) event
 {
     id item = [self itemForEvent: event];
     if (item) {
-        [locationDisplay setStringValue: [item path]];
-        [sizeDisplay setStringValue: [item displaySize]];
+        [self.locationDisplay setStringValue: [item path]];
+        [self.sizeDisplay setStringValue: [item displaySize]];
         if ([item isKindOfClass: [FLDirectory class]]) {
             [[NSCursor pointingHandCursor] set];
         } else {
             [[NSCursor arrowCursor] set];
         }
     } else {
-        [locationDisplay setStringValue: @""];
-        [sizeDisplay setStringValue: @""];
+        [self.locationDisplay setStringValue: @""];
+        [self.sizeDisplay setStringValue: @""];
         [[NSCursor arrowCursor] set];
     }
 }
@@ -107,7 +129,7 @@
 {
     id item = [self itemForEvent: event];
     if (item && [item isKindOfClass: [FLDirectory class]]) {
-        [controller setRootDir: item];
+        [self.controller setRootDir: item];
     }
 }
 
@@ -115,8 +137,8 @@
 {
     id item = [self itemForEvent: event];
     if (item) {
-        m_context_target = item;
-        return (NSMenu *)contextMenu;
+        self.context_target = item;
+        return (NSMenu *)self.contextMenu;
     } else {
         return nil;
     }
@@ -125,24 +147,26 @@
 - (BOOL) validateMenuItem: (NSMenuItem *) item
 {
     if ([item action] == @selector(zoom:)) {
-        return [m_context_target isKindOfClass: [FLDirectory class]];
+        return [self.context_target isKindOfClass: [FLDirectory class]];
     }
     return YES;
 }
 
+#pragma mark - IBActions
+
 - (IBAction) zoom: (id __attribute__ ((unused))) sender
 {
-    [controller setRootDir: (FLDirectory *)m_context_target];
+    [self.controller setRootDir: (FLDirectory *)self.context_target];
 }
 
 - (IBAction) open: (id __attribute__ ((unused))) sender
 {
-    [[NSWorkspace sharedWorkspace] openFile: [m_context_target path]];
+    [[NSWorkspace sharedWorkspace] openFile: [self.context_target path]];
 }
 
 - (IBAction) reveal: (id __attribute__ ((unused))) sender
 {
-    [[NSWorkspace sharedWorkspace] selectFile: [m_context_target path]
+    [[NSWorkspace sharedWorkspace] selectFile: [self.context_target path]
                      inFileViewerRootedAtPath: @""];
 }
 
@@ -151,7 +175,7 @@
     NSInteger tag;
     BOOL success;
     
-    NSString *path = [m_context_target path];
+    NSString *path = [self.context_target path];
     NSString *basename = [path lastPathComponent];
     
     success = [[NSWorkspace sharedWorkspace]
@@ -162,7 +186,7 @@
                          tag: &tag];
     
     if (success) {
-        [controller refresh: self];
+        [self.controller refresh];
     } else {
         NSString *msg = [NSString stringWithFormat:
             @"The path %@ could not be deleted.", path];
@@ -175,11 +199,11 @@
     NSPasteboard *pb = [NSPasteboard generalPasteboard];
     [pb declareTypes: @[NSStringPboardType]
                owner: self];
-    [pb setString: [[m_context_target path] copy]
+    [pb setString: [[[self.context_target path] copy] autorelease]
           forType: NSStringPboardType];
 }
 
-#pragma mark Drawing
+#pragma mark - Drawing
 
 - (void) drawSize: (NSString * __attribute__ ((unused))) str
 {
@@ -190,7 +214,7 @@
     NSDictionary *attrs;
     NSPoint p, center;
     
-    rfrac = [m_painter minRadiusFraction] - 0.02;
+    rfrac = [self.painter minRadiusFraction] - 0.02;
     wantr = [self maxRadius] * rfrac;
     
     font = [NSFont systemFontOfSize: 0];
@@ -212,21 +236,16 @@
 - (void) drawRect: (NSRect)rect
 {
     NSString *size;
-    [m_painter drawRect: rect];
+    [self.painter drawRect: rect];
     
     size = [[[self dataSource] rootDir] displaySize];
     [self drawSize: size];
 }
 
-- (id) dataSource
-{
-    return dataSource;
-}
-
 - (void) awakeFromNib
 {
-    m_painter = [[FLRadialPainter alloc] initWithView: self];
-    [m_painter setColorer: self];
+    self.painter = [[[FLRadialPainter alloc] initWithView: self] autorelease];
+    [self.painter setColorer: self];
 }
 
 - (NSColor *) colorForItem: (id) item
@@ -234,9 +253,9 @@
                  levelFrac: (float) level
 {
     if ([item isKindOfClass: [FLDirectory class]]) {
-        return [m_painter colorForItem: item
-                             angleFrac: angle
-                             levelFrac: level];
+        return [self.painter colorForItem: item
+                                angleFrac: angle
+                                levelFrac: level];
     } else {
         return [NSColor colorWithCalibratedWhite: 0.85 alpha: 1.0];
     }

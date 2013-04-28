@@ -7,31 +7,9 @@
 
 @implementation FLDirectoryDataSource
 
-- (id) init
-{
-    if (self = [super init]) {
-        m_rootDir = nil;
-    }    
-    return self;
-}
-
-- (FLDirectory *) rootDir
-{
-    return m_rootDir;
-}
-
-- (void) setRootDir: (FLDirectory *) root
-{
-    [root retain];
-    if (m_rootDir) {
-        [m_rootDir release];
-    }
-    m_rootDir = root;
-}
-
 - (FLFile *) realItemFor: (id)item
 {
-    return item ? item : m_rootDir;
+    return item ?: self.rootDir;
 }
 
 - (id) child: (int)index ofItem: (id)item
