@@ -160,9 +160,7 @@
     }
     
     // Draw the children
-    NSEnumerator *e = [ritem childEnumerator];
-    FLRadialItem *child;
-    while (child = [e nextObject]) {
+    for (FLRadialItem *child in [ritem children]) {
         [self drawTreeForItem: child];
     }
 }
@@ -190,9 +188,7 @@
         return [ritem item];
     }
     
-    NSEnumerator *e = [ritem childEnumerator];
-    FLRadialItem *child;
-    while (child = [e nextObject]) {
+    for (FLRadialItem *child in [ritem children]) {
         if ([child endAngle] >= th) {
             return [self findChildOf: child depth: depth - 1 angle: th];
         }

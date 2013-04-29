@@ -32,7 +32,5 @@
 - (float) angleSpan;
 
 - (NSArray *) children;
-- (NSEnumerator *)childEnumerator;
-
 
 @end

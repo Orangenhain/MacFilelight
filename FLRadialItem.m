@@ -79,11 +79,6 @@
     return children;
 }
 
-- (NSEnumerator *)childEnumerator
-{
-    return [[self children] objectEnumerator];
-}
-
 + (FLRadialItem *) rootItemWithDataSource: (id)dataSource
 {
     float weight = [dataSource weightOfItem: nil];
