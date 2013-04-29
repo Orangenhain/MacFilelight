@@ -15,14 +15,14 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 @interface FLController () <NSToolbarDelegate>
 
-@property (retain) FLScanner   *scanner;
-@property (retain) FLDirectory *scanDir;
+@property (strong) FLScanner   *scanner;
+@property (strong) FLDirectory *scanDir;
 
-@property (assign) IBOutlet FLView * sizer;
-@property (assign) IBOutlet id tabView;
-@property (assign) IBOutlet id progress;
-@property (assign) IBOutlet id scanDisplay;
-@property (assign) IBOutlet id window;
+@property (weak) IBOutlet FLView * sizer;
+@property (unsafe_unretained) IBOutlet id tabView;
+@property (unsafe_unretained) IBOutlet id progress;
+@property (unsafe_unretained) IBOutlet id scanDisplay;
+@property (unsafe_unretained) IBOutlet id window;
 
 @end
 
@@ -57,7 +57,6 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
         [item setImage: [NSImage imageNamed: @"reload"]];
         [item setAction: @selector(refresh:)];
     } else {
-        [item release];
         return nil;
     }
     
@@ -67,7 +66,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     if (![item target]) {
         [item setTarget: self];
     }
-    return [item autorelease];
+    return item;
 }
 
 - (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
@@ -106,9 +105,9 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     [self.scanDisplay setStringValue: @""];
     [self.window makeKeyAndOrderFront: self];
     
-    self.scanner = [[[FLScanner alloc] initWithPath: path
+    self.scanner = [[FLScanner alloc] initWithPath: path
                                            progress: self.progress
-                                            display: self.scanDisplay] autorelease];
+                                            display: self.scanDisplay];
     [self.scanner scanThenPerform: @selector(finishScan:)
                                on: self];
     return YES;

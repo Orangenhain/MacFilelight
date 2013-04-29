@@ -7,6 +7,6 @@
 // Data source using files in a directory
 @interface FLDirectoryDataSource : NSObject
 
-@property (retain) FLDirectory *rootDir;
+@property (strong) FLDirectory *rootDir;
 
 @end

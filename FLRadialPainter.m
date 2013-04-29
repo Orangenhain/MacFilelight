@@ -44,12 +44,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-    self.colorer = nil;
-    
-    [super dealloc];
-}
 
 
 #pragma mark Accessors

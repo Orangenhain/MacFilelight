@@ -18,12 +18,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-    self.path = nil;
-
-    [super dealloc];
-}
 
 + (NSString *) humanReadableSize: (FLFile_size) size
                             type: (FLFileSizeType) type
@@ -87,8 +81,8 @@
 
 @interface FLDirectory ()
 
-@property (readwrite, retain) NSArray     *children;
-@property (assign)            FLDirectory *parent;
+@property (readwrite, strong) NSArray     *children;
+@property (weak)            FLDirectory *parent;
 
 @end
 
@@ -107,14 +101,6 @@
 {
 	self.children  = [self.children arrayByAddingObject:child];
     self.size     += [child size];
-}
-
-- (void) dealloc
-{
-    self.parent   = nil;
-    self.children = nil;
-
-    [super dealloc];
 }
 
 @end

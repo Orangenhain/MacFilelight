@@ -13,7 +13,7 @@
 
 @interface FLRadialItem : NSObject
 
-@property (readonly) id    item;
+@property (unsafe_unretained, readonly) id    item;
 @property (readonly) float weight;
 @property (readonly) float startAngle;
 @property (readonly) float endAngle;

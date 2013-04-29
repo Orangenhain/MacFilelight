@@ -7,8 +7,8 @@
 
 @interface FLRadialItem ()
 
-@property (readwrite, assign) id    dataSource;
-@property (readwrite, assign) id    item;
+@property (readwrite, unsafe_unretained) id dataSource;
+@property (readwrite, unsafe_unretained) id item;
 @property (readwrite, assign) float weight;
 @property (readwrite, assign) float startAngle;
 @property (readwrite, assign) float endAngle;
@@ -73,7 +73,6 @@
                                              endAngle: nextAngle
                                                 level: [self level] + 1];
         [children addObject: child];
-        [child release];
         
         curAngle = nextAngle;
     }
@@ -94,7 +93,7 @@
                                                startAngle: 0
                                                  endAngle: 360
                                                     level: -1];
-    return [ri autorelease];
+    return ri;
 }
 
 

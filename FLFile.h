@@ -31,8 +31,8 @@ typedef enum {
 
 @interface FLDirectory : FLFile
 
-@property (readonly) FLDirectory *parent;
-@property (readonly) NSArray     *children;
+@property (readonly, weak) FLDirectory *parent;
+@property (readonly, strong) NSArray     *children;
 
 - (id) initWithPath: (NSString *) path parent: (FLDirectory *) parent;
 - (void) addChild: (FLFile *) child;

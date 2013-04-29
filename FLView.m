@@ -11,28 +11,21 @@
 
 @interface FLView ()
 
-@property (assign) IBOutlet id locationDisplay;
-@property (assign) IBOutlet id sizeDisplay;
-@property (assign) IBOutlet id dataSource;
-@property (assign) IBOutlet id controller;
-@property (assign) IBOutlet id contextMenu;
+@property (unsafe_unretained) IBOutlet id locationDisplay;
+@property (unsafe_unretained) IBOutlet id sizeDisplay;
+@property (unsafe_unretained) IBOutlet id dataSource;
+@property (unsafe_unretained) IBOutlet id controller;
+@property (unsafe_unretained) IBOutlet id contextMenu;
 
 @property (assign) BOOL               wasAcceptingMouseEvents;
 @property (assign) NSTrackingRectTag  trackingRect;
-@property (retain) FLFile            *context_target;
-@property (retain) FLRadialPainter   *painter;
+@property (strong) FLFile            *context_target;
+@property (strong) FLRadialPainter   *painter;
 
 @end
 
 @implementation FLView
 
--(void)dealloc
-{
-    self.context_target = nil;
-    self.painter = nil;
-    
-    [super dealloc];
-}
 
 #pragma mark Tracking
 
@@ -199,7 +192,7 @@
     NSPasteboard *pb = [NSPasteboard generalPasteboard];
     [pb declareTypes: @[NSStringPboardType]
                owner: self];
-    [pb setString: [[[self.context_target path] copy] autorelease]
+    [pb setString: [[self.context_target path] copy]
           forType: NSStringPboardType];
 }
 
@@ -244,7 +237,7 @@
 
 - (void) awakeFromNib
 {
-    self.painter = [[[FLRadialPainter alloc] initWithView: self] autorelease];
+    self.painter = [[FLRadialPainter alloc] initWithView: self];
     [self.painter setColorer: self];
 }
 

@@ -24,8 +24,8 @@
 @property (nonatomic, assign) int maxLevels;
 @property (nonatomic, assign) float minRadiusFraction, maxRadiusFraction;
 @property (assign) float minPaintAngle;
-@property (assign) NSView <FLHasDataSource> *view;
-@property (retain) id colorer;
+@property (weak) NSView <FLHasDataSource> *view;
+@property (strong) id colorer;
 
 - (id) initWithView: (NSView <FLHasDataSource> *)view;
 
