@@ -13,7 +13,7 @@
 {
     if (self = [super init]) {
         self.path = path;
-        self.size = size;
+        self.size = [[[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"] isEqualToString:@"file size"] ? size : 1;
     }
     return self;
 }
