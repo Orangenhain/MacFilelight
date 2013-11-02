@@ -13,7 +13,7 @@
 {
     if (self = [super init]) {
         self.path = path;
-        self.size = [[[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"] isEqualToString:@"file size"] ? size : 1;
+        self.size = size;
     }
     return self;
 }
@@ -76,6 +76,11 @@
                              sigFigs: 3];
 }
 
+- (FLFile_size)size
+{
+    return [[[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"] isEqualToString:@"file size"] ? _size : 1;
+}
+
 @end
 
 
@@ -83,6 +88,8 @@
 
 @property (readwrite, strong) NSArray     *children;
 @property (weak)            FLDirectory *parent;
+
+@property (copy) NSString *countedOnLastRequest;
 
 @end
 
@@ -100,7 +107,26 @@
 - (void) addChild: (FLFile *) child
 {
 	self.children  = [self.children arrayByAddingObject:child];
-    self.size     += [child size];
+}
+
+- (FLFile_size)size
+{
+    NSString *shouldCount = [[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"];
+
+    // this method gets called quite often ... doing this without caching the result is not a good idea (performance wise) for bigger data sets
+    if ( ![self.countedOnLastRequest isEqualToString:shouldCount])
+    {
+        _size = 0;
+        for (FLFile *child in self.children)
+        {
+            _size += [child size];
+        }
+        // this loop is faster than [[self.children valueForKeyPath:@"@sum.size"] unsignedLongLongValue]
+        
+        self.countedOnLastRequest = shouldCount;
+    }
+    
+    return _size;
 }
 
 @end

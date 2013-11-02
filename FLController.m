@@ -175,7 +175,7 @@ static NSString *ToolbarItemCountID = @"Count ToolbarItem";
     if ([sender isKindOfClass:[NSPopUpButton class]])
     {
         [[NSUserDefaults standardUserDefaults] setObject:[(NSPopUpButton*)sender titleOfSelectedItem] forKey:@"shouldCount"];
-        [self refresh];
+        [self.sizer setNeedsDisplay:YES];
     }
 }
 
