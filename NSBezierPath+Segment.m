@@ -9,10 +9,10 @@
 @implementation NSBezierPath (Segment)
 
 + (NSBezierPath*) circleSegmentWithCenter: (NSPoint)center
-                               startAngle: (float)a1
-                                 endAngle: (float)a2
-                              smallRadius: (float)r1
-                                bigRadius: (float)r2
+                               startAngle: (CGFloat)a1
+                                 endAngle: (CGFloat)a2
+                              smallRadius: (CGFloat)r1
+                                bigRadius: (CGFloat)r2
 {
     NSBezierPath *bp = [NSBezierPath bezierPath];
     [bp moveToPoint: [FLPolar pointWithPolarCenter: center

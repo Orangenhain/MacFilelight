@@ -5,8 +5,8 @@
 // Data source: generalization of NSOutlineViewDataSource
 // nil object means the root.
 @interface NSObject (FLRadialPainterDataSource)
-- (id) child: (int) index ofItem: (id) item;
-- (int) numberOfChildrenOfItem: (id) item;
+- (id) child: (NSUInteger) index ofItem: (id) item;
+- (NSUInteger) numberOfChildrenOfItem: (id) item;
 
 - (float) weightOfItem: (id) item;
 @end

@@ -12,13 +12,13 @@
     return item ?: self.rootDir;
 }
 
-- (id) child: (int)index ofItem: (id)item
+- (id) child:(NSUInteger)index ofItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return [(FLDirectory *)file children][index];
 }
 
-- (int) numberOfChildrenOfItem: (id)item
+- (NSUInteger) numberOfChildrenOfItem: (id)item
 {
     FLFile *file = [self realItemFor: item];
     return [file respondsToSelector: @selector(children)]

@@ -16,11 +16,11 @@
     return NSMakePoint(NSMidX(bounds), NSMidY(bounds));
 }
 
-- (float) maxRadius
+- (CGFloat) maxRadius
 {
     NSRect bounds = [self bounds];
     NSSize size = bounds.size;
-    float minDim = size.width < size.height ? size.width : size.height;
+    CGFloat minDim = size.width < size.height ? size.width : size.height;
     return minDim / 2.0;
 }
 
@@ -55,7 +55,7 @@
     _maxLevels = levels;
 }
 
-- (void) setMinRadiusFraction: (float)fraction
+- (void) setMinRadiusFraction: (CGFloat)fraction
 {
     NSParameterAssert(fraction >= 0.0 && fraction <= 1.0);
     NSParameterAssert(fraction < [self maxRadiusFraction]);
@@ -63,7 +63,7 @@
     _minRadiusFraction = fraction;
 }
 
-- (void) setMaxRadiusFraction: (float)fraction
+- (void) setMaxRadiusFraction: (CGFloat)fraction
 {
     NSParameterAssert(fraction >= 0.0 && fraction <= 1.0);
     NSParameterAssert(fraction > [self minRadiusFraction]);
@@ -84,16 +84,16 @@
         && [ritem angleSpan] >= [self minPaintAngle];
 }
 
-- (float) radiusFractionPerLevel
+- (CGFloat) radiusFractionPerLevel
 {
-    float availFraction = [self maxRadiusFraction] - [self minRadiusFraction];
+    CGFloat availFraction = [self maxRadiusFraction] - [self minRadiusFraction];
     return availFraction / [self maxLevels];
 }
 
 #pragma mark Painting
 
 
-- (float) innerRadiusFractionForLevel: (int)level
+- (CGFloat) innerRadiusFractionForLevel: (int)level
 {
     // TODO: Deal with concept of "visible levels" <= maxLevels
     NSAssert(level <= [self maxLevels], @"Level too high!");    
@@ -102,8 +102,8 @@
 
 // Default coloring scheme
 - (NSColor *) colorForItem: (id __attribute__ ((unused))) item
-                 angleFrac: (float) angle
-                 levelFrac: (float) level
+                 angleFrac: (CGFloat) angle
+                 levelFrac: (CGFloat) level
 {
     return [NSColor colorWithCalibratedHue: angle
                                 saturation: 0.6 - (level / 4)
@@ -115,9 +115,9 @@
 {
     float levelFrac = (float)[ritem level] / ([self maxLevels] - 1);
     float midAngle = [ritem midAngle];
-    float angleFrac = midAngle / 360.0;
+    CGFloat angleFrac = midAngle / 360.0;
     
-    angleFrac -= floorf(angleFrac);
+    angleFrac -= floor(angleFrac);
     NSAssert(angleFrac >= 0 && angleFrac <= 1.0,
              @"Angle fraction must be between zero and one");
     
@@ -129,17 +129,19 @@
 
 - (void) drawItem: (FLRadialItem *)ritem
 {
+    NSView<FLHasDataSource> *view = [self view];
+    
     int level = [ritem level];
-    float inner = [self innerRadiusFractionForLevel: level];
-    float outer = [self innerRadiusFractionForLevel: level + 1];
+    CGFloat inner = [self innerRadiusFractionForLevel: level];
+    CGFloat outer = [self innerRadiusFractionForLevel: level + 1];
     NSColor *fill = [self colorForItem: ritem];
     
     NSBezierPath *bp = [NSBezierPath
-        circleSegmentWithCenter: [[self view] center]
+        circleSegmentWithCenter: [view center]
                      startAngle: [ritem startAngle]
                        endAngle: [ritem endAngle]
-                    smallRadius: inner * [[self view] maxRadius]
-                      bigRadius: outer * [[self view] maxRadius]];
+                    smallRadius: inner * [view maxRadius]
+                      bigRadius: outer * [view maxRadius]];
     
     [fill set];
     [bp fill];
@@ -175,7 +177,7 @@
 
 - (id) findChildOf: (FLRadialItem *)ritem
              depth: (int)depth
-             angle: (float)th
+             angle: (CGFloat)th
 {
     NSAssert(depth >= 0, @"Depth must be at least zero");
     NSAssert(th >= [ritem startAngle], @"Not searching the correct tree");
@@ -199,16 +201,18 @@
 
 - (id) itemAt: (NSPoint)point
 {
-    float r, th;
-    [FLPolar coordsForPoint: point center: [[self view] center] intoRadius: &r angle: &th];
+    NSView <FLHasDataSource> *view = [self view];
     
-    float rfrac = r / [[self view] maxRadius];
+    CGFloat r, th;
+    [FLPolar coordsForPoint: point center: [view center] intoRadius: &r angle: &th];
+    
+    CGFloat rfrac = r / [view maxRadius];
     if (rfrac < [self minRadiusFraction] || rfrac >= [self maxRadiusFraction]) {
         return nil;
     }
     
-    float usedFracs = rfrac - [self minRadiusFraction];
-    int depth = floorf(usedFracs / [self radiusFractionPerLevel]) + 1;
+    CGFloat usedFracs = rfrac - [self minRadiusFraction];
+    int depth = (int)floor(usedFracs / [self radiusFractionPerLevel]) + 1;
     return [self findChildOf: [self root] depth: depth angle: th];
 }
 

@@ -118,7 +118,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     if ([self.scanner scanError]) {
         if (![self.scanner isCancelled]) {
             NSRunAlertPanel(@"Directory scan could not complete",
-                            [self.scanner scanError], nil, nil, nil);
+                            @"%@", nil, nil, nil, [self.scanner scanError]);
         }
         [self.window orderOut: self];
     } else {
@@ -143,7 +143,7 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
     [openPanel setCanChooseDirectories: YES];
     [openPanel setCanChooseFiles: NO];
     [openPanel setAllowedFileTypes:nil];
-    int result = [openPanel runModal];
+    NSInteger result = [openPanel runModal];
     if (result == NSOKButton) {
         NSString *path = [(NSURL *)[openPanel URLs][0] path];
         [self startScan: path];
@@ -176,8 +176,10 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 - (void) setRootDir: (FLDirectory *) dir
 {
-    [[self.sizer dataSource] setRootDir: dir];
-    [self.sizer setNeedsDisplay: YES];
+    FLView *sizer = self.sizer;
+    
+    [[sizer dataSource] setRootDir: dir];
+    [sizer setNeedsDisplay: YES];
     [self.window setTitle: [dir path]];
 }
 

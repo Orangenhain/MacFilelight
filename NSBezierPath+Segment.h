@@ -6,10 +6,10 @@
 
     // Create a path for a segment of a filled-circle, like a slice of a donut.
 + (NSBezierPath*) circleSegmentWithCenter: (NSPoint)center
-                               startAngle: (float)a1
-                                 endAngle: (float)a2
-                              smallRadius: (float)r1
-                                bigRadius: (float)r2;
+                               startAngle: (CGFloat)a1
+                                 endAngle: (CGFloat)a2
+                              smallRadius: (CGFloat)r1
+                                bigRadius: (CGFloat)r2;
 
 @end
 

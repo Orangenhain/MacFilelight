@@ -5,14 +5,14 @@
 // Utility functions
 @interface NSView (FLRadialPainter)
 - (NSPoint) center;
-- (float) maxRadius;
+- (CGFloat) maxRadius;
 @end
 
 // Colorer
 @interface NSObject (FLColorer)
 - (NSColor *) colorForItem: (id) item
-                 angleFrac: (float) angle
-                 levelFrac: (float) level;
+                 angleFrac: (CGFloat) angle
+                 levelFrac: (CGFloat) level;
 @end
 
 @protocol FLHasDataSource
@@ -22,7 +22,7 @@
 @interface FLRadialPainter : NSObject
 
 @property (nonatomic, assign) int maxLevels;
-@property (nonatomic, assign) float minRadiusFraction, maxRadiusFraction;
+@property (nonatomic, assign) CGFloat minRadiusFraction, maxRadiusFraction;
 @property (assign) float minPaintAngle;
 @property (weak) NSView <FLHasDataSource> *view;
 @property (strong) id colorer;

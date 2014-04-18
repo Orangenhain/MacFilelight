@@ -34,8 +34,8 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
 @property (assign) double    progress;
 @property (strong) NSString *lastPath;
 
-@property (assign) uint32_t files;
-@property (assign) uint32_t seen;
+@property (assign) NSUInteger files;
+@property (assign) NSUInteger seen;
 
 @property (assign) SEL postSel;
 @property (unsafe_unretained) id  postObj;
@@ -145,7 +145,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
         return NSNotFound;
     }
     
-    return [(NSNumber *)value integerValue];
+    return [(NSNumber *)value unsignedIntegerValue];
 }
 
 + (BOOL) isMountPoint: (NSString *) path
@@ -229,7 +229,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             case FTS_SLNONE: {
                 FLFile *file = [[FLFile alloc]
                     initWithPath: stringPath(fm, ent)
-                            size: ent->fts_statp->st_blocks * BLOCK_SIZE];
+                            size:(FLFile_size)(ent->fts_statp->st_blocks * BLOCK_SIZE)];
                 self.lastPath = [file path];
                 [dir addChild: file];
 				break;

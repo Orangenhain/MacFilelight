@@ -44,7 +44,7 @@
     
     // Precision
     digits = 1 + (unsigned)log10(fsize);
-    deci = (digits > figs || idx == 0) ? 0 : figs - digits;
+    deci = (digits > figs || idx == 0) ? 0 : (unsigned)(figs - digits);
     fsize = pow(10.0, 0.0 - deci) * rint(fsize * pow(10.0, 0.0 + deci));
     
     // Unit suffix

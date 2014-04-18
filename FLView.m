@@ -181,9 +181,7 @@
     if (success) {
         [self.controller refresh];
     } else {
-        NSString *msg = [NSString stringWithFormat:
-            @"The path %@ could not be deleted.", path];
-        NSRunAlertPanel(@"Deletion failed", msg, nil, nil, nil);
+        NSRunAlertPanel(@"Deletion failed", @"The path %@ could not be deleted.", nil, nil, nil, path);
     }
 }
 
@@ -201,7 +199,7 @@
 - (void) drawSize: (NSString * __attribute__ ((unused))) str
 {
     double rfrac, wantr, haver;
-    float pts;
+    CGFloat pts;
     NSFont *font;
     NSSize size;
     NSDictionary *attrs;
@@ -242,8 +240,8 @@
 }
 
 - (NSColor *) colorForItem: (id) item
-                 angleFrac: (float) angle
-                 levelFrac: (float) level
+                 angleFrac: (CGFloat) angle
+                 levelFrac: (CGFloat) level
 {
     if ([item isKindOfClass: [FLDirectory class]]) {
         return [self.painter colorForItem: item

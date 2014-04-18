@@ -7,22 +7,22 @@
 @implementation FLPolar
 
 + (NSPoint) pointWithPolarCenter: (NSPoint)center
-                          radius: (float)r
-                           angle: (float)deg
+                          radius: (CGFloat)r
+                           angle: (CGFloat)deg
 {
-    float rads = deg * M_PI / 180.0;
+    CGFloat rads = deg * M_PI / 180.0;
     return NSMakePoint(center.x + r * cos(rads), center.y + r * sin(rads));
 }
 
 + (void) coordsForPoint: (NSPoint)point
                  center: (NSPoint)center
-             intoRadius: (float*)r
-                  angle: (float*)deg
+             intoRadius: (CGFloat*)r
+                  angle: (CGFloat*)deg
 {
-    float dy = point.y - center.y;
-    float dx = point.x - center.x;
+    CGFloat dy = point.y - center.y;
+    CGFloat dx = point.x - center.x;
     
-    float a = atan(dy / dx) + (dx > 0 ? 0 : M_PI);
+    CGFloat a = atan(dy / dx) + (dx > 0 ? 0 : M_PI);
     if (a < 0) {
         a += 2 * M_PI;
     }

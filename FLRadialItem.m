@@ -38,7 +38,7 @@
 
 - (float) midAngle
 {
-    return ([self startAngle] + [self endAngle]) / 2.0;
+    return ([self startAngle] + [self endAngle]) / 2.0f;
 }
 
 - (float) angleSpan
@@ -56,12 +56,12 @@
     float anglePerWeight = [self angleSpan] / [self weight];
     id item = [self item];
     
-    int m = [self.dataSource numberOfChildrenOfItem: item];
+    NSUInteger m = [self.dataSource numberOfChildrenOfItem: item];
     NSMutableArray *children = [NSMutableArray arrayWithCapacity: m];
     
-    int i;
+    NSUInteger i;
     for (i = 0; i < m; ++i) {
-        id sub = [self.dataSource child: i ofItem: item];
+        id sub = [self.dataSource child:i ofItem: item];
         float subw = [self.dataSource weightOfItem: sub];
         float subAngle = anglePerWeight * subw;
         float nextAngle = curAngle + subAngle;

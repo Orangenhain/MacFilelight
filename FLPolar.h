@@ -8,13 +8,13 @@
 
 // Create a point with polar coordinates
 + (NSPoint) pointWithPolarCenter: (NSPoint)center
-                          radius: (float)r
-                           angle: (float)deg;
+                          radius: (CGFloat)r
+                           angle: (CGFloat)deg;
 
 // Extract the coordinates for a point. Always gives 0 <= deg < 360
 + (void) coordsForPoint: (NSPoint)point
                  center: (NSPoint)center
-             intoRadius: (float*)r
-                  angle: (float*)deg;
+             intoRadius: (CGFloat*)r
+                  angle: (CGFloat*)deg;
 
 @end
