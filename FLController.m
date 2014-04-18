@@ -12,6 +12,7 @@
 static NSString *ToolbarID = @"Filelight Toolbar";
 static NSString *ToolbarItemUpID = @"Up ToolbarItem";
 static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
+static NSString *ToolbarItemCountID = @"Count ToolbarItem";
 
 @interface FLController () <NSToolbarDelegate>
 
@@ -29,6 +30,11 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 @implementation FLController
 
 #pragma mark Toolbar
+
++ (void)initialize
+{
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"shouldCount": @"file size"}];
+}
 
 - (void) setupToolbar
 {
@@ -56,6 +62,14 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
         [item setToolTip: @"Rescan the current directory"];
         [item setImage: [NSImage imageNamed: @"reload"]];
         [item setAction: @selector(refresh:)];
+    } else if ([itemID isEqual: ToolbarItemCountID]) {
+        NSPopUpButton *popup = [[NSPopUpButton alloc] initWithFrame:CGRectMake(0, 0, 100, 26) pullsDown:NO];
+        [popup addItemsWithTitles:@[@"file count", @"file size"]];
+        [popup selectItemWithTitle:[[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"]];
+        
+        [item setToolTip: @"Select what to count"];
+        [item setView:popup];
+        [item setAction: @selector(toolbarItemCountClicked:)];
     } else {
         return nil;
     }
@@ -71,13 +85,14 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 
 - (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
 {
-    return @[ToolbarItemUpID, ToolbarItemRefreshID];
+    return @[ToolbarItemUpID, ToolbarItemRefreshID, NSToolbarFlexibleSpaceItemIdentifier, ToolbarItemCountID];
 }
 
 - (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar * __attribute__ ((unused))) toolbar
 {
     return @[ToolbarItemUpID,
              ToolbarItemRefreshID,
+             ToolbarItemCountID,
              NSToolbarCustomizeToolbarItemIdentifier,
              NSToolbarFlexibleSpaceItemIdentifier,
              NSToolbarSpaceItemIdentifier,
@@ -153,6 +168,15 @@ static NSString *ToolbarItemRefreshID = @"Refresh ToolbarItem";
 - (IBAction) refresh: (id __attribute__ ((unused))) sender
 {
     [self startScan: [[self rootDir] path]];
+}
+
+- (IBAction) toolbarItemCountClicked:(id)sender
+{
+    if ([sender isKindOfClass:[NSPopUpButton class]])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[(NSPopUpButton*)sender titleOfSelectedItem] forKey:@"shouldCount"];
+        [self.sizer setNeedsDisplay:YES];
+    }
 }
 
 #pragma mark Misc

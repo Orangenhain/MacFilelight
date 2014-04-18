@@ -16,9 +16,12 @@ typedef enum {
 } FLFileSizeType;
 
 @interface FLFile : NSObject
+{
+    FLFile_size _size;  // we need a protected ivar to back the `size` @property, as we want to access the ivar in a subclass (by default auto-synthesizing gives you a private ivar)
+}
 
 @property (copy)   NSString    *path;
-@property (assign) FLFile_size  size;
+@property (nonatomic, assign) FLFile_size  size;
 
 - (id) initWithPath: (NSString *) path size: (FLFile_size) size;
 
