@@ -4,12 +4,20 @@
 
 #import "FLFile.h"
 
-// As defined in stat(2)
-#define BLOCK_SIZE 512
+@interface FLFile ()
+{
+    @protected
+    off_t _size;  // we need a protected ivar to back the `size` @property, as we want to access the ivar in a subclass (by default auto-synthesizing gives you a private ivar)
+}
+
+@property (readwrite, copy)      NSString *path;
+@property (readwrite, nonatomic) off_t     size;
+
+@end
 
 @implementation FLFile
 
-- (id) initWithPath: (NSString *) path size: (FLFile_size) size
+- (id) initWithPath: (NSString *) path size: (off_t) size
 {
     if (self = [super init]) {
         self.path = path;
@@ -18,67 +26,18 @@
     return self;
 }
 
-
-+ (NSString *) humanReadableSize: (FLFile_size) size
-                            type: (FLFileSizeType) type
-                         sigFigs: (size_t) figs
-{
-    unsigned idx, base, digits, deci;
-    double fsize;
-    FLFileSizeType length, baseType;
-    NSString *pref, *suf;
-    
-    NSArray *prefixes = @[@"", @"kilo", @"mega", @"giga", @"peta", @"exa", @"zetta", @"yotta"];
-    
-    baseType = type & SizeTypeBaseMask;
-    base = (baseType == SizeTypeSIDecimal) ? 1000 : 1024;
-    
-    // Find proper prefix
-    fsize = size;
-    idx = 0;
-    while (fsize >= base && idx < [prefixes count]) {
-        ++idx;
-        fsize /= base;
-    }
-    pref = prefixes[idx];
-    
-    // Precision
-    digits = 1 + (unsigned)log10(fsize);
-    deci = (digits > figs || idx == 0) ? 0 : (unsigned)(figs - digits);
-    fsize = pow(10.0, 0.0 - deci) * rint(fsize * pow(10.0, 0.0 + deci));
-    
-    // Unit suffix
-    length = type & SizeTypeLengthMask;
-    suf = (length == SizeTypeLong) ? @"byte" : @"B";
-    if (length == SizeTypeLong && fsize != 1.0) { // plural
-        suf = [suf stringByAppendingString: @"s"];
-    }
-    
-    // Unit prefix
-    if (idx > 0) {
-        if (length == SizeTypeShort) {
-            pref = [[pref substringToIndex: 1] uppercaseString];
-            if (baseType == SizeTypeSIBinary) {
-                pref = [pref stringByAppendingString: @"i"];
-            }
-        } else if (baseType == SizeTypeSIBinary) {
-            pref = [[pref substringToIndex: 2] stringByAppendingString: @"bi"];
-        }
-    }
-    
-    return [NSString stringWithFormat: @"%.*f %@%@", deci, fsize, pref, suf];
-}
-
 - (NSString *) displaySize
 {
-    return [FLFile humanReadableSize: [self size]
-                                type: SizeTypeOldBinary | SizeTypeShort
-                             sigFigs: 3];
+    return [NSByteCountFormatter stringFromByteCount:self.size
+                                          countStyle:NSByteCountFormatterCountStyleFile];
+    
 }
 
-- (FLFile_size)size
+- (off_t)size
 {
-    return [[[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"] isEqualToString:@"file size"] ? _size : 1;
+    // this is a quick-and-dirty hack to get file count visualization ... each file weighs 1 unit
+    BOOL showSize = [[[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"] isEqualToString:@"file size"];
+    return showSize ? _size : 1;
 }
 
 @end
@@ -87,7 +46,7 @@
 @interface FLDirectory ()
 
 @property (readwrite, strong) NSArray     *children;
-@property (weak)            FLDirectory *parent;
+@property (readwrite, weak)   FLDirectory *parent;
 
 @property (copy) NSString *countedOnLastRequest;
 
@@ -95,7 +54,7 @@
 
 @implementation FLDirectory
 
-- (id) initWithPath: (NSString *) path parent: (FLDirectory * __attribute__ ((unused))) parent
+- (id) initWithPath:(NSString *)path parent:(FLDirectory *)parent
 {
     if (self = [super initWithPath: path size: 0]) {
         self.parent   = parent;
@@ -109,7 +68,7 @@
 	self.children  = [self.children arrayByAddingObject:child];
 }
 
-- (FLFile_size)size
+- (off_t)size
 {
     NSString *shouldCount = [[NSUserDefaults standardUserDefaults] stringForKey:@"shouldCount"];
 

@@ -229,7 +229,7 @@ static NSString *stringPath(NSFileManager *fm, const FTSENT *ent) {
             case FTS_SLNONE: {
                 FLFile *file = [[FLFile alloc]
                     initWithPath: stringPath(fm, ent)
-                            size:(FLFile_size)(ent->fts_statp->st_blocks * BLOCK_SIZE)];
+                            size:(off_t)(ent->fts_statp->st_blocks * BLOCK_SIZE)];
                 self.lastPath = [file path];
                 [dir addChild: file];
 				break;
