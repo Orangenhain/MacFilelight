@@ -4,7 +4,7 @@
 
 // Data source: generalization of NSOutlineViewDataSource
 // nil object means the root.
-@interface NSObject (FLRadialPainterDataSource)
+@protocol FLRadialPainterDataSource
 - (id) child: (NSUInteger) index ofItem: (id) item;
 - (NSUInteger) numberOfChildrenOfItem: (id) item;
 
@@ -19,14 +19,7 @@
 @property (readonly) float endAngle;
 @property (readonly) int   level;
 
-+ (FLRadialItem *) rootItemWithDataSource: (id)dataSource;
-
-- (id) initWithItem: (id)item
-         dataSource: (id)dataSource
-             weight: (float)weight
-         startAngle: (float)a1
-           endAngle: (float)a2
-              level: (int)level;
++ (FLRadialItem *) rootItemWithDataSource: (id <FLRadialPainterDataSource>)dataSource;
 
 - (float) midAngle;
 - (float) angleSpan;

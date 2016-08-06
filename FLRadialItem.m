@@ -7,19 +7,27 @@
 
 @interface FLRadialItem ()
 
-@property (readwrite, unsafe_unretained) id dataSource;
+@property (readwrite, unsafe_unretained) id<FLRadialPainterDataSource> dataSource;
 @property (readwrite, unsafe_unretained) id item;
 @property (readwrite, assign) float weight;
 @property (readwrite, assign) float startAngle;
 @property (readwrite, assign) float endAngle;
 @property (readwrite, assign) int   level;
 
+
+- (id) initWithItem: (id)item
+         dataSource: (id<FLRadialPainterDataSource>)dataSource
+             weight: (float)weight
+         startAngle: (float)a1
+           endAngle: (float)a2
+              level: (int)level;
+
 @end
 
 @implementation FLRadialItem
 
 - (id) initWithItem: (id)item
-         dataSource: (id)dataSource
+         dataSource: (id<FLRadialPainterDataSource>)dataSource
              weight: (float)weight
          startAngle: (float)a1
            endAngle: (float)a2

@@ -132,10 +132,13 @@ static NSString *ToolbarItemCountID = @"Count ToolbarItem";
 {
     if ([self.scanner scanError]) {
         if (![self.scanner isCancelled]) {
-            NSRunAlertPanel(@"Directory scan could not complete",
-                            @"%@", nil, nil, nil, [self.scanner scanError]);
+            NSError *error = [NSError errorWithDomain:@"FilelightErrorDomain"
+                                                 code:1
+                                             userInfo:@{ NSLocalizedDescriptionKey: [self.scanner scanError] }];
+            [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse __unused returnCode) {
+                [self.window orderOut: self];
+            }];
         }
-        [self.window orderOut: self];
     } else {
         [self setScanDir: [self.scanner scanResult]];
         [self setRootDir: [self scanDir]];
@@ -159,7 +162,7 @@ static NSString *ToolbarItemCountID = @"Count ToolbarItem";
     [openPanel setCanChooseFiles: NO];
     [openPanel setAllowedFileTypes:nil];
     NSInteger result = [openPanel runModal];
-    if (result == NSOKButton) {
+    if (result == NSModalResponseOK) {
         NSString *path = [(NSURL *)[openPanel URLs][0] path];
         [self startScan: path];
     }

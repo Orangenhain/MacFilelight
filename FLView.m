@@ -40,7 +40,7 @@
                                      userData: NULL
                                  assumeInside: inside];
     if (inside) {
-        [self mouseEntered: nil];
+        [self mouseEntered:(id _Nonnull)nil];
     }
 }
 
@@ -165,24 +165,21 @@
 
 - (IBAction) trash: (id __attribute__ ((unused))) sender
 {
-    NSInteger tag;
-    BOOL success;
-    
     NSString *path = [self.context_target path];
-    NSString *basename = [path lastPathComponent];
+    NSURL    *url  = [NSURL fileURLWithPath:path ?: @""];
     
-    success = [[NSWorkspace sharedWorkspace]
-        performFileOperation: NSWorkspaceRecycleOperation
-                      source: [path stringByDeletingLastPathComponent]
-                 destination: @""
-                       files: @[basename]
-                         tag: &tag];
-    
-    if (success) {
-        [self.controller refresh];
-    } else {
-        NSRunAlertPanel(@"Deletion failed", @"The path %@ could not be deleted.", nil, nil, nil, path);
+    if (!path || !url) {
+        return;
     }
+    
+    [[NSWorkspace sharedWorkspace] recycleURLs:@[ url ]
+                             completionHandler:^(NSDictionary<NSURL *,NSURL *> * _Nonnull __unused newURLs, NSError * _Nullable error) {
+                                 if (error) {
+                                     [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
+                                 } else {
+                                     [self.controller refresh];
+                                 }
+                             }];
 }
 
 - (IBAction) copyPath: (id __attribute__ ((unused))) sender
